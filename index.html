@@ -3,202 +3,815 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESTÁPALA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>DESTÁPALA | Licorería</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+:root{
+    --gold:#B58A3A;
+    --gold-light:#D6B56A;
+    --black:#171717;
+    --gray:#6F6F6F;
+    --light:#F7F5F1;
+    --white:#FFFFFF;
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#fff;
-color:#222;
+    font-family:'DM Sans',sans-serif;
+    color:var(--black);
+    background:var(--white);
 }
 
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 header{
-background:white;
-padding:18px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
-position:sticky;
-top:0;
-z-index:100;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;
+}
+
+.header-container{
+    max-width:1250px;
+    margin:auto;
+    height:82px;
+    padding:0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-font-size:34px;
-font-weight:700;
-color:#b88a2a;
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:3px;
+    color:var(--black);
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+nav{
+    display:flex;
+    gap:30px;
+    align-items:center;
 }
 
 nav a{
-margin-left:25px;
-text-decoration:none;
-color:#222;
-font-weight:500;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
 }
+
+nav a:hover{
+    color:var(--gold);
+}
+
+.cart{
+    border:1px solid var(--gold);
+    padding:10px 16px;
+    border-radius:30px;
+    color:var(--gold);
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-height:85vh;
-background:url("https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80") center center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+    linear-gradient(90deg,
+    rgba(0,0,0,.78) 0%,
+    rgba(0,0,0,.45) 48%,
+    rgba(0,0,0,.10) 100%),
+    url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
 }
 
-.hero div{
-background:rgba(255,255,255,.90);
-padding:50px;
-border-radius:20px;
-text-align:center;
+.hero-content{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    padding:70px 30px;
+    color:white;
+}
+
+.hero-small{
+    color:var(--gold-light);
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:18px;
 }
 
 .hero h1{
-font-size:60px;
-color:#b88a2a;
+    font-family:'Playfair Display',serif;
+    font-size:76px;
+    line-height:1;
+    letter-spacing:2px;
+}
+
+.hero h1 span{
+    color:var(--gold-light);
 }
 
 .hero p{
-font-size:22px;
-margin-top:15px;
+    margin-top:25px;
+    font-size:20px;
+    max-width:520px;
+    line-height:1.6;
 }
 
-.boton{
-
-display:inline-block;
-margin-top:30px;
-background:#b88a2a;
-color:white;
-padding:15px 35px;
-border-radius:40px;
-text-decoration:none;
-font-weight:bold;
-
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
 }
 
-.seccion{
-
-padding:70px 8%;
-
+.btn{
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:700;
+    transition:.3s;
+    display:inline-block;
 }
 
-.titulo{
-
-text-align:center;
-font-size:40px;
-margin-bottom:50px;
-
+.btn-gold{
+    background:var(--gold);
+    color:white;
 }
 
-.categorias{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-
+.btn-gold:hover{
+    background:#977126;
+    transform:translateY(-2px);
 }
 
-.categoria{
-
-background:white;
-padding:30px;
-text-align:center;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-transition:.3s;
-
+.btn-outline{
+    border:1px solid white;
+    color:white;
 }
 
-.categoria:hover{
-
-transform:translateY(-8px);
-
+.btn-outline:hover{
+    background:white;
+    color:var(--black);
 }
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    max-width:1250px;
+    margin:auto;
+    padding:80px 30px;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-label{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    margin-top:10px;
+}
+
+.section-description{
+    color:var(--gray);
+    max-width:600px;
+    margin:15px auto 0;
+}
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
+.category-title{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:65px;
+}
+
+.category-card{
+    min-height:170px;
+    border:1px solid #e8e4dd;
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:white;
+    transition:.3s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.category-card::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transition:.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.category-card:hover::after{
+    transform:scaleX(1);
+}
+
+.category-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.category-name{
+    font-weight:700;
+    font-size:16px;
+}
+
+.category-sub{
+    color:var(--gray);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* =========================
+   PROMOCIONES
+========================= */
+
+.promo{
+    background:var(--black);
+    color:white;
+    border-radius:22px;
+    padding:55px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    overflow:hidden;
+}
+
+.promo h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+}
+
+.promo p{
+    color:#ccc;
+    margin-top:10px;
+}
+
+/* =========================
+   PRODUCTOS FUTUROS
+========================= */
+
+.products{
+    background:var(--light);
+}
+
+.product-placeholder{
+    border:2px dashed #d8d2c6;
+    border-radius:18px;
+    padding:60px 30px;
+    text-align:center;
+}
+
+.product-placeholder h3{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+}
+
+.product-placeholder p{
+    color:var(--gray);
+    margin-top:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+    background:#111;
+    color:white;
+    padding:55px 30px 25px;
+}
 
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
+.footer-container{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer-logo{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    letter-spacing:3px;
+}
+
+.footer-logo span{
+    color:var(--gold-light);
+}
+
+footer p{
+    color:#aaa;
+    margin-top:15px;
+    line-height:1.6;
+}
+
+.footer-title{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    color:#aaa;
+    font-size:14px;
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:40px auto 0;
+    padding-top:20px;
+    border-top:1px solid #333;
+    color:#777;
+    font-size:12px;
+    text-align:center;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    z-index:999;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    nav{
+        gap:15px;
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header-container{
+        height:70px;
+        padding:0 18px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    nav a:not(.cart){
+        display:none;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-content{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section{
+        padding:60px 20px;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .category-card{
+        min-height:145px;
+    }
+
+    .promo{
+        padding:35px 25px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-<div class="logo">DESTÁPALA</div>
+<div class="header-container">
+
+<a href="#" class="logo">
+DESTÁP<span>ALA</span>
+</a>
 
 <nav>
+<a href="#inicio">Inicio</a>
+<a href="#categorias">Categorías</a>
+<a href="#promociones">Promociones</a>
+<a href="#contacto">Contacto</a>
 
-<a href="#">Inicio</a>
-<a href="#">Productos</a>
-<a href="#">Promociones</a>
-<a href="#">Contacto</a>
-
+<a href="#" class="cart">
+🛒 Carrito <span id="cart-count">0</span>
+</a>
 </nav>
+
+</div>
 
 </header>
 
-<section class="hero">
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<div class="hero-small">
+LICORERÍA · DELIVERY · EXPERIENCIAS
+</div>
+
+<h1>
+SALUD POR TI,<br>
+POR MÍ Y... <span>¡DESTÁPALA!</span>
+</h1>
+
+<p>
+Descubre licores, bebidas y complementos seleccionados para cada momento.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#categorias" class="btn btn-gold">
+VER CATEGORÍAS
+</a>
+
+<a href="#promociones" class="btn btn-outline">
+VER PROMOCIONES
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CATEGORÍAS -->
+
+<section class="section" id="categorias">
+
+<div class="section-header">
+
+<div class="section-label">
+DESCUBRE DESTÁPALA
+</div>
+
+<h2 class="section-title">
+Nuestras categorías
+</h2>
+
+<p class="section-description">
+Todo lo que necesitas para disfrutar, compartir y celebrar.
+</p>
+
+</div>
+
+
+<h3 class="category-title">
+🍾 Licores
+</h3>
+
+<div class="category-grid">
+
+<div class="category-card">
+<div class="category-icon">🥃</div>
+<div class="category-name">Whisky</div>
+<div class="category-sub">Clásicos y premium</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍹</div>
+<div class="category-name">Ron</div>
+<div class="category-sub">Para cada ocasión</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍸</div>
+<div class="category-name">Vodka</div>
+<div class="category-sub">Marcas seleccionadas</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍷</div>
+<div class="category-name">Vinos</div>
+<div class="category-sub">Tintos, blancos y más</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍇</div>
+<div class="category-name">Piscos</div>
+<div class="category-sub">Orgullo peruano</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍺</div>
+<div class="category-name">Cervezas</div>
+<div class="category-sub">Botellas, latas y packs</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍹</div>
+<div class="category-name">Listos para tomar</div>
+<div class="category-sub">Mike's, Four Loko, HIT, Wild y más</div>
+</div>
+
+</div>
+
+
+<h3 class="category-title">
+🥤 Complementos
+</h3>
+
+<div class="category-grid">
+
+<div class="category-card">
+<div class="category-icon">🥤</div>
+<div class="category-name">Bebidas</div>
+<div class="category-sub">Agua, gaseosas, energizantes y refrescos</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🚬</div>
+<div class="category-name">Cigarros</div>
+<div class="category-sub">Productos disponibles</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🍿</div>
+<div class="category-name">Snacks</div>
+<div class="category-sub">Piqueos, chocolates y más</div>
+</div>
+
+<div class="category-card">
+<div class="category-icon">🔥</div>
+<div class="category-name">Promociones</div>
+<div class="category-sub">Combos y ofertas especiales</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTOS -->
+
+<section class="products">
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="section-label">
+PRÓXIMAMENTE
+</div>
+
+<h2 class="section-title">
+Nuestros productos
+</h2>
+
+<p class="section-description">
+Estamos preparando nuestro catálogo para que encuentres tus productos favoritos.
+</p>
+
+</div>
+
+<div class="product-placeholder">
+
+<h3>🍾 Catálogo DESTÁPALA</h3>
+
+<p>
+Aquí aparecerán nuestros productos, precios, fotografías y promociones.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROMOCIONES -->
+
+<section class="section" id="promociones">
+
+<div class="promo">
 
 <div>
 
-<h1>DESTÁPALA</h1>
-
-<p>Salud por ti, por mí y... ¡Destápala!</p>
-
-<a class="boton" href="#">Ver Catálogo</a>
-
+<div class="section-label">
+DESTÁPALA
 </div>
 
-</section>
-
-<section class="seccion">
-
-<h2 class="titulo">
-
-Nuestras Categorías
-
+<h2>
+Promociones y combos
 </h2>
 
-<div class="categorias">
+<p>
+Próximamente encontrarás combos especiales para celebrar y compartir.
+</p>
 
-<div class="categoria">🥃<br><br>Whisky</div>
+</div>
 
-<div class="categoria">🍷<br><br>Vinos</div>
-
-<div class="categoria">🍺<br><br>Cervezas</div>
-
-<div class="categoria">🍸<br><br>Vodka</div>
-
-<div class="categoria">🍹<br><br>Ron</div>
-
-<div class="categoria">🍇<br><br>Pisco</div>
+<a href="#categorias" class="btn btn-gold">
+EXPLORAR
+</a>
 
 </div>
 
 </section>
 
-<footer>
 
-DESTÁPALA © 2026
+<!-- FOOTER -->
+
+<footer id="contacto">
+
+<div class="footer-container">
+
+<div>
+
+<div class="footer-logo">
+DESTÁP<span>ALA</span>
+</div>
+
+<p>
+Salud por ti, por mí y... ¡Destápala!
+<br>
+Tu licorería para cada momento.
+</p>
+
+</div>
+
+<div>
+
+<div class="footer-title">
+DESTÁPALA
+</div>
+
+<div class="footer-links">
+<a href="#inicio">Inicio</a>
+<a href="#categorias">Categorías</a>
+<a href="#promociones">Promociones</a>
+</div>
+
+</div>
+
+<div>
+
+<div class="footer-title">
+Categorías
+</div>
+
+<div class="footer-links">
+<span>Whisky</span>
+<span>Ron</span>
+<span>Vinos</span>
+<span>Piscos</span>
+<span>Listos para tomar</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 DESTÁPALA · Todos los derechos reservados
+</div>
 
 </footer>
 
-</body>
 
+<!-- WHATSAPP -->
+
+<a
+class="whatsapp"
+href="#"
+title="WhatsApp">
+💬
+</a>
+
+
+</body>
 </html>
