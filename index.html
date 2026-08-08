@@ -320,7 +320,7 @@ nav a:hover{
 }
 
 /* =========================
-   PRODUCTOS FUTUROS
+   PRODUCTOS
 ========================= */
 
 .products{
@@ -391,6 +391,59 @@ footer p{
     font-size:14px;
 }
 
+.footer-links a:hover{
+    color:var(--gold-light);
+}
+
+/* =========================
+   REDES SOCIALES
+========================= */
+
+.footer-social{
+    max-width:1250px;
+    margin:35px auto 0;
+}
+
+.social-icons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:18px;
+}
+
+.social-icons a{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:#FFFFFF;
+    font-weight:700;
+    text-decoration:none;
+    font-size:14px;
+    transition:.25s;
+}
+
+.social-icons a span{
+    width:36px;
+    height:36px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:2px solid #FFFFFF;
+    border-radius:50%;
+    font-size:18px;
+    font-weight:800;
+}
+
+.social-icons a:hover{
+    color:var(--gold-light);
+    transform:translateY(-2px);
+}
+
+.social-icons a:hover span{
+    border-color:var(--gold-light);
+    transform:scale(1.08);
+}
+
 .footer-bottom{
     max-width:1250px;
     margin:40px auto 0;
@@ -420,6 +473,11 @@ footer p{
     font-size:28px;
     box-shadow:0 8px 25px rgba(0,0,0,.2);
     z-index:999;
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.08);
 }
 
 /* =========================
@@ -500,60 +558,23 @@ footer p{
         align-items:flex-start;
     }
 
-}
-.footer-links {
-    ...
-}
+    .social-icons{
+        gap:12px;
+    }
 
+    .social-icons a{
+        font-size:13px;
+    }
 
-/* REDES SOCIALES DESTÁPALA */
+    .whatsapp{
+        right:18px;
+        bottom:18px;
+        width:54px;
+        height:54px;
+    }
 
-.social-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 18px;
-}
-
-.social-icons a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #111111;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.25s ease;
 }
 
-.social-icons a span {
-    width: 34px;
-    height: 34px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #111111;
-    border-radius: 50%;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.social-icons a:hover {
-    transform: translateY(-2px);
-}
-
-.social-icons a:hover span {
-    transform: scale(1.08);
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<header>
 </style>
 </head>
 
@@ -565,19 +586,21 @@ footer p{
 
 <div class="header-container">
 
-<a href="#" class="logo">
+<a href="#inicio" class="logo">
 DESTÁP<span>ALA</span>
 </a>
 
 <nav>
+
 <a href="#inicio">Inicio</a>
 <a href="#categorias">Categorías</a>
 <a href="#promociones">Promociones</a>
 <a href="#contacto">Contacto</a>
 
-<a href="#" class="cart">
+<a href="#productos" class="cart">
 🛒 Carrito <span id="cart-count">0</span>
 </a>
+
 </nav>
 
 </div>
@@ -730,7 +753,7 @@ Todo lo que necesitas para disfrutar, compartir y celebrar.
 
 <!-- PRODUCTOS -->
 
-<section class="products">
+<section class="products" id="productos">
 
 <div class="section">
 
@@ -798,14 +821,7 @@ EXPLORAR
 
 <!-- FOOTER -->
 
-<a
-class="whatsapp"
-href="https://wa.me/51979726473?text=Hola%20DEST%C3%81PALA%2C%20quiero%20hacer%20una%20consulta."
-target="_blank"
-rel="noopener noreferrer"
-title="Escríbenos por WhatsApp">
-💬
-</a>
+<footer id="contacto">
 
 <div class="footer-container">
 
@@ -823,6 +839,7 @@ Tu licorería para cada momento.
 
 </div>
 
+
 <div>
 
 <div class="footer-title">
@@ -830,12 +847,15 @@ DESTÁPALA
 </div>
 
 <div class="footer-links">
+
 <a href="#inicio">Inicio</a>
 <a href="#categorias">Categorías</a>
 <a href="#promociones">Promociones</a>
+
 </div>
 
 </div>
+
 
 <div>
 
@@ -844,51 +864,87 @@ Categorías
 </div>
 
 <div class="footer-links">
+
 <span>Whisky</span>
 <span>Ron</span>
 <span>Vinos</span>
 <span>Piscos</span>
 <span>Listos para tomar</span>
-</div>
 
 </div>
 
 </div>
+
+</div>
+
+
 <div class="footer-social">
 
-    <div class="footer-title">
-        Síguenos
-    </div>
+<div class="footer-title">
+Síguenos
+</div>
 
-    <div class="social-icons">
+<div class="social-icons">
 
-        <a href="https://www.instagram.com/licoreriadestapala.08/"
-           target="_blank"
-           rel="noopener noreferrer"
-           title="Instagram">
-            <span>◎</span>
-            Instagram
-        </a>
+<a href="https://www.instagram.com/licoreriadestapala.08/"
+target="_blank"
+rel="noopener noreferrer"
+title="Instagram">
 
-        <a href="https://www.tiktok.com/@licoreriadestapala.08"
-           target="_blank"
-           rel="noopener noreferrer"
-           title="TikTok">
-            <span>♪</span>
-            TikTok
-        </a>
+<span>◎</span>
+Instagram
 
-        <a href="https://wa.me/51979726473"
-           target="_blank"
-           rel="noopener noreferrer"
-           title="WhatsApp">
-            <span>◉</span>
-            WhatsApp
-        </a>
+</a>
 
-    </div>
+
+<a href="https://www.tiktok.com/@licoreriadestapala.08"
+target="_blank"
+rel="noopener noreferrer"
+title="TikTok">
+
+<span>♪</span>
+TikTok
+
+</a>
+
+
+<a href="https://wa.me/51979726473"
+target="_blank"
+rel="noopener noreferrer"
+title="WhatsApp">
+
+<span>◉</span>
+WhatsApp
+
+</a>
 
 </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 DESTÁPALA · Todos los derechos reservados
+
+</div>
+
+</footer>
+
+
+<!-- WHATSAPP FLOTANTE -->
+
+<a
+class="whatsapp"
+href="https://wa.me/51979726473?text=Hola%20DEST%C3%81PALA%2C%20quiero%20hacer%20una%20consulta."
+target="_blank"
+rel="noopener noreferrer"
+title="Escríbenos por WhatsApp">
+
+💬
+
+</a>
+
 
 </body>
 </html>
