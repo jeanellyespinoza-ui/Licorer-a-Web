@@ -16,7 +16,7 @@
 <style>
 
 /* =====================================================
-   VARIABLES
+   BASE
 ===================================================== */
 
 :root{
@@ -108,18 +108,18 @@ nav a:hover{
 
 
 /* =====================================================
-   CARRITO HEADER
+   CARRITO
 ===================================================== */
 
 .cart{
     border:1px solid var(--gold);
-    padding:11px 18px;
+    padding:10px 16px;
     border-radius:30px;
-    color:var(--gold);
 
-    cursor:pointer;
+    color:var(--gold);
     background:white;
 
+    cursor:pointer;
     font-weight:700;
 }
 
@@ -157,23 +157,30 @@ nav a:hover{
     max-width:1250px;
     width:100%;
     margin:auto;
+
     padding:70px 30px;
+
     color:white;
 }
 
 .hero-small{
     color:var(--gold-light);
+
     font-size:14px;
     font-weight:700;
+
     letter-spacing:4px;
     text-transform:uppercase;
+
     margin-bottom:18px;
 }
 
 .hero h1{
     font-family:'Playfair Display',serif;
+
     font-size:76px;
     line-height:1;
+
     letter-spacing:2px;
 }
 
@@ -183,45 +190,61 @@ nav a:hover{
 
 .hero p{
     margin-top:25px;
+
     font-size:20px;
+
     max-width:520px;
+
     line-height:1.6;
 }
 
 .hero-buttons{
     display:flex;
+
     gap:15px;
+
     margin-top:35px;
+
     flex-wrap:wrap;
 }
 
 .btn{
     padding:14px 28px;
+
     border-radius:30px;
+
     font-weight:700;
+
     transition:.3s;
+
     display:inline-block;
+
     border:none;
+
     cursor:pointer;
 }
 
 .btn-gold{
     background:var(--gold);
+
     color:white;
 }
 
 .btn-gold:hover{
     background:#977126;
+
     transform:translateY(-2px);
 }
 
 .btn-outline{
     border:1px solid white;
+
     color:white;
 }
 
 .btn-outline:hover{
     background:white;
+
     color:var(--black);
 }
 
@@ -232,32 +255,43 @@ nav a:hover{
 
 .section{
     max-width:1250px;
+
     margin:auto;
+
     padding:80px 30px;
 }
 
 .section-header{
     text-align:center;
+
     margin-bottom:45px;
 }
 
 .section-label{
     color:var(--gold);
+
     text-transform:uppercase;
+
     letter-spacing:3px;
+
     font-size:12px;
+
     font-weight:700;
 }
 
 .section-title{
     font-family:'Playfair Display',serif;
+
     font-size:42px;
+
     margin-top:10px;
 }
 
 .section-description{
     color:var(--gray);
+
     max-width:600px;
+
     margin:15px auto 0;
 }
 
@@ -268,14 +302,20 @@ nav a:hover{
 
 .category-title{
     font-family:'Playfair Display',serif;
+
     font-size:30px;
+
     margin-bottom:25px;
 }
 
 .category-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:18px;
+
     margin-bottom:65px;
 }
 
@@ -283,11 +323,15 @@ nav a:hover{
     min-height:170px;
 
     border:1px solid #e8e4dd;
+
     border-radius:16px;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
@@ -295,9 +339,11 @@ nav a:hover{
     background:white;
 
     transition:.3s;
+
     cursor:pointer;
 
     position:relative;
+
     overflow:hidden;
 }
 
@@ -305,21 +351,27 @@ nav a:hover{
     content:"";
 
     position:absolute;
+
     bottom:0;
     left:0;
 
     width:100%;
+
     height:3px;
 
     background:var(--gold);
 
     transform:scaleX(0);
+
     transition:.3s;
 }
 
 .category-card:hover{
     transform:translateY(-6px);
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.08);
 }
 
 .category-card:hover::after{
@@ -328,17 +380,21 @@ nav a:hover{
 
 .category-icon{
     font-size:42px;
+
     margin-bottom:15px;
 }
 
 .category-name{
     font-weight:700;
+
     font-size:16px;
 }
 
 .category-sub{
     color:var(--gray);
+
     font-size:12px;
+
     margin-top:5px;
 }
 
@@ -352,7 +408,6 @@ nav a:hover{
 }
 
 .product-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -362,7 +417,6 @@ nav a:hover{
 }
 
 .product-card{
-
     background:white;
 
     border-radius:18px;
@@ -372,12 +426,9 @@ nav a:hover{
     border:1px solid #e8e4dd;
 
     transition:.3s;
-
-    position:relative;
 }
 
 .product-card:hover{
-
     transform:translateY(-5px);
 
     box-shadow:
@@ -386,7 +437,6 @@ nav a:hover{
 }
 
 .product-image{
-
     height:230px;
 
     background:#f3f1ed;
@@ -401,12 +451,10 @@ nav a:hover{
 }
 
 .product-info{
-
     padding:20px;
 }
 
 .product-category{
-
     color:var(--gold);
 
     font-size:11px;
@@ -419,10 +467,9 @@ nav a:hover{
 }
 
 .product-name{
-
     font-family:'Playfair Display',serif;
 
-    font-size:21px;
+    font-size:20px;
 
     margin-top:8px;
 
@@ -430,7 +477,6 @@ nav a:hover{
 }
 
 .product-description{
-
     color:var(--gray);
 
     font-size:13px;
@@ -441,8 +487,7 @@ nav a:hover{
 }
 
 .product-price{
-
-    font-size:20px;
+    font-size:21px;
 
     font-weight:700;
 
@@ -450,7 +495,6 @@ nav a:hover{
 }
 
 .product-button{
-
     width:100%;
 
     margin-top:15px;
@@ -473,7 +517,6 @@ nav a:hover{
 }
 
 .product-button:hover{
-
     background:#977126;
 }
 
@@ -483,7 +526,6 @@ nav a:hover{
 ===================================================== */
 
 .promo{
-
     background:var(--black);
 
     color:white;
@@ -499,19 +541,15 @@ nav a:hover{
     justify-content:space-between;
 
     gap:30px;
-
-    overflow:hidden;
 }
 
 .promo h2{
-
     font-family:'Playfair Display',serif;
 
     font-size:38px;
 }
 
 .promo p{
-
     color:#ccc;
 
     margin-top:10px;
@@ -523,7 +561,6 @@ nav a:hover{
 ===================================================== */
 
 footer{
-
     background:#111;
 
     color:white;
@@ -532,7 +569,6 @@ footer{
 }
 
 .footer-container{
-
     max-width:1250px;
 
     margin:auto;
@@ -546,7 +582,6 @@ footer{
 }
 
 .footer-logo{
-
     font-family:'Playfair Display',serif;
 
     font-size:30px;
@@ -555,12 +590,10 @@ footer{
 }
 
 .footer-logo span{
-
     color:var(--gold-light);
 }
 
 footer p{
-
     color:#aaa;
 
     margin-top:15px;
@@ -569,14 +602,12 @@ footer p{
 }
 
 .footer-title{
-
     font-weight:700;
 
     margin-bottom:15px;
 }
 
 .footer-links{
-
     display:flex;
 
     flex-direction:column;
@@ -589,7 +620,6 @@ footer p{
 }
 
 .footer-links a:hover{
-
     color:white;
 }
 
@@ -599,7 +629,6 @@ footer p{
 ===================================================== */
 
 .social-icons{
-
     display:flex;
 
     gap:14px;
@@ -610,7 +639,6 @@ footer p{
 }
 
 .social-icons a{
-
     width:42px;
 
     height:42px;
@@ -631,7 +659,6 @@ footer p{
 }
 
 .social-icons a:hover{
-
     background:white;
 
     color:#111;
@@ -640,7 +667,6 @@ footer p{
 }
 
 .social-icons svg{
-
     width:21px;
 
     height:21px;
@@ -650,33 +676,10 @@ footer p{
 
 
 /* =====================================================
-   FOOTER BOTTOM
-===================================================== */
-
-.footer-bottom{
-
-    max-width:1250px;
-
-    margin:40px auto 0;
-
-    padding-top:20px;
-
-    border-top:1px solid #333;
-
-    color:#777;
-
-    font-size:12px;
-
-    text-align:center;
-}
-
-
-/* =====================================================
-   WHATSAPP FLOTANTE
+   WHATSAPP
 ===================================================== */
 
 .whatsapp{
-
     position:fixed;
 
     right:25px;
@@ -709,12 +712,10 @@ footer p{
 }
 
 .whatsapp:hover{
-
     transform:scale(1.08);
 }
 
 .whatsapp svg{
-
     width:31px;
 
     height:31px;
@@ -728,7 +729,6 @@ footer p{
 ===================================================== */
 
 .cart-overlay{
-
     position:fixed;
 
     inset:0;
@@ -747,12 +747,10 @@ footer p{
 }
 
 .cart-overlay.active{
-
     display:flex;
 }
 
 .cart-modal{
-
     width:100%;
 
     max-width:520px;
@@ -773,7 +771,6 @@ footer p{
 }
 
 .cart-header{
-
     display:flex;
 
     align-items:center;
@@ -786,14 +783,12 @@ footer p{
 }
 
 .cart-header h2{
-
     font-family:'Playfair Display',serif;
 
     font-size:30px;
 }
 
 .close-cart{
-
     border:none;
 
     background:none;
@@ -806,12 +801,10 @@ footer p{
 }
 
 .cart-items{
-
     margin-top:20px;
 }
 
 .empty-cart{
-
     text-align:center;
 
     padding:40px 10px;
@@ -820,7 +813,6 @@ footer p{
 }
 
 .cart-item{
-
     display:grid;
 
     grid-template-columns:
@@ -836,7 +828,6 @@ footer p{
 }
 
 .cart-item-icon{
-
     width:55px;
 
     height:55px;
@@ -855,14 +846,12 @@ footer p{
 }
 
 .cart-item-name{
-
     font-weight:700;
 
     font-size:14px;
 }
 
 .cart-item-price{
-
     color:var(--gold);
 
     font-size:13px;
@@ -871,7 +860,6 @@ footer p{
 }
 
 .quantity{
-
     display:flex;
 
     align-items:center;
@@ -882,7 +870,6 @@ footer p{
 }
 
 .quantity button{
-
     width:25px;
 
     height:25px;
@@ -897,7 +884,6 @@ footer p{
 }
 
 .quantity span{
-
     font-weight:700;
 
     min-width:18px;
@@ -906,7 +892,6 @@ footer p{
 }
 
 .remove-item{
-
     border:none;
 
     background:none;
@@ -919,7 +904,6 @@ footer p{
 }
 
 .cart-total{
-
     display:flex;
 
     justify-content:space-between;
@@ -936,7 +920,6 @@ footer p{
 }
 
 .whatsapp-order{
-
     width:100%;
 
     margin-top:20px;
@@ -958,11 +941,6 @@ footer p{
     cursor:pointer;
 }
 
-.whatsapp-order:hover{
-
-    background:#1ebe5b;
-}
-
 
 /* =====================================================
    RESPONSIVE
@@ -971,13 +949,11 @@ footer p{
 @media(max-width:1000px){
 
     .product-grid{
-
         grid-template-columns:
         repeat(3,1fr);
     }
 
     .footer-container{
-
         grid-template-columns:
         repeat(2,1fr);
     }
@@ -986,18 +962,15 @@ footer p{
 @media(max-width:900px){
 
     nav{
-
         gap:15px;
     }
 
     .category-grid{
-
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .hero h1{
-
         font-size:58px;
     }
 }
@@ -1005,13 +978,11 @@ footer p{
 @media(max-width:700px){
 
     .product-grid{
-
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .footer-container{
-
         grid-template-columns:1fr;
     }
 }
@@ -1019,54 +990,44 @@ footer p{
 @media(max-width:600px){
 
     .header-container{
-
         height:70px;
 
         padding:0 18px;
     }
 
     .logo{
-
         font-size:24px;
     }
 
     nav a:not(.cart){
-
         display:none;
     }
 
     .hero{
-
         min-height:600px;
     }
 
     .hero-content{
-
         padding:50px 20px;
     }
 
     .hero h1{
-
         font-size:48px;
     }
 
     .hero p{
-
         font-size:17px;
     }
 
     .section{
-
         padding:60px 20px;
     }
 
     .section-title{
-
         font-size:34px;
     }
 
     .category-grid{
-
         grid-template-columns:
         repeat(2,1fr);
 
@@ -1074,18 +1035,14 @@ footer p{
     }
 
     .category-card{
-
         min-height:145px;
     }
 
     .product-grid{
-
         grid-template-columns:1fr;
-
     }
 
     .promo{
-
         padding:35px 25px;
 
         flex-direction:column;
@@ -1094,18 +1051,11 @@ footer p{
     }
 
     .cart{
-
         padding:9px 12px;
 
         font-size:13px;
     }
-
 }
-
-
-/* =====================================================
-   FIN CSS
-===================================================== */
 
 </style>
 
@@ -1132,30 +1082,22 @@ DESTÁP<span>ALA</span>
 
 <nav>
 
-<a href="#inicio">
-Inicio
-</a>
+<a href="#inicio">Inicio</a>
 
-<a href="#categorias">
-Categorías
-</a>
+<a href="#categorias">Categorías</a>
 
-<a href="#productos">
-Productos
-</a>
+<a href="#productos">Productos</a>
 
-<a href="#promociones">
-Promociones
-</a>
+<a href="#promociones">Promociones</a>
 
-<a href="#contacto">
-Contacto
-</a>
+<a href="#contacto">Contacto</a>
 
-<button class="cart" onclick="abrirCarrito()">
+<button
+class="cart"
+onclick="abrirCarrito()"
+>
 
-🛒 Carrito
-<span id="cart-count">0</span>
+🛒 Carrito <span id="cart-count">0</span>
 
 </button>
 
@@ -1186,8 +1128,7 @@ LICORERÍA · DELIVERY · EXPERIENCIAS
 
 SALUD POR TI,<br>
 
-POR MÍ Y...
-<span>¡DESTÁPALA!</span>
+POR MÍ Y... <span>¡DESTÁPALA!</span>
 
 </h1>
 
@@ -1201,14 +1142,20 @@ Descubre licores, bebidas y complementos seleccionados para cada momento.
 
 <div class="hero-buttons">
 
-<a href="#categorias" class="btn btn-gold">
+<a
+href="#categorias"
+class="btn btn-gold"
+>
 
 VER CATEGORÍAS
 
 </a>
 
 
-<a href="#promociones" class="btn btn-outline">
+<a
+href="#promociones"
+class="btn btn-outline"
+>
 
 VER PROMOCIONES
 
@@ -1226,38 +1173,33 @@ VER PROMOCIONES
      CATEGORÍAS
 ===================================================== -->
 
-<section class="section" id="categorias">
+<section
+class="section"
+id="categorias"
+>
 
 <div class="section-header">
 
 <div class="section-label">
-
 DESCUBRE DESTÁPALA
-
 </div>
 
-
 <h2 class="section-title">
-
 Nuestras categorías
-
 </h2>
-
 
 <p class="section-description">
 
-Todo lo que necesitas para disfrutar, compartir y celebrar.
+Todo lo que necesitas para disfrutar,
+compartir y celebrar.
 
 </p>
 
 </div>
 
 
-
 <h3 class="category-title">
-
 🍾 Licores
-
 </h3>
 
 
@@ -1368,14 +1310,12 @@ Mike's, Four Loko, HIT, Wild y más
 
 </div>
 
+
 </div>
 
 
-
 <h3 class="category-title">
-
 🥤 Complementos
-
 </h3>
 
 
@@ -1384,7 +1324,9 @@ Mike's, Four Loko, HIT, Wild y más
 
 <div class="category-card">
 
-<div class="category-icon">🥤</div>
+<div class="category-icon">
+🥤
+</div>
 
 <div class="category-name">
 Bebidas
@@ -1399,7 +1341,9 @@ Agua, gaseosas, energizantes y refrescos
 
 <div class="category-card">
 
-<div class="category-icon">🚬</div>
+<div class="category-icon">
+🚬
+</div>
 
 <div class="category-name">
 Cigarros
@@ -1414,7 +1358,9 @@ Productos disponibles
 
 <div class="category-card">
 
-<div class="category-icon">🍿</div>
+<div class="category-icon">
+🍿
+</div>
 
 <div class="category-name">
 Snacks
@@ -1429,7 +1375,9 @@ Piqueos, chocolates y más
 
 <div class="category-card">
 
-<div class="category-icon">🔥</div>
+<div class="category-icon">
+🔥
+</div>
 
 <div class="category-name">
 Promociones
@@ -1452,29 +1400,28 @@ Combos y ofertas especiales
      PRODUCTOS
 ===================================================== -->
 
-<section class="products" id="productos">
+<section
+class="products"
+id="productos"
+>
 
 <div class="section">
+
 
 <div class="section-header">
 
 <div class="section-label">
-
 CATÁLOGO DESTÁPALA
-
 </div>
 
-
 <h2 class="section-title">
-
 Nuestros productos
-
 </h2>
-
 
 <p class="section-description">
 
-Encuentra tus favoritos y agrégalos a tu carrito.
+Productos seleccionados para comenzar
+tu experiencia DESTÁPALA.
 
 </p>
 
@@ -1485,7 +1432,7 @@ Encuentra tus favoritos y agrégalos a tu carrito.
 <div class="product-grid">
 
 
-<!-- PRODUCTO 1 -->
+<!-- 1 -->
 
 <div class="product-card">
 
@@ -1500,15 +1447,15 @@ Whisky
 </div>
 
 <div class="product-name">
-Johnnie Walker Red Label
+Ballantine's Finest
 </div>
 
 <div class="product-description">
-Botella 750 ml
+700 ml
 </div>
 
 <div class="product-price">
-S/ 69.90
+S/ 53.00
 </div>
 
 <button
@@ -1526,30 +1473,30 @@ onclick="agregarProducto(1)"
 
 
 
-<!-- PRODUCTO 2 -->
+<!-- 2 -->
 
 <div class="product-card">
 
 <div class="product-image">
-🍹
+🥃
 </div>
 
 <div class="product-info">
 
 <div class="product-category">
-Ron
+Whisky
 </div>
 
 <div class="product-name">
-Ron Cartavio
+Johnnie Walker Red
 </div>
 
 <div class="product-description">
-Botella 750 ml
+750 ml
 </div>
 
 <div class="product-price">
-S/ 45.90
+S/ 55.00
 </div>
 
 <button
@@ -1567,30 +1514,30 @@ onclick="agregarProducto(2)"
 
 
 
-<!-- PRODUCTO 3 -->
+<!-- 3 -->
 
 <div class="product-card">
 
 <div class="product-image">
-🍷
+🍹
 </div>
 
 <div class="product-info">
 
 <div class="product-category">
-Vinos
+Ron
 </div>
 
 <div class="product-name">
-Vino Tinto
+Ron Cartavio Black
 </div>
 
 <div class="product-description">
-Botella 750 ml
+750 ml
 </div>
 
 <div class="product-price">
-S/ 39.90
+S/ 28.00
 </div>
 
 <button
@@ -1608,30 +1555,30 @@ onclick="agregarProducto(3)"
 
 
 
-<!-- PRODUCTO 4 -->
+<!-- 4 -->
 
 <div class="product-card">
 
 <div class="product-image">
-🍇
+🍸
 </div>
 
 <div class="product-info">
 
 <div class="product-category">
-Pisco
+Vodka
 </div>
 
 <div class="product-name">
-Pisco Quebranta
+Vodka Russkaya Azul
 </div>
 
 <div class="product-description">
-Botella 750 ml
+750 ml
 </div>
 
 <div class="product-price">
-S/ 49.90
+S/ 25.00
 </div>
 
 <button
@@ -1649,7 +1596,130 @@ onclick="agregarProducto(4)"
 
 
 
-<!-- PRODUCTO 5 -->
+<!-- 5 -->
+
+<div class="product-card">
+
+<div class="product-image">
+🍷
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+Vinos
+</div>
+
+<div class="product-name">
+Tabernero Borgoña Semi-Seco
+</div>
+
+<div class="product-description">
+Botella
+</div>
+
+<div class="product-price">
+S/ 19.00
+</div>
+
+<button
+class="product-button"
+onclick="agregarProducto(5)"
+>
+
+🛒 Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 6 -->
+
+<div class="product-card">
+
+<div class="product-image">
+🍇
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+Pisco
+</div>
+
+<div class="product-name">
+Pisco 4 Gallos
+</div>
+
+<div class="product-description">
+750 ml
+</div>
+
+<div class="product-price">
+S/ 40.00
+</div>
+
+<button
+class="product-button"
+onclick="agregarProducto(6)"
+>
+
+🛒 Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 7 -->
+
+<div class="product-card">
+
+<div class="product-image">
+🍺
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+Cervezas
+</div>
+
+<div class="product-name">
+Corona
+</div>
+
+<div class="product-description">
+Botella 330 ml
+</div>
+
+<div class="product-price">
+S/ 29.00
+</div>
+
+<button
+class="product-button"
+onclick="agregarProducto(7)"
+>
+
+🛒 Agregar al carrito
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 8 -->
 
 <div class="product-card">
 
@@ -1668,16 +1738,16 @@ Mike's
 </div>
 
 <div class="product-description">
-Botella / lata
+Lata 355 ml
 </div>
 
 <div class="product-price">
-S/ 12.90
+S/ 6.50
 </div>
 
 <button
 class="product-button"
-onclick="agregarProducto(5)"
+onclick="agregarProducto(8)"
 >
 
 🛒 Agregar al carrito
@@ -1690,35 +1760,35 @@ onclick="agregarProducto(5)"
 
 
 
-<!-- PRODUCTO 6 -->
+<!-- 9 -->
 
 <div class="product-card">
 
 <div class="product-image">
-🍺
+🍹
 </div>
 
 <div class="product-info">
 
 <div class="product-category">
-Cervezas
+Listos para tomar
 </div>
 
 <div class="product-name">
-Cerveza Premium
+Four Loko
 </div>
 
 <div class="product-description">
-Lata 473 ml
+Sabores · 473 ml
 </div>
 
 <div class="product-price">
-S/ 8.90
+S/ 12.00
 </div>
 
 <button
 class="product-button"
-onclick="agregarProducto(6)"
+onclick="agregarProducto(9)"
 >
 
 🛒 Agregar al carrito
@@ -1731,7 +1801,7 @@ onclick="agregarProducto(6)"
 
 
 
-<!-- PRODUCTO 7 -->
+<!-- 10 -->
 
 <div class="product-card">
 
@@ -1746,61 +1816,20 @@ Bebidas
 </div>
 
 <div class="product-name">
-Gaseosa
+Red Bull Energizante
 </div>
 
 <div class="product-description">
-Botella personal
+250 ml
 </div>
 
 <div class="product-price">
-S/ 4.90
+S/ 8.50
 </div>
 
 <button
 class="product-button"
-onclick="agregarProducto(7)"
->
-
-🛒 Agregar al carrito
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- PRODUCTO 8 -->
-
-<div class="product-card">
-
-<div class="product-image">
-🍿
-</div>
-
-<div class="product-info">
-
-<div class="product-category">
-Snacks
-</div>
-
-<div class="product-name">
-Piqueo DESTÁPALA
-</div>
-
-<div class="product-description">
-Ideal para compartir
-</div>
-
-<div class="product-price">
-S/ 9.90
-</div>
-
-<button
-class="product-button"
-onclick="agregarProducto(8)"
+onclick="agregarProducto(10)"
 >
 
 🛒 Agregar al carrito
@@ -1824,7 +1853,10 @@ onclick="agregarProducto(8)"
      PROMOCIONES
 ===================================================== -->
 
-<section class="section" id="promociones">
+<section
+class="section"
+id="promociones"
+>
 
 <div class="promo">
 
@@ -1839,11 +1871,11 @@ Promociones y combos
 </h2>
 
 <p>
-Próximamente encontrarás combos especiales para celebrar y compartir.
+Próximamente encontrarás combos especiales
+para celebrar y compartir.
 </p>
 
 </div>
-
 
 <a
 href="#productos"
@@ -1866,17 +1898,14 @@ EXPLORAR
 
 <footer id="contacto">
 
+
 <div class="footer-container">
 
-
-<!-- COLUMNA 1 -->
 
 <div>
 
 <div class="footer-logo">
-
 DESTÁP<span>ALA</span>
-
 </div>
 
 <p>
@@ -1893,14 +1922,10 @@ Tu licorería para cada momento.
 
 
 
-<!-- COLUMNA 2 -->
-
 <div>
 
 <div class="footer-title">
-
 DESTÁPALA
-
 </div>
 
 <div class="footer-links">
@@ -1927,14 +1952,10 @@ Promociones
 
 
 
-<!-- COLUMNA 3 -->
-
 <div>
 
 <div class="footer-title">
-
 Categorías
-
 </div>
 
 <div class="footer-links">
@@ -1961,14 +1982,10 @@ Categorías
 
 
 
-<!-- COLUMNA 4 -->
-
 <div>
 
 <div class="footer-title">
-
 SÍGUENOS
-
 </div>
 
 
@@ -2018,7 +2035,6 @@ stroke="none"
 </a>
 
 
-
 <!-- FACEBOOK -->
 
 <a
@@ -2035,7 +2051,6 @@ title="Facebook"
 </svg>
 
 </a>
-
 
 
 <!-- TIKTOK -->
@@ -2056,7 +2071,6 @@ title="TikTok"
 </a>
 
 
-
 <!-- WHATSAPP -->
 
 <a
@@ -2068,7 +2082,7 @@ title="WhatsApp"
 
 <svg viewBox="0 0 24 24">
 
-<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/>
+<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/>
 
 </svg>
 
@@ -2089,6 +2103,7 @@ title="WhatsApp"
 
 </div>
 
+
 </footer>
 
 
@@ -2107,7 +2122,7 @@ title="Escríbenos por WhatsApp"
 
 <svg viewBox="0 0 24 24">
 
-<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/>
+<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6z"/>
 
 </svg>
 
@@ -2116,7 +2131,7 @@ title="Escríbenos por WhatsApp"
 
 
 <!-- =====================================================
-     MODAL CARRITO
+     CARRITO
 ===================================================== -->
 
 <div
@@ -2152,13 +2167,10 @@ onclick="cerrarCarrito()"
 class="cart-items"
 id="cart-items"
 >
-
 </div>
 
 
-<div
-class="cart-total"
->
+<div class="cart-total">
 
 <span>
 Total
@@ -2194,80 +2206,90 @@ onclick="pedirWhatsApp()"
 <script>
 
 
-/* =====================================================
-   PRODUCTOS
-===================================================== */
+/* PRODUCTOS DEL PILOTO */
 
 const productos = {
 
 1:{
-    nombre:"Johnnie Walker Red Label",
-    precio:69.90,
+    nombre:"Ballantine's Finest 700 ml",
+    precio:53.00,
     icono:"🥃"
 },
 
 2:{
-    nombre:"Ron Cartavio",
-    precio:45.90,
-    icono:"🍹"
+    nombre:"Johnnie Walker Red 750 ml",
+    precio:55.00,
+    icono:"🥃"
 },
 
 3:{
-    nombre:"Vino Tinto",
-    precio:39.90,
-    icono:"🍷"
-},
-
-4:{
-    nombre:"Pisco Quebranta",
-    precio:49.90,
-    icono:"🍇"
-},
-
-5:{
-    nombre:"Mike's",
-    precio:12.90,
+    nombre:"Ron Cartavio Black 750 ml",
+    precio:28.00,
     icono:"🍹"
 },
 
+4:{
+    nombre:"Vodka Russkaya Azul 750 ml",
+    precio:25.00,
+    icono:"🍸"
+},
+
+5:{
+    nombre:"Vino Tabernero Borgoña Semi-Seco",
+    precio:19.00,
+    icono:"🍷"
+},
+
 6:{
-    nombre:"Cerveza Premium",
-    precio:8.90,
-    icono:"🍺"
+    nombre:"Pisco 4 Gallos 750 ml",
+    precio:40.00,
+    icono:"🍇"
 },
 
 7:{
-    nombre:"Gaseosa",
-    precio:4.90,
-    icono:"🥤"
+    nombre:"Cerveza Corona 330 ml",
+    precio:29.00,
+    icono:"🍺"
 },
 
 8:{
-    nombre:"Piqueo DESTÁPALA",
-    precio:9.90,
-    icono:"🍿"
+    nombre:"Mike's Lata 355 ml",
+    precio:6.50,
+    icono:"🍹"
+},
+
+9:{
+    nombre:"Four Loko 473 ml",
+    precio:12.00,
+    icono:"🍹"
+},
+
+10:{
+    nombre:"Red Bull Energizante 250 ml",
+    precio:8.50,
+    icono:"🥤"
 }
 
 };
 
 
-/* =====================================================
-   CARRITO
-===================================================== */
+/* CARRITO */
 
 let carrito = [];
 
 
-/* =====================================================
-   AGREGAR PRODUCTO
-===================================================== */
+/* AGREGAR */
 
 function agregarProducto(id){
 
-    const producto = productos[id];
+    const producto =
+    productos[id];
 
     const existente =
-    carrito.find(item => item.id === id);
+    carrito.find(
+        item => item.id === id
+    );
+
 
     if(existente){
 
@@ -2291,6 +2313,7 @@ function agregarProducto(id){
 
     }
 
+
     actualizarCarrito();
 
     abrirCarrito();
@@ -2298,9 +2321,7 @@ function agregarProducto(id){
 }
 
 
-/* =====================================================
-   ACTUALIZAR CARRITO
-===================================================== */
+/* ACTUALIZAR */
 
 function actualizarCarrito(){
 
@@ -2321,10 +2342,12 @@ function actualizarCarrito(){
 
     carrito.forEach(item =>{
 
-        cantidadTotal += item.cantidad;
+        cantidadTotal +=
+        item.cantidad;
 
         total +=
-        item.precio * item.cantidad;
+        item.precio *
+        item.cantidad;
 
     });
 
@@ -2334,7 +2357,8 @@ function actualizarCarrito(){
 
 
     totalElement.textContent =
-    "S/ " + total.toFixed(2);
+    "S/ " +
+    total.toFixed(2);
 
 
     if(carrito.length === 0){
@@ -2358,7 +2382,6 @@ function actualizarCarrito(){
         `;
 
         return;
-
     }
 
 
@@ -2441,14 +2464,15 @@ function actualizarCarrito(){
 }
 
 
-/* =====================================================
-   CAMBIAR CANTIDAD
-===================================================== */
+/* CAMBIAR CANTIDAD */
 
-function cambiarCantidad(id, cambio){
+function cambiarCantidad(id,cambio){
 
     const item =
-    carrito.find(item => item.id === id);
+    carrito.find(
+        item => item.id === id
+    );
+
 
     if(!item) return;
 
@@ -2459,7 +2483,9 @@ function cambiarCantidad(id, cambio){
     if(item.cantidad <= 0){
 
         carrito =
-        carrito.filter(item => item.id !== id);
+        carrito.filter(
+            item => item.id !== id
+        );
 
     }
 
@@ -2469,23 +2495,21 @@ function cambiarCantidad(id, cambio){
 }
 
 
-/* =====================================================
-   ELIMINAR
-===================================================== */
+/* ELIMINAR */
 
 function eliminarProducto(id){
 
     carrito =
-    carrito.filter(item => item.id !== id);
+    carrito.filter(
+        item => item.id !== id
+    );
 
     actualizarCarrito();
 
 }
 
 
-/* =====================================================
-   ABRIR CARRITO
-===================================================== */
+/* ABRIR */
 
 function abrirCarrito(){
 
@@ -2497,9 +2521,7 @@ function abrirCarrito(){
 }
 
 
-/* =====================================================
-   CERRAR CARRITO
-===================================================== */
+/* CERRAR */
 
 function cerrarCarrito(event){
 
@@ -2522,9 +2544,7 @@ function cerrarCarrito(event){
 }
 
 
-/* =====================================================
-   PEDIDO POR WHATSAPP
-===================================================== */
+/* WHATSAPP */
 
 function pedirWhatsApp(){
 
@@ -2535,7 +2555,6 @@ function pedirWhatsApp(){
         );
 
         return;
-
     }
 
 
@@ -2552,7 +2571,9 @@ function pedirWhatsApp(){
     carrito.forEach(item =>{
 
         const subtotal =
-        item.precio * item.cantidad;
+        item.precio *
+        item.cantidad;
+
 
         total += subtotal;
 
@@ -2581,19 +2602,16 @@ function pedirWhatsApp(){
 
 
     window.open(
-    url,
-    "_blank"
+        url,
+        "_blank"
     );
 
 }
 
 
-/* =====================================================
-   INICIAR
-===================================================== */
+/* INICIO */
 
 actualizarCarrito();
-
 
 </script>
 
