@@ -12,6 +12,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
+<!-- ICONOS REALES -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -20,18 +23,12 @@
 ========================================================= */
 
 :root{
-
     --gold:#B58A3A;
     --gold-light:#D6B56A;
-
     --black:#171717;
-
     --gray:#6F6F6F;
-
     --light:#F7F5F1;
-
     --white:#FFFFFF;
-
 }
 
 
@@ -40,47 +37,29 @@
 ========================================================= */
 
 *{
-
     margin:0;
     padding:0;
-
     box-sizing:border-box;
-
 }
-
 
 html{
-
     scroll-behavior:smooth;
-
 }
-
 
 body{
-
     font-family:'DM Sans',sans-serif;
-
     color:var(--black);
-
     background:var(--white);
-
 }
-
 
 a{
-
     text-decoration:none;
-
     color:inherit;
-
 }
-
 
 button,
 input{
-
     font-family:'DM Sans',sans-serif;
-
 }
 
 
@@ -89,111 +68,62 @@ input{
 ========================================================= */
 
 header{
-
     position:sticky;
-
     top:0;
-
     z-index:1000;
-
     background:rgba(255,255,255,.97);
-
     backdrop-filter:blur(10px);
-
     border-bottom:1px solid #eee;
-
 }
-
 
 .header-container{
-
     max-width:1250px;
-
     margin:auto;
-
     height:82px;
-
     padding:0 30px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
 }
-
 
 .logo{
-
     font-family:'Playfair Display',serif;
-
     font-size:32px;
-
     font-weight:700;
-
     letter-spacing:3px;
-
     color:var(--black);
-
 }
-
 
 .logo span{
-
     color:var(--gold);
-
 }
-
 
 nav{
-
     display:flex;
-
     gap:30px;
-
     align-items:center;
-
 }
-
 
 nav a{
-
     font-size:14px;
-
     font-weight:600;
-
     transition:.3s;
-
 }
-
 
 nav a:hover{
-
     color:var(--gold);
-
 }
-
 
 .cart{
-
     border:1px solid var(--gold);
-
     padding:10px 16px;
-
     border-radius:30px;
-
     color:var(--gold);
-
 }
 
-
 .cart:hover{
-
     background:var(--gold);
-
     color:white;
-
 }
 
 
@@ -202,162 +132,92 @@ nav a:hover{
 ========================================================= */
 
 .hero{
-
     min-height:650px;
-
     display:flex;
-
     align-items:center;
-
     position:relative;
 
     background:
-
     linear-gradient(
-
         90deg,
-
         rgba(0,0,0,.78) 0%,
-
         rgba(0,0,0,.45) 48%,
-
         rgba(0,0,0,.10) 100%
-
     ),
 
     url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=85')
 
     center/cover;
-
 }
-
 
 .hero-content{
-
     max-width:1250px;
-
     width:100%;
-
     margin:auto;
-
     padding:70px 30px;
-
     color:white;
-
 }
-
 
 .hero-small{
-
     color:var(--gold-light);
-
     font-size:14px;
-
     font-weight:700;
-
     letter-spacing:4px;
-
     text-transform:uppercase;
-
     margin-bottom:18px;
-
 }
-
 
 .hero h1{
-
     font-family:'Playfair Display',serif;
-
     font-size:76px;
-
     line-height:1;
-
     letter-spacing:2px;
-
 }
-
 
 .hero h1 span{
-
     color:var(--gold-light);
-
 }
-
 
 .hero p{
-
     margin-top:25px;
-
     font-size:20px;
-
     max-width:520px;
-
     line-height:1.6;
-
 }
-
 
 .hero-buttons{
-
     display:flex;
-
     gap:15px;
-
     margin-top:35px;
-
     flex-wrap:wrap;
-
 }
-
 
 .btn{
-
     padding:14px 28px;
-
     border-radius:30px;
-
     font-weight:700;
-
     transition:.3s;
-
     display:inline-block;
-
 }
-
 
 .btn-gold{
-
     background:var(--gold);
-
     color:white;
-
 }
-
 
 .btn-gold:hover{
-
     background:#977126;
-
     transform:translateY(-2px);
-
 }
-
 
 .btn-outline{
-
     border:1px solid white;
-
     color:white;
-
 }
 
-
 .btn-outline:hover{
-
     background:white;
-
     color:var(--black);
-
 }
 
 
@@ -366,59 +226,34 @@ nav a:hover{
 ========================================================= */
 
 .section{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:80px 30px;
-
 }
-
 
 .section-header{
-
     text-align:center;
-
     margin-bottom:45px;
-
 }
-
 
 .section-label{
-
     color:var(--gold);
-
     text-transform:uppercase;
-
     letter-spacing:3px;
-
     font-size:12px;
-
     font-weight:700;
-
 }
-
 
 .section-title{
-
     font-family:'Playfair Display',serif;
-
     font-size:42px;
-
     margin-top:10px;
-
 }
 
-
 .section-description{
-
     color:var(--gray);
-
     max-width:600px;
-
     margin:15px auto 0;
-
 }
 
 
@@ -427,125 +262,72 @@ nav a:hover{
 ========================================================= */
 
 .category-title{
-
     font-family:'Playfair Display',serif;
-
     font-size:30px;
-
     margin-bottom:25px;
-
 }
-
 
 .category-grid{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:18px;
-
     margin-bottom:65px;
-
 }
 
-
 .category-card{
-
     min-height:170px;
-
     border:1px solid #e8e4dd;
-
     border-radius:16px;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
-
     background:white;
-
     transition:.3s;
-
     cursor:pointer;
 
     position:relative;
-
     overflow:hidden;
-
 }
-
 
 .category-card::after{
-
     content:"";
-
     position:absolute;
-
     bottom:0;
-
     left:0;
-
     width:100%;
-
     height:3px;
-
     background:var(--gold);
-
     transform:scaleX(0);
-
     transition:.3s;
-
 }
-
 
 .category-card:hover{
-
     transform:translateY(-6px);
-
     box-shadow:0 15px 35px rgba(0,0,0,.08);
-
 }
-
 
 .category-card:hover::after{
-
     transform:scaleX(1);
-
 }
-
 
 .category-icon{
-
     font-size:42px;
-
     margin-bottom:15px;
-
 }
-
 
 .category-name{
-
     font-weight:700;
-
     font-size:16px;
-
 }
 
-
 .category-sub{
-
     color:var(--gray);
-
     font-size:12px;
-
     margin-top:5px;
-
 }
 
 
@@ -554,166 +336,98 @@ nav a:hover{
 ========================================================= */
 
 .products{
-
     background:var(--light);
-
 }
-
 
 .catalog-search{
-
     max-width:600px;
-
     margin:0 auto 25px;
-
 }
-
 
 .catalog-search input{
-
     width:100%;
-
     padding:16px 20px;
-
     border:1px solid #ddd;
-
     border-radius:30px;
-
     font-size:15px;
-
     outline:none;
-
     background:white;
-
 }
-
 
 .catalog-search input:focus{
-
     border-color:var(--gold);
-
 }
-
 
 .catalog-filters{
-
     display:flex;
-
     flex-wrap:wrap;
-
     justify-content:center;
-
     gap:10px;
-
     margin-bottom:40px;
-
 }
-
 
 .filter-btn{
-
     border:1px solid #ddd;
-
     background:white;
-
     color:#333;
-
     padding:9px 16px;
-
     border-radius:25px;
-
     font-size:13px;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.25s;
-
 }
 
-
 .filter-btn:hover,
-
 .filter-btn.active{
-
     background:var(--black);
-
     color:white;
-
     border-color:var(--black);
-
 }
 
 
 /* =========================================================
-   PRODUCT GRID
+   PRODUCTOS
 ========================================================= */
 
 .product-grid{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:22px;
-
 }
-
 
 .product-card{
-
     background:white;
-
     border:1px solid #e7e4df;
-
     border-radius:18px;
-
     overflow:hidden;
-
     transition:.3s;
-
 }
-
 
 .product-card:hover{
-
     transform:translateY(-5px);
-
     box-shadow:0 15px 35px rgba(0,0,0,.09);
-
 }
 
-
 .product-image{
-
     height:230px;
-
     background:#f4f1eb;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     font-size:70px;
 
     position:relative;
-
 }
 
-
 .product-category{
-
     position:absolute;
-
     top:12px;
-
     left:12px;
 
     background:var(--black);
-
     color:white;
 
     padding:6px 9px;
@@ -721,92 +435,55 @@ nav a:hover{
     border-radius:20px;
 
     font-size:9px;
-
     font-weight:700;
-
-    letter-spacing:.5px;
-
 }
-
 
 .product-info{
-
     padding:20px;
-
 }
-
 
 .product-info h3{
-
     font-family:'Playfair Display',serif;
-
     font-size:19px;
-
     min-height:48px;
-
 }
-
 
 .product-presentation{
-
     color:#777;
-
     font-size:12px;
-
     margin-top:7px;
-
 }
-
 
 .product-bottom{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     margin-top:18px;
-
 }
-
 
 .product-bottom strong{
-
     font-size:18px;
-
 }
 
-
 .add-cart{
-
     width:40px;
-
     height:40px;
 
     border:none;
-
     border-radius:50%;
 
     background:var(--gold);
-
     color:white;
 
     font-size:24px;
 
     cursor:pointer;
-
     transition:.25s;
-
 }
 
-
 .add-cart:hover{
-
     background:var(--black);
-
     transform:scale(1.08);
-
 }
 
 
@@ -815,41 +492,27 @@ nav a:hover{
 ========================================================= */
 
 .promo{
-
     background:var(--black);
-
     color:white;
 
     border-radius:22px;
-
     padding:55px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     gap:30px;
-
 }
-
 
 .promo h2{
-
     font-family:'Playfair Display',serif;
-
     font-size:38px;
-
 }
 
-
 .promo p{
-
     color:#ccc;
-
     margin-top:10px;
-
 }
 
 
@@ -858,178 +521,127 @@ nav a:hover{
 ========================================================= */
 
 footer{
-
     background:#111;
-
     color:white;
-
     padding:55px 30px 25px;
-
 }
 
-
 .footer-container{
-
     max-width:1250px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:2fr 1fr 1fr 1fr;
 
     gap:50px;
-
 }
-
 
 .footer-logo{
-
     font-family:'Playfair Display',serif;
-
     font-size:30px;
-
     letter-spacing:3px;
-
 }
-
 
 .footer-logo span{
-
     color:var(--gold-light);
-
 }
-
 
 footer p{
-
     color:#aaa;
-
     margin-top:15px;
-
     line-height:1.6;
-
 }
-
 
 .footer-title{
-
     font-weight:700;
-
     margin-bottom:15px;
-
 }
-
 
 .footer-links{
-
     display:flex;
-
     flex-direction:column;
-
     gap:10px;
-
     color:#aaa;
-
     font-size:14px;
-
 }
-
 
 .footer-links a{
-
     transition:.25s;
-
 }
-
 
 .footer-links a:hover{
-
     color:white;
-
     transform:translateX(3px);
-
 }
 
-
 .footer-bottom{
-
     max-width:1250px;
-
     margin:40px auto 0;
-
     padding-top:20px;
-
     border-top:1px solid #333;
 
     color:#777;
-
     font-size:12px;
-
     text-align:center;
-
 }
 
 
 /* =========================================================
    REDES SOCIALES
+   ICONOS REALES
 ========================================================= */
 
 .social-icons{
-
     display:flex;
-
     flex-direction:column;
-
-    gap:12px;
-
+    gap:14px;
+    margin-top:18px;
 }
-
 
 .social-icons a{
-
     display:flex;
-
     align-items:center;
+    gap:12px;
 
-    gap:10px;
-
-    color:white;
+    color:#ffffff;
 
     font-weight:700;
-
     font-size:14px;
 
-    transition:.25s;
+    text-decoration:none;
 
+    transition:.25s ease;
 }
-
-
-.social-icons a:hover{
-
-    transform:translateX(4px);
-
-}
-
 
 .social-icon{
-
-    width:34px;
-
-    height:34px;
-
-    border:1px solid #777;
-
-    border-radius:50%;
+    width:38px;
+    height:38px;
+    min-width:38px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
+
+    border:2px solid #ffffff;
+    border-radius:50%;
+
+    background:transparent;
+
+    color:#ffffff;
 
     font-size:17px;
 
+    transition:.25s ease;
+}
+
+.social-icons a:hover{
+    transform:translateX(4px);
+}
+
+.social-icons a:hover .social-icon{
+    background:#ffffff;
+    color:#111111;
+    transform:scale(1.08);
 }
 
 
@@ -1038,43 +650,31 @@ footer p{
 ========================================================= */
 
 .cart-overlay{
-
     position:fixed;
-
     inset:0;
 
     background:rgba(0,0,0,.45);
 
     opacity:0;
-
     visibility:hidden;
 
     transition:.3s;
 
     z-index:1998;
-
 }
-
 
 .cart-overlay.show{
-
     opacity:1;
-
     visibility:visible;
-
 }
 
-
 .cart-panel{
-
     position:fixed;
 
     top:0;
-
     right:-430px;
 
     width:430px;
-
     max-width:100%;
 
     height:100vh;
@@ -1086,53 +686,35 @@ footer p{
     box-shadow:-10px 0 35px rgba(0,0,0,.18);
 
     display:flex;
-
     flex-direction:column;
 
     transition:.35s;
-
 }
-
 
 .cart-panel.show{
-
     right:0;
-
 }
 
-
 .cart-header{
-
     padding:22px;
 
     border-bottom:1px solid #eee;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
 }
-
 
 .cart-header h2{
-
     font-family:'Playfair Display',serif;
-
     font-size:25px;
-
 }
 
-
 .close-cart{
-
     width:36px;
-
     height:36px;
 
     border:none;
-
     background:#f3f3f3;
 
     border-radius:50%;
@@ -1140,102 +722,61 @@ footer p{
     font-size:20px;
 
     cursor:pointer;
-
 }
-
 
 .cart-items{
-
     flex:1;
-
     overflow-y:auto;
-
     padding:20px;
-
 }
-
 
 .empty-cart{
-
     text-align:center;
-
     padding:60px 20px;
-
     color:#777;
-
 }
-
 
 .empty-cart-icon{
-
     font-size:55px;
-
     margin-bottom:15px;
-
 }
 
-
 .cart-item{
-
     display:flex;
-
     gap:12px;
 
     padding:15px 0;
 
     border-bottom:1px solid #eee;
-
 }
-
 
 .cart-item-info{
-
     flex:1;
-
 }
-
 
 .cart-item-name{
-
     font-weight:700;
-
     font-size:14px;
-
 }
-
 
 .cart-item-price{
-
     color:var(--gold);
-
     font-weight:700;
-
     margin-top:5px;
-
 }
-
 
 .quantity-controls{
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
-
     margin-top:10px;
-
 }
 
-
 .quantity-controls button{
-
     width:28px;
-
     height:28px;
 
     border:1px solid #ddd;
-
     background:white;
 
     border-radius:50%;
@@ -1243,70 +784,48 @@ footer p{
     cursor:pointer;
 
     font-weight:700;
-
 }
-
 
 .quantity-controls span{
-
     min-width:20px;
-
     text-align:center;
-
     font-weight:700;
-
 }
 
-
 .remove-item{
-
     border:none;
-
     background:none;
-
     color:#999;
 
     cursor:pointer;
 
     font-size:17px;
-
 }
 
-
 .cart-footer{
-
     padding:20px;
 
     border-top:1px solid #eee;
 
     background:#fafafa;
-
 }
 
-
 .cart-total{
-
     display:flex;
-
     justify-content:space-between;
 
     font-size:20px;
-
     font-weight:700;
 
     margin-bottom:15px;
-
 }
 
-
 .whatsapp-order{
-
     width:100%;
 
     border:none;
 
     background:#25D366;
-
     color:white;
 
     padding:15px;
@@ -1318,19 +837,13 @@ footer p{
     cursor:pointer;
 
     font-size:15px;
-
 }
-
 
 .whatsapp-order:hover{
-
     background:#1daa53;
-
 }
 
-
 .clear-cart{
-
     width:100%;
 
     margin-top:10px;
@@ -1344,36 +857,29 @@ footer p{
     padding:8px;
 
     cursor:pointer;
-
 }
 
 
 /* =========================================================
-   WHATSAPP FLOTANTE
+   BOTÓN WHATSAPP
 ========================================================= */
 
 .whatsapp{
-
     position:fixed;
 
     right:25px;
-
     bottom:25px;
 
     width:58px;
-
     height:58px;
 
     border-radius:50%;
 
     background:#25D366;
-
     color:white;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     font-size:28px;
@@ -1383,14 +889,10 @@ footer p{
     z-index:1500;
 
     transition:.25s;
-
 }
 
-
 .whatsapp:hover{
-
     transform:scale(1.08);
-
 }
 
 
@@ -1401,23 +903,15 @@ footer p{
 @media(max-width:1000px){
 
     .product-grid{
-
         grid-template-columns:repeat(2,1fr);
-
     }
-
 
     .category-grid{
-
         grid-template-columns:repeat(2,1fr);
-
     }
 
-
     .footer-container{
-
         grid-template-columns:1fr 1fr;
-
     }
 
 }
@@ -1426,162 +920,97 @@ footer p{
 @media(max-width:600px){
 
     .header-container{
-
         height:70px;
-
         padding:0 18px;
-
     }
-
 
     .logo{
-
         font-size:24px;
-
     }
-
 
     nav a:not(.cart){
-
         display:none;
-
     }
-
 
     .hero{
-
         min-height:600px;
-
     }
-
 
     .hero-content{
-
         padding:50px 20px;
-
     }
-
 
     .hero h1{
-
         font-size:48px;
-
     }
-
 
     .hero p{
-
         font-size:17px;
-
     }
-
 
     .section{
-
         padding:60px 20px;
-
     }
-
 
     .section-title{
-
         font-size:34px;
-
     }
-
 
     .category-grid{
-
         grid-template-columns:repeat(2,1fr);
-
         gap:12px;
-
     }
-
 
     .category-card{
-
         min-height:145px;
-
     }
-
 
     .product-grid{
-
         grid-template-columns:repeat(2,1fr);
-
         gap:12px;
-
     }
-
 
     .product-image{
-
         height:170px;
-
         font-size:52px;
-
     }
-
 
     .product-info{
-
         padding:14px;
-
     }
-
 
     .product-info h3{
-
         font-size:16px;
-
     }
-
 
     .product-bottom strong{
-
         font-size:15px;
-
     }
-
 
     .promo{
-
         padding:35px 25px;
-
         flex-direction:column;
-
         align-items:flex-start;
-
     }
-
 
     .footer-container{
-
         grid-template-columns:1fr;
-
         gap:35px;
-
     }
 
-
     .cart-panel{
-
         width:100%;
-
     }
 
 }
 
 
 /* =========================================================
-   PRODUCTOS OCULTOS
+   OCULTAR PRODUCTOS
 ========================================================= */
 
 .product-card.hidden{
-
     display:none;
-
 }
 
 </style>
@@ -1721,7 +1150,6 @@ Todo lo que necesitas para disfrutar, compartir y celebrar.
 </div>
 
 
-
 <h3 class="category-title">
 
 🍾 Licores
@@ -1733,7 +1161,7 @@ Todo lo que necesitas para disfrutar, compartir y celebrar.
 
 
 <div class="category-card"
-     onclick="goToCategory('whisky')">
+onclick="goToCategory('whisky')">
 
 <div class="category-icon">🥃</div>
 
@@ -1752,9 +1180,8 @@ Clásicos y premium
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('ron')">
+onclick="goToCategory('ron')">
 
 <div class="category-icon">🍹</div>
 
@@ -1773,9 +1200,8 @@ Para cada ocasión
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('vodka')">
+onclick="goToCategory('vodka')">
 
 <div class="category-icon">🍸</div>
 
@@ -1794,9 +1220,8 @@ Marcas seleccionadas
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('vinos')">
+onclick="goToCategory('vinos')">
 
 <div class="category-icon">🍷</div>
 
@@ -1815,9 +1240,8 @@ Tintos, blancos y más
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('piscos')">
+onclick="goToCategory('piscos')">
 
 <div class="category-icon">🍇</div>
 
@@ -1836,9 +1260,8 @@ Orgullo peruano
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('cervezas')">
+onclick="goToCategory('cervezas')">
 
 <div class="category-icon">🍺</div>
 
@@ -1857,9 +1280,8 @@ Botellas, latas y packs
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('listos')">
+onclick="goToCategory('listos')">
 
 <div class="category-icon">🍹</div>
 
@@ -1877,9 +1299,7 @@ Mike's, Four Loko, HIT, Wild y más
 
 </div>
 
-
 </div>
-
 
 
 <h3 class="category-title">
@@ -1893,7 +1313,7 @@ Mike's, Four Loko, HIT, Wild y más
 
 
 <div class="category-card"
-     onclick="goToCategory('bebidas')">
+onclick="goToCategory('bebidas')">
 
 <div class="category-icon">🥤</div>
 
@@ -1912,8 +1332,8 @@ Agua, gaseosas, energizantes y refrescos
 </div>
 
 
-
-<div class="category-card">
+<div class="category-card"
+onclick="goToCategory('cigarros')">
 
 <div class="category-icon">🚬</div>
 
@@ -1932,9 +1352,8 @@ Productos disponibles
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('snacks')">
+onclick="goToCategory('snacks')">
 
 <div class="category-icon">🍿</div>
 
@@ -1953,9 +1372,8 @@ Piqueos, chocolates y más
 </div>
 
 
-
 <div class="category-card"
-     onclick="goToCategory('promociones')">
+onclick="goToCategory('promociones')">
 
 <div class="category-icon">🔥</div>
 
@@ -1972,7 +1390,6 @@ Combos y ofertas especiales
 </div>
 
 </div>
-
 
 </div>
 
@@ -2014,9 +1431,6 @@ Encuentra tus bebidas favoritas y agrégalas a tu carrito.
 </div>
 
 
-
-<!-- BUSCADOR -->
-
 <div class="catalog-search">
 
 <input
@@ -2028,9 +1442,6 @@ placeholder="🔎 Buscar producto..."
 </div>
 
 
-
-<!-- FILTROS -->
-
 <div class="catalog-filters">
 
 <button class="filter-btn active"
@@ -2040,14 +1451,12 @@ Todos
 
 </button>
 
-
 <button class="filter-btn"
 onclick="filterProducts('whisky', this)">
 
 Whisky
 
 </button>
-
 
 <button class="filter-btn"
 onclick="filterProducts('ron', this)">
@@ -2056,14 +1465,12 @@ Ron
 
 </button>
 
-
 <button class="filter-btn"
 onclick="filterProducts('vodka', this)">
 
 Vodka
 
 </button>
-
 
 <button class="filter-btn"
 onclick="filterProducts('vinos', this)">
@@ -2072,14 +1479,12 @@ Vinos
 
 </button>
 
-
 <button class="filter-btn"
 onclick="filterProducts('piscos', this)">
 
 Piscos
 
 </button>
-
 
 <button class="filter-btn"
 onclick="filterProducts('cervezas', this)">
@@ -2088,7 +1493,6 @@ Cervezas
 
 </button>
 
-
 <button class="filter-btn"
 onclick="filterProducts('listos', this)">
 
@@ -2096,14 +1500,12 @@ Listos para tomar
 
 </button>
 
-
 <button class="filter-btn"
 onclick="filterProducts('bebidas', this)">
 
 Bebidas
 
 </button>
-
 
 <button class="filter-btn"
 onclick="filterProducts('snacks', this)">
@@ -2115,14 +1517,10 @@ Snacks
 </div>
 
 
-
-<!-- PRODUCTOS -->
-
 <div class="product-grid" id="product-grid">
 
 
-
-<!-- PRODUCTO 1 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="whisky"
@@ -2131,40 +1529,28 @@ data-name="Johnnie Walker Black Label">
 <div class="product-image">
 
 <span class="product-category">
-
 WHISKY
-
 </span>
 
 🥃
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Johnnie Walker Black Label
-
 </h3>
 
-
 <p class="product-presentation">
-
 750 ml
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2181,8 +1567,7 @@ onclick="addToCart('Johnnie Walker Black Label',0)">
 </div>
 
 
-
-<!-- PRODUCTO 2 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="ron"
@@ -2191,40 +1576,28 @@ data-name="Ron Cartavio">
 <div class="product-image">
 
 <span class="product-category">
-
 RON
-
 </span>
 
 🍹
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Ron Cartavio
-
 </h3>
 
-
 <p class="product-presentation">
-
 750 ml
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2241,8 +1614,7 @@ onclick="addToCart('Ron Cartavio',0)">
 </div>
 
 
-
-<!-- PRODUCTO 3 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="vodka"
@@ -2251,40 +1623,28 @@ data-name="Vodka Absolut">
 <div class="product-image">
 
 <span class="product-category">
-
 VODKA
-
 </span>
 
 🍸
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Vodka Absolut
-
 </h3>
 
-
 <p class="product-presentation">
-
 750 ml
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2301,8 +1661,7 @@ onclick="addToCart('Vodka Absolut',0)">
 </div>
 
 
-
-<!-- PRODUCTO 4 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="vinos"
@@ -2311,40 +1670,28 @@ data-name="Vino Tinto">
 <div class="product-image">
 
 <span class="product-category">
-
 VINOS
-
 </span>
 
 🍷
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Vino Tinto
-
 </h3>
 
-
 <p class="product-presentation">
-
 750 ml
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2361,8 +1708,7 @@ onclick="addToCart('Vino Tinto',0)">
 </div>
 
 
-
-<!-- PRODUCTO 5 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="piscos"
@@ -2371,40 +1717,28 @@ data-name="Pisco Sour">
 <div class="product-image">
 
 <span class="product-category">
-
 PISCO
-
 </span>
 
 🍇
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Pisco Sour
-
 </h3>
 
-
 <p class="product-presentation">
-
 Presentación lista para tomar
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2421,8 +1755,7 @@ onclick="addToCart('Pisco Sour',0)">
 </div>
 
 
-
-<!-- PRODUCTO 6 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="cervezas"
@@ -2431,40 +1764,28 @@ data-name="Cerveza">
 <div class="product-image">
 
 <span class="product-category">
-
 CERVEZAS
-
 </span>
 
 🍺
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Cerveza
-
 </h3>
 
-
 <p class="product-presentation">
-
 Botella / Lata
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2481,8 +1802,7 @@ onclick="addToCart('Cerveza',0)">
 </div>
 
 
-
-<!-- PRODUCTO 7 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="listos"
@@ -2491,40 +1811,28 @@ data-name="Mike's">
 <div class="product-image">
 
 <span class="product-category">
-
 LISTOS PARA TOMAR
-
 </span>
 
 🍹
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Mike's
-
 </h3>
 
-
 <p class="product-presentation">
-
 Botella / Lata
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2541,8 +1849,7 @@ onclick="addToCart('Mike’s',0)">
 </div>
 
 
-
-<!-- PRODUCTO 8 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="listos"
@@ -2551,40 +1858,28 @@ data-name="Four Loko">
 <div class="product-image">
 
 <span class="product-category">
-
 LISTOS PARA TOMAR
-
 </span>
 
 🍹
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Four Loko
-
 </h3>
 
-
 <p class="product-presentation">
-
 Lata
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2601,8 +1896,7 @@ onclick="addToCart('Four Loko',0)">
 </div>
 
 
-
-<!-- PRODUCTO 9 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="listos"
@@ -2611,40 +1905,28 @@ data-name="HIT">
 <div class="product-image">
 
 <span class="product-category">
-
 LISTOS PARA TOMAR
-
 </span>
 
 🍹
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 HIT
-
 </h3>
 
-
 <p class="product-presentation">
-
 Presentación disponible
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2661,8 +1943,7 @@ onclick="addToCart('HIT',0)">
 </div>
 
 
-
-<!-- PRODUCTO 10 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="listos"
@@ -2671,40 +1952,28 @@ data-name="Wild">
 <div class="product-image">
 
 <span class="product-category">
-
 LISTOS PARA TOMAR
-
 </span>
 
 🍹
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Wild
-
 </h3>
 
-
 <p class="product-presentation">
-
 Presentación disponible
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2721,8 +1990,7 @@ onclick="addToCart('Wild',0)">
 </div>
 
 
-
-<!-- PRODUCTO 11 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="bebidas"
@@ -2731,40 +1999,28 @@ data-name="Gaseosa">
 <div class="product-image">
 
 <span class="product-category">
-
 BEBIDAS
-
 </span>
 
 🥤
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Gaseosa
-
 </h3>
 
-
 <p class="product-presentation">
-
 Diferentes presentaciones
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2781,8 +2037,7 @@ onclick="addToCart('Gaseosa',0)">
 </div>
 
 
-
-<!-- PRODUCTO 12 -->
+<!-- PRODUCTO -->
 
 <div class="product-card"
 data-category="snacks"
@@ -2791,40 +2046,28 @@ data-name="Snacks">
 <div class="product-image">
 
 <span class="product-category">
-
 SNACKS
-
 </span>
 
 🍿
 
 </div>
 
-
 <div class="product-info">
 
 <h3>
-
 Snacks
-
 </h3>
 
-
 <p class="product-presentation">
-
 Piqueos y chocolates
-
 </p>
-
 
 <div class="product-bottom">
 
 <strong>
-
 S/ 0.00
-
 </strong>
-
 
 <button
 class="add-cart"
@@ -2857,38 +2100,28 @@ onclick="addToCart('Snacks',0)">
 
 <div class="promo">
 
-
 <div>
 
 <div class="section-label">
-
 DESTÁPALA
-
 </div>
 
-
 <h2>
-
 Promociones y combos
-
 </h2>
 
-
 <p>
-
 Próximamente encontrarás combos especiales para celebrar y compartir.
-
 </p>
 
 </div>
 
-
-<a href="#catalogo" class="btn btn-gold">
+<a href="#catalogo"
+class="btn btn-gold">
 
 EXPLORAR
 
 </a>
-
 
 </div>
 
@@ -2902,7 +2135,6 @@ EXPLORAR
 
 <footer id="contacto">
 
-
 <div class="footer-container">
 
 
@@ -2915,7 +2147,6 @@ EXPLORAR
 DESTÁP<span>ALA</span>
 
 </div>
-
 
 <p>
 
@@ -2941,34 +2172,22 @@ DESTÁPALA
 
 </div>
 
-
 <div class="footer-links">
 
 <a href="#inicio">
-
 Inicio
-
 </a>
-
 
 <a href="#categorias">
-
 Categorías
-
 </a>
-
 
 <a href="#catalogo">
-
 Productos
-
 </a>
 
-
 <a href="#promociones">
-
 Promociones
-
 </a>
 
 </div>
@@ -2987,46 +2206,31 @@ Categorías
 
 </div>
 
-
 <div class="footer-links">
 
 <a href="#catalogo"
 onclick="goToCategory('whisky')">
-
 Whisky
-
 </a>
-
 
 <a href="#catalogo"
 onclick="goToCategory('ron')">
-
 Ron
-
 </a>
-
 
 <a href="#catalogo"
 onclick="goToCategory('vinos')">
-
 Vinos
-
 </a>
-
 
 <a href="#catalogo"
 onclick="goToCategory('piscos')">
-
 Piscos
-
 </a>
-
 
 <a href="#catalogo"
 onclick="goToCategory('listos')">
-
 Listos para tomar
-
 </a>
 
 </div>
@@ -3049,14 +2253,17 @@ Síguenos
 <div class="social-icons">
 
 
+<!-- INSTAGRAM -->
+
 <a
 href="https://www.instagram.com/licoreriadestapala.08/"
 target="_blank"
-rel="noopener noreferrer">
+rel="noopener noreferrer"
+title="Instagram">
 
 <span class="social-icon">
 
-◎
+<i class="fa-brands fa-instagram"></i>
 
 </span>
 
@@ -3065,15 +2272,17 @@ Instagram
 </a>
 
 
+<!-- TIKTOK -->
 
 <a
 href="https://www.tiktok.com/@licoreriadestapala.08"
 target="_blank"
-rel="noopener noreferrer">
+rel="noopener noreferrer"
+title="TikTok">
 
 <span class="social-icon">
 
-♪
+<i class="fa-brands fa-tiktok"></i>
 
 </span>
 
@@ -3082,15 +2291,17 @@ TikTok
 </a>
 
 
+<!-- FACEBOOK -->
 
 <a
 href="https://www.facebook.com/share/1HbFzfAc2t/?mibextid=wwXIfr"
 target="_blank"
-rel="noopener noreferrer">
+rel="noopener noreferrer"
+title="Facebook">
 
 <span class="social-icon">
 
-f
+<i class="fa-brands fa-facebook-f"></i>
 
 </span>
 
@@ -3099,15 +2310,17 @@ Facebook
 </a>
 
 
+<!-- WHATSAPP -->
 
 <a
 href="https://wa.me/51979726473"
 target="_blank"
-rel="noopener noreferrer">
+rel="noopener noreferrer"
+title="WhatsApp">
 
 <span class="social-icon">
 
-◉
+<i class="fa-brands fa-whatsapp"></i>
 
 </span>
 
@@ -3147,14 +2360,14 @@ target="_blank"
 rel="noopener noreferrer"
 title="Escríbenos por WhatsApp">
 
-💬
+<i class="fa-brands fa-whatsapp"></i>
 
 </a>
 
 
 
 <!-- =========================================================
-     OVERLAY DEL CARRITO
+     OVERLAY CARRITO
 ========================================================= -->
 
 <div
@@ -3207,13 +2420,11 @@ id="cart-items">
 
 </div>
 
-
 <strong>
 
 Tu carrito está vacío
 
 </strong>
-
 
 <p style="margin-top:8px;">
 
@@ -3229,20 +2440,14 @@ Agrega productos para comenzar tu pedido.
 
 <div class="cart-footer">
 
-
 <div class="cart-total">
 
 <span>
-
 Total
-
 </span>
 
-
 <span id="cart-total">
-
 S/ 0.00
-
 </span>
 
 </div>
@@ -3252,7 +2457,11 @@ S/ 0.00
 class="whatsapp-order"
 onclick="sendWhatsAppOrder()">
 
-💬 Enviar pedido por WhatsApp
+<i class="fa-brands fa-whatsapp"></i>
+
+&nbsp;
+
+Enviar pedido por WhatsApp
 
 </button>
 
@@ -3264,7 +2473,6 @@ onclick="clearCart()">
 Vaciar carrito
 
 </button>
-
 
 </div>
 
@@ -3286,15 +2494,13 @@ Vaciar carrito
 let cart = [];
 
 
-
-/* AGREGAR */
+/* AGREGAR PRODUCTO */
 
 function addToCart(name, price){
 
     const existing = cart.find(
         item => item.name === name
     );
-
 
     if(existing){
 
@@ -3314,17 +2520,14 @@ function addToCart(name, price){
 
     }
 
-
     updateCart();
-
 
     openCart();
 
 }
 
 
-
-/* ACTUALIZAR CARRITO */
+/* ACTUALIZAR */
 
 function updateCart(){
 
@@ -3335,11 +2538,9 @@ function updateCart(){
             0
         );
 
-
     document.getElementById(
         'cart-count'
     ).textContent = count;
-
 
 
     const container =
@@ -3351,7 +2552,9 @@ function updateCart(){
     const total =
         cart.reduce(
             (sum,item) =>
-            sum + item.price * item.quantity,
+            sum +
+            item.price *
+            item.quantity,
             0
         );
 
@@ -3359,36 +2562,35 @@ function updateCart(){
     document.getElementById(
         'cart-total'
     ).textContent =
-        'S/ ' + total.toFixed(2);
-
+        'S/ ' +
+        total.toFixed(2);
 
 
     if(cart.length === 0){
 
         container.innerHTML = `
 
-            <div class="empty-cart">
+        <div class="empty-cart">
 
-                <div class="empty-cart-icon">
-                    🛒
-                </div>
-
-                <strong>
-                    Tu carrito está vacío
-                </strong>
-
-                <p style="margin-top:8px;">
-                    Agrega productos para comenzar tu pedido.
-                </p>
-
+            <div class="empty-cart-icon">
+                🛒
             </div>
+
+            <strong>
+                Tu carrito está vacío
+            </strong>
+
+            <p style="margin-top:8px;">
+                Agrega productos para comenzar tu pedido.
+            </p>
+
+        </div>
 
         `;
 
         return;
 
     }
-
 
 
     container.innerHTML = cart.map(
@@ -3404,10 +2606,10 @@ function updateCart(){
 
                 <div class="cart-item-price">
 
-                    S/ ${(item.price * item.quantity).toFixed(2)}
+                    S/
+                    ${(item.price * item.quantity).toFixed(2)}
 
                 </div>
-
 
                 <div class="quantity-controls">
 
@@ -3416,11 +2618,9 @@ function updateCart(){
                         −
                     </button>
 
-
                     <span>
                         ${item.quantity}
                     </span>
-
 
                     <button
                     onclick="changeQuantity(${index},1)">
@@ -3449,13 +2649,11 @@ function updateCart(){
 }
 
 
-
 /* CAMBIAR CANTIDAD */
 
 function changeQuantity(index,change){
 
     cart[index].quantity += change;
-
 
     if(cart[index].quantity <= 0){
 
@@ -3463,11 +2661,9 @@ function changeQuantity(index,change){
 
     }
 
-
     updateCart();
 
 }
-
 
 
 /* ELIMINAR */
@@ -3481,7 +2677,6 @@ function removeFromCart(index){
 }
 
 
-
 /* VACIAR */
 
 function clearCart(){
@@ -3491,7 +2686,6 @@ function clearCart(){
         return;
 
     }
-
 
     if(
         confirm(
@@ -3508,8 +2702,7 @@ function clearCart(){
 }
 
 
-
-/* ABRIR */
+/* ABRIR CARRITO */
 
 function openCart(){
 
@@ -3525,8 +2718,7 @@ function openCart(){
 }
 
 
-
-/* CERRAR */
+/* CERRAR CARRITO */
 
 function closeCart(){
 
@@ -3540,7 +2732,6 @@ function closeCart(){
     .classList.remove('show');
 
 }
-
 
 
 /* =========================================================
@@ -3565,7 +2756,6 @@ function sendWhatsAppOrder(){
         'Quiero realizar el siguiente pedido:%0A%0A';
 
 
-
     cart.forEach(item => {
 
         message +=
@@ -3583,7 +2773,6 @@ function sendWhatsAppOrder(){
     });
 
 
-
     const total =
         cart.reduce(
             (sum,item) =>
@@ -3599,7 +2788,6 @@ function sendWhatsAppOrder(){
         total.toFixed(2);
 
 
-
     const whatsappURL =
         'https://wa.me/51979726473?text=' +
         message;
@@ -3611,7 +2799,6 @@ function sendWhatsAppOrder(){
     );
 
 }
-
 
 
 /* =========================================================
@@ -3675,7 +2862,6 @@ function filterProducts(category,button){
 }
 
 
-
 /* =========================================================
    BUSCADOR
 ========================================================= */
@@ -3709,13 +2895,11 @@ document
                 name.includes(search)
             ){
 
-                product.style.display =
-                    '';
+                product.style.display = '';
 
             }else{
 
-                product.style.display =
-                    'none';
+                product.style.display = 'none';
 
             }
 
@@ -3723,7 +2907,6 @@ document
 
     }
 );
-
 
 
 /* =========================================================
@@ -3770,9 +2953,8 @@ function goToCategory(category){
 }
 
 
-
 /* =========================================================
-   INICIAR
+   INICIAR CARRITO
 ========================================================= */
 
 updateCart();
