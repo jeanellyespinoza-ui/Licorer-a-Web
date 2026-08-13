@@ -49,7 +49,9 @@ a{
     color:inherit;
 }
 
-button{
+button,
+input,
+textarea{
     font-family:inherit;
 }
 
@@ -108,7 +110,7 @@ nav a:hover{
 
 
 /* =====================================================
-   CARRITO HEADER
+   CARRITO
 ===================================================== */
 
 .cart{
@@ -226,25 +228,21 @@ nav a:hover{
 
 .btn-gold{
     background:var(--gold);
-
     color:white;
 }
 
 .btn-gold:hover{
     background:#977126;
-
     transform:translateY(-2px);
 }
 
 .btn-outline{
     border:1px solid white;
-
     color:white;
 }
 
 .btn-outline:hover{
     background:white;
-
     color:var(--black);
 }
 
@@ -255,15 +253,12 @@ nav a:hover{
 
 .section{
     max-width:1250px;
-
     margin:auto;
-
     padding:80px 30px;
 }
 
 .section-header{
     text-align:center;
-
     margin-bottom:45px;
 }
 
@@ -311,8 +306,7 @@ nav a:hover{
 .category-grid{
     display:grid;
 
-    grid-template-columns:
-    repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:18px;
 
@@ -410,8 +404,7 @@ nav a:hover{
 .product-grid{
     display:grid;
 
-    grid-template-columns:
-    repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:22px;
 }
@@ -435,11 +428,6 @@ nav a:hover{
     0 15px 35px
     rgba(0,0,0,.10);
 }
-
-
-/* =====================================================
-   IMÁGENES DE PRODUCTOS
-===================================================== */
 
 .product-image{
     width:100%;
@@ -469,10 +457,9 @@ nav a:hover{
     padding:15px;
 }
 
-
-/* =====================================================
-   INFORMACIÓN PRODUCTO
-===================================================== */
+.product-image-placeholder{
+    font-size:90px;
+}
 
 .product-info{
     padding:20px;
@@ -599,8 +586,7 @@ footer{
 
     display:grid;
 
-    grid-template-columns:
-    2fr 1fr 1fr 1fr;
+    grid-template-columns:2fr 1fr 1fr 1fr;
 
     gap:50px;
 }
@@ -650,7 +636,6 @@ footer p{
 
 /* =====================================================
    REDES SOCIALES
-   ICONOS REALES
 ===================================================== */
 
 .social-icons{
@@ -840,8 +825,7 @@ footer p{
 .cart-item{
     display:grid;
 
-    grid-template-columns:
-    55px 1fr auto;
+    grid-template-columns:55px 1fr auto;
 
     gap:12px;
 
@@ -868,15 +852,6 @@ footer p{
     justify-content:center;
 
     font-size:28px;
-
-    overflow:hidden;
-}
-
-.cart-item-icon img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    padding:5px;
 }
 
 .cart-item-name{
@@ -977,19 +952,393 @@ footer p{
 
 
 /* =====================================================
+   MODAL DATOS DEL CLIENTE
+===================================================== */
+
+.customer-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:4000;
+
+    padding:20px;
+}
+
+.customer-overlay.active{
+    display:flex;
+}
+
+.customer-modal{
+    width:100%;
+
+    max-width:520px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 25px 70px
+    rgba(0,0,0,.30);
+}
+
+.customer-header{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid #eee;
+}
+
+.customer-header h2{
+    font-family:'Playfair Display',serif;
+
+    font-size:29px;
+}
+
+.close-customer{
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#555;
+}
+
+.customer-intro{
+    color:var(--gray);
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin:18px 0;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group label{
+    display:block;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    padding:13px 14px;
+
+    outline:none;
+
+    font-size:14px;
+
+    background:white;
+
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:var(--gold);
+
+    box-shadow:
+    0 0 0 3px rgba(181,138,58,.10);
+}
+
+.form-group textarea{
+    resize:vertical;
+
+    min-height:80px;
+}
+
+.required{
+    color:#c00;
+}
+
+.continue-button{
+    width:100%;
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:15px;
+
+    background:var(--gold);
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    margin-top:5px;
+}
+
+.continue-button:hover{
+    background:#977126;
+}
+
+
+/* =====================================================
+   MODAL RESUMEN
+===================================================== */
+
+.summary-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:5000;
+
+    padding:20px;
+}
+
+.summary-overlay.active{
+    display:flex;
+}
+
+.summary-modal{
+    width:100%;
+
+    max-width:550px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 25px 70px
+    rgba(0,0,0,.30);
+}
+
+.summary-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid #eee;
+}
+
+.summary-header h2{
+    font-family:'Playfair Display',serif;
+
+    font-size:29px;
+}
+
+.close-summary{
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#555;
+}
+
+.summary-products{
+    margin-top:20px;
+}
+
+.summary-product{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+
+    font-size:14px;
+}
+
+.summary-product-name{
+    font-weight:700;
+}
+
+.summary-product-detail{
+    color:var(--gray);
+
+    margin-top:3px;
+
+    font-size:12px;
+}
+
+.summary-product-total{
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+.customer-summary{
+    background:var(--light);
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+.customer-summary strong{
+    color:var(--black);
+}
+
+.summary-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:20px;
+
+    padding-top:18px;
+
+    border-top:1px solid #ddd;
+
+    font-size:20px;
+
+    font-weight:700;
+}
+
+.back-button{
+    width:100%;
+
+    padding:13px;
+
+    margin-top:12px;
+
+    border:1px solid #ddd;
+
+    background:white;
+
+    color:#555;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.final-whatsapp{
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#25D366;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footer-bottom{
+    max-width:1250px;
+
+    margin:35px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid #333;
+
+    color:#777;
+
+    font-size:12px;
+
+    text-align:center;
+}
+
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
 @media(max-width:1000px){
 
     .product-grid{
-        grid-template-columns:
-        repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .footer-container{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
@@ -1000,8 +1349,7 @@ footer p{
     }
 
     .category-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .hero h1{
@@ -1012,8 +1360,7 @@ footer p{
 @media(max-width:700px){
 
     .product-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .footer-container{
@@ -1062,8 +1409,7 @@ footer p{
     }
 
     .category-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
 
         gap:12px;
     }
@@ -1074,10 +1420,6 @@ footer p{
 
     .product-grid{
         grid-template-columns:1fr;
-    }
-
-    .product-image{
-        height:300px;
     }
 
     .promo{
@@ -1092,6 +1434,12 @@ footer p{
         padding:9px 12px;
 
         font-size:13px;
+    }
+
+    .customer-modal,
+    .summary-modal,
+    .cart-modal{
+        padding:22px;
     }
 }
 
@@ -1112,11 +1460,8 @@ footer p{
 <div class="header-container">
 
 <a href="#inicio" class="logo">
-
 DESTÁP<span>ALA</span>
-
 </a>
-
 
 <nav>
 
@@ -1134,9 +1479,7 @@ DESTÁP<span>ALA</span>
 class="cart"
 onclick="abrirCarrito()"
 >
-
 🛒 Carrito <span id="cart-count">0</span>
-
 </button>
 
 </nav>
@@ -1144,7 +1487,6 @@ onclick="abrirCarrito()"
 </div>
 
 </header>
-
 
 
 <!-- =====================================================
@@ -1156,27 +1498,17 @@ onclick="abrirCarrito()"
 <div class="hero-content">
 
 <div class="hero-small">
-
 LICORERÍA · DELIVERY · EXPERIENCIAS
-
 </div>
 
-
 <h1>
-
 SALUD POR TI,<br>
-
 POR MÍ Y... <span>¡DESTÁPALA!</span>
-
 </h1>
 
-
 <p>
-
 Descubre licores, bebidas y complementos seleccionados para cada momento.
-
 </p>
-
 
 <div class="hero-buttons">
 
@@ -1184,19 +1516,14 @@ Descubre licores, bebidas y complementos seleccionados para cada momento.
 href="#categorias"
 class="btn btn-gold"
 >
-
 VER CATEGORÍAS
-
 </a>
-
 
 <a
 href="#promociones"
 class="btn btn-outline"
 >
-
 VER PROMOCIONES
-
 </a>
 
 </div>
@@ -1204,7 +1531,6 @@ VER PROMOCIONES
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1227,10 +1553,8 @@ Nuestras categorías
 </h2>
 
 <p class="section-description">
-
 Todo lo que necesitas para disfrutar,
 compartir y celebrar.
-
 </p>
 
 </div>
@@ -1240,9 +1564,7 @@ compartir y celebrar.
 🍾 Licores
 </h3>
 
-
 <div class="category-grid">
-
 
 <div class="category-card">
 
@@ -1348,7 +1670,6 @@ Mike's, Four Loko, HIT, Wild y más
 
 </div>
 
-
 </div>
 
 
@@ -1356,9 +1677,7 @@ Mike's, Four Loko, HIT, Wild y más
 🥤 Complementos
 </h3>
 
-
 <div class="category-grid">
-
 
 <div class="category-card">
 
@@ -1427,11 +1746,9 @@ Combos y ofertas especiales
 
 </div>
 
-
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1445,7 +1762,6 @@ id="productos"
 
 <div class="section">
 
-
 <div class="section-header">
 
 <div class="section-label">
@@ -1457,21 +1773,18 @@ Nuestros productos
 </h2>
 
 <p class="section-description">
-
 Productos seleccionados para comenzar
 tu experiencia DESTÁPALA.
-
 </p>
 
 </div>
-
 
 
 <div class="product-grid">
 
 
 <!-- =================================================
-     1. BALLANTINE'S
+     PRODUCTO 1
 ================================================= -->
 
 <div class="product-card">
@@ -1507,9 +1820,7 @@ S/ 53.00
 class="product-button"
 onclick="agregarProducto(1)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1517,20 +1828,14 @@ onclick="agregarProducto(1)"
 </div>
 
 
-
 <!-- =================================================
-     2. JOHNNIE WALKER
+     PRODUCTO 2
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/johnnie-walker-red-750ml.jpg"
-alt="Johnnie Walker Red Label 750 ml"
->
-
+<div class="product-image product-image-placeholder">
+🥃
 </div>
 
 <div class="product-info">
@@ -1555,9 +1860,7 @@ S/ 55.00
 class="product-button"
 onclick="agregarProducto(2)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1565,20 +1868,14 @@ onclick="agregarProducto(2)"
 </div>
 
 
-
 <!-- =================================================
-     3. CARTAVIO
+     PRODUCTO 3
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/ron-cartavio-black-750ml.jpg"
-alt="Ron Cartavio Black 750 ml"
->
-
+<div class="product-image product-image-placeholder">
+🍹
 </div>
 
 <div class="product-info">
@@ -1603,9 +1900,7 @@ S/ 28.00
 class="product-button"
 onclick="agregarProducto(3)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1613,68 +1908,14 @@ onclick="agregarProducto(3)"
 </div>
 
 
-
 <!-- =================================================
-     4. VODKA
+     PRODUCTO 4
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/vodka-russkaya-750ml.jpg"
-alt="Vodka Russkaya Azul 750 ml"
->
-
-</div>
-
-<div class="product-info">
-
-<div class="product-category">
-Vodka
-</div>
-
-<div class="product-name">
-Vodka Russkaya Azul
-</div>
-
-<div class="product-description">
-750 ml
-</div>
-
-<div class="product-price">
-S/ 25.00
-</div>
-
-<button
-class="product-button"
-onclick="agregarProducto(4)"
->
-
-🛒 Agregar al carrito
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- =================================================
-     5. TABERNERO
-================================================= -->
-
-<div class="product-card">
-
-<div class="product-image">
-
-<img
-src="imagenes/vino-tabernero-borgona-750ml.jpg"
-alt="Vino Tabernero Borgoña 750 ml"
->
-
+<div class="product-image product-image-placeholder">
+🍷
 </div>
 
 <div class="product-info">
@@ -1688,7 +1929,7 @@ Tabernero Borgoña Semi-Seco
 </div>
 
 <div class="product-description">
-750 ml
+Botella 750 ml
 </div>
 
 <div class="product-price">
@@ -1697,11 +1938,9 @@ S/ 19.00
 
 <button
 class="product-button"
-onclick="agregarProducto(5)"
+onclick="agregarProducto(4)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1709,20 +1948,14 @@ onclick="agregarProducto(5)"
 </div>
 
 
-
 <!-- =================================================
-     6. PISCO 4 GALLOS
+     PRODUCTO 5
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/pisco-cuatro-gallos-700ml.jpg"
-alt="Pisco 4 Gallos 700 ml"
->
-
+<div class="product-image product-image-placeholder">
+🍇
 </div>
 
 <div class="product-info">
@@ -1736,7 +1969,7 @@ Pisco 4 Gallos
 </div>
 
 <div class="product-description">
-700 ml
+750 ml
 </div>
 
 <div class="product-price">
@@ -1745,11 +1978,9 @@ S/ 40.00
 
 <button
 class="product-button"
-onclick="agregarProducto(6)"
+onclick="agregarProducto(5)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1757,20 +1988,14 @@ onclick="agregarProducto(6)"
 </div>
 
 
-
 <!-- =================================================
-     7. CORONA SIX PACK
+     PRODUCTO 6
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/cerveza-corona-sixpack-330ml.jpg"
-alt="Cerveza Corona Six Pack 330 ml"
->
-
+<div class="product-image product-image-placeholder">
+🍺
 </div>
 
 <div class="product-info">
@@ -1780,11 +2005,11 @@ Cervezas
 </div>
 
 <div class="product-name">
-Corona Six Pack
+Corona Extra
 </div>
 
 <div class="product-description">
-6 botellas · 330 ml
+Six Pack · Botella 330 ml
 </div>
 
 <div class="product-price">
@@ -1793,11 +2018,9 @@ S/ 29.00
 
 <button
 class="product-button"
-onclick="agregarProducto(7)"
+onclick="agregarProducto(6)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1805,20 +2028,14 @@ onclick="agregarProducto(7)"
 </div>
 
 
-
 <!-- =================================================
-     8. MIKE'S
+     PRODUCTO 7
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/mikes-355ml.jpg"
-alt="Mike's Hard Lemonade 355 ml"
->
-
+<div class="product-image product-image-placeholder">
+🍹
 </div>
 
 <div class="product-info">
@@ -1841,11 +2058,9 @@ S/ 6.50
 
 <button
 class="product-button"
-onclick="agregarProducto(8)"
+onclick="agregarProducto(7)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1853,20 +2068,14 @@ onclick="agregarProducto(8)"
 </div>
 
 
-
 <!-- =================================================
-     9. FOUR LOKO
+     PRODUCTO 8
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/four-loko-473ml.jpg"
-alt="Four Loko 473 ml"
->
-
+<div class="product-image product-image-placeholder">
+🍹
 </div>
 
 <div class="product-info">
@@ -1889,11 +2098,9 @@ S/ 12.00
 
 <button
 class="product-button"
-onclick="agregarProducto(9)"
+onclick="agregarProducto(8)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1901,20 +2108,14 @@ onclick="agregarProducto(9)"
 </div>
 
 
-
 <!-- =================================================
-     10. RED BULL
+     PRODUCTO 9
 ================================================= -->
 
 <div class="product-card">
 
-<div class="product-image">
-
-<img
-src="imagenes/red-bull-250ml.jpg"
-alt="Red Bull Energizante 250 ml"
->
-
+<div class="product-image product-image-placeholder">
+🥤
 </div>
 
 <div class="product-info">
@@ -1937,11 +2138,9 @@ S/ 8.50
 
 <button
 class="product-button"
-onclick="agregarProducto(10)"
+onclick="agregarProducto(9)"
 >
-
 🛒 Agregar al carrito
-
 </button>
 
 </div>
@@ -1954,7 +2153,6 @@ onclick="agregarProducto(10)"
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1989,15 +2187,12 @@ para celebrar y compartir.
 href="#productos"
 class="btn btn-gold"
 >
-
 EXPLORAR
-
 </a>
 
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2006,11 +2201,8 @@ EXPLORAR
 
 <footer id="contacto">
 
-
 <div class="footer-container">
 
-
-<!-- COLUMNA 1 -->
 
 <div>
 
@@ -2019,20 +2211,13 @@ DESTÁP<span>ALA</span>
 </div>
 
 <p>
-
 Salud por ti, por mí y... ¡Destápala!
-
 <br>
-
 Tu licorería para cada momento.
-
 </p>
 
 </div>
 
-
-
-<!-- COLUMNA 2 -->
 
 <div>
 
@@ -2063,9 +2248,6 @@ Promociones
 </div>
 
 
-
-<!-- COLUMNA 3 -->
-
 <div>
 
 <div class="footer-title">
@@ -2095,15 +2277,11 @@ Categorías
 </div>
 
 
-
-<!-- COLUMNA 4 - REDES -->
-
 <div>
 
 <div class="footer-title">
 SÍGUENOS
 </div>
-
 
 <div class="social-icons">
 
@@ -2204,11 +2382,9 @@ title="WhatsApp"
 
 </a>
 
-
 </div>
 
 </div>
-
 
 </div>
 
@@ -2219,9 +2395,7 @@ title="WhatsApp"
 
 </div>
 
-
 </footer>
-
 
 
 <!-- =====================================================
@@ -2238,12 +2412,11 @@ title="Escríbenos por WhatsApp"
 
 <svg viewBox="0 0 24 24">
 
-<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6z"/>
+<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3-.2-.1-1.4-.7-1.6-.8-.1-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6z"/>
 
 </svg>
 
 </a>
-
 
 
 <!-- =====================================================
@@ -2261,7 +2434,6 @@ class="cart-modal"
 onclick="event.stopPropagation()"
 >
 
-
 <div class="cart-header">
 
 <h2>
@@ -2272,7 +2444,6 @@ Mi carrito
 class="close-cart"
 onclick="cerrarCarrito()"
 >
-
 ×
 </button>
 
@@ -2301,18 +2472,225 @@ S/ 0.00
 
 <button
 class="whatsapp-order"
-onclick="pedirWhatsApp()"
+onclick="abrirDatosCliente()"
+>
+💬 CONTINUAR PEDIDO
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL DATOS CLIENTE
+===================================================== -->
+
+<div
+class="customer-overlay"
+id="customer-overlay"
+onclick="cerrarDatosCliente(event)"
 >
 
-💬 PEDIR POR WHATSAPP
+<div
+class="customer-modal"
+onclick="event.stopPropagation()"
+>
 
+<div class="customer-header">
+
+<h2>
+Datos del pedido
+</h2>
+
+<button
+class="close-customer"
+onclick="cerrarDatosCliente()"
+>
+×
+</button>
+
+</div>
+
+
+<p class="customer-intro">
+
+Completa tus datos para preparar tu pedido
+y enviarlo directamente por WhatsApp.
+
+</p>
+
+
+<div class="form-group">
+
+<label for="cliente-nombre">
+Nombre <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="cliente-nombre"
+placeholder="Ej. María"
+autocomplete="name"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cliente-celular">
+Celular <span class="required">*</span>
+</label>
+
+<input
+type="tel"
+id="cliente-celular"
+placeholder="Ej. 999 999 999"
+autocomplete="tel"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cliente-direccion">
+Dirección de entrega <span class="required">*</span>
+</label>
+
+<textarea
+id="cliente-direccion"
+placeholder="Ingresa tu dirección"
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cliente-referencia">
+Referencia
+</label>
+
+<input
+type="text"
+id="cliente-referencia"
+placeholder="Ej. Frente al parque"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cliente-entrega">
+Tipo de entrega
+</label>
+
+<select id="cliente-entrega">
+
+<option value="Delivery">
+Delivery
+</option>
+
+<option value="Recojo">
+Recojo en tienda
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="continue-button"
+onclick="mostrarResumen()"
+>
+CONTINUAR
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL RESUMEN
+===================================================== -->
+
+<div
+class="summary-overlay"
+id="summary-overlay"
+onclick="cerrarResumen(event)"
+>
+
+<div
+class="summary-modal"
+onclick="event.stopPropagation()"
+>
+
+<div class="summary-header">
+
+<h2>
+Resumen del pedido
+</h2>
+
+<button
+class="close-summary"
+onclick="cerrarResumen()"
+>
+×
+</button>
+
+</div>
+
+
+<div
+class="summary-products"
+id="summary-products"
+>
+</div>
+
+
+<div
+class="customer-summary"
+id="customer-summary"
+>
+</div>
+
+
+<div class="summary-total">
+
+<span>
+Total
+</span>
+
+<span id="summary-total">
+S/ 0.00
+</span>
+
+</div>
+
+
+<button
+class="final-whatsapp"
+onclick="pedirWhatsApp()"
+>
+📲 ENVIAR PEDIDO POR WHATSAPP
 </button>
 
 
-</div>
+<button
+class="back-button"
+onclick="volverDatosCliente()"
+>
+← VOLVER A MIS DATOS
+</button>
 
 </div>
 
+</div>
 
 
 <!-- =====================================================
@@ -2323,7 +2701,7 @@ onclick="pedirWhatsApp()"
 
 
 /* =====================================================
-   PRODUCTOS DEL PILOTO
+   PRODUCTOS
 ===================================================== */
 
 const productos = {
@@ -2331,71 +2709,55 @@ const productos = {
 1:{
     nombre:"Ballantine's Finest 700 ml",
     precio:53.00,
-    icono:"🥃",
-    imagen:"imagenes/ballantines-finest-700ml.jpg"
+    icono:"🥃"
 },
 
 2:{
     nombre:"Johnnie Walker Red 750 ml",
     precio:55.00,
-    icono:"🥃",
-    imagen:"imagenes/johnnie-walker-red-750ml.jpg"
+    icono:"🥃"
 },
 
 3:{
     nombre:"Ron Cartavio Black 750 ml",
     precio:28.00,
-    icono:"🍹",
-    imagen:"imagenes/ron-cartavio-black-750ml.jpg"
+    icono:"🍹"
 },
 
 4:{
-    nombre:"Vodka Russkaya Azul 750 ml",
-    precio:25.00,
-    icono:"🍸",
-    imagen:"imagenes/vodka-russkaya-750ml.jpg"
+    nombre:"Vino Tabernero Borgoña Semi-Seco 750 ml",
+    precio:19.00,
+    icono:"🍷"
 },
 
 5:{
-    nombre:"Vino Tabernero Borgoña Semi-Seco",
-    precio:19.00,
-    icono:"🍷",
-    imagen:"imagenes/vino-tabernero-borgona-750ml.jpg"
+    nombre:"Pisco 4 Gallos 750 ml",
+    precio:40.00,
+    icono:"🍇"
 },
 
 6:{
-    nombre:"Pisco 4 Gallos 700 ml",
-    precio:40.00,
-    icono:"🍇",
-    imagen:"imagenes/pisco-cuatro-gallos-700ml.jpg"
+    nombre:"Corona Extra Six Pack 330 ml",
+    precio:29.00,
+    icono:"🍺"
 },
 
 7:{
-    nombre:"Corona Six Pack 330 ml",
-    precio:29.00,
-    icono:"🍺",
-    imagen:"imagenes/cerveza-corona-sixpack-330ml.jpg"
+    nombre:"Mike's Lata 355 ml",
+    precio:6.50,
+    icono:"🍹"
 },
 
 8:{
-    nombre:"Mike's Lata 355 ml",
-    precio:6.50,
-    icono:"🍹",
-    imagen:"imagenes/mikes-355ml.jpg"
+    nombre:"Four Loko 473 ml",
+    precio:12.00,
+    icono:"🍹"
 },
 
 9:{
-    nombre:"Four Loko 473 ml",
-    precio:12.00,
-    icono:"🍹",
-    imagen:"imagenes/four-loko-473ml.jpg"
-},
-
-10:{
     nombre:"Red Bull Energizante 250 ml",
     precio:8.50,
-    icono:"🥤",
-    imagen:"imagenes/red-bull-250ml.jpg"
+    icono:"🥤"
 }
 
 };
@@ -2409,12 +2771,31 @@ let carrito = [];
 
 
 /* =====================================================
+   DATOS DEL CLIENTE
+===================================================== */
+
+let datosCliente = {
+
+    nombre:"",
+    celular:"",
+    direccion:"",
+    referencia:"",
+    entrega:"Delivery"
+
+};
+
+
+/* =====================================================
    AGREGAR PRODUCTO
 ===================================================== */
 
 function agregarProducto(id){
 
     const producto = productos[id];
+
+    if(!producto){
+        return;
+    }
 
     const existente =
     carrito.find(
@@ -2437,8 +2818,6 @@ function agregarProducto(id){
             precio:producto.precio,
 
             icono:producto.icono,
-
-            imagen:producto.imagen,
 
             cantidad:1
 
@@ -2477,8 +2856,7 @@ function actualizarCarrito(){
 
     carrito.forEach(item =>{
 
-        cantidadTotal +=
-        item.cantidad;
+        cantidadTotal += item.cantidad;
 
         total +=
         item.precio *
@@ -2535,51 +2913,41 @@ function actualizarCarrito(){
         div.innerHTML = `
 
         <div class="cart-item-icon">
-
-            <img
-            src="${item.imagen}"
-            alt="${item.nombre}"
-            onerror="this.style.display='none'; this.parentElement.textContent='${item.icono}'"
-            >
-
+        ${item.icono}
         </div>
 
 
         <div>
 
-            <div class="cart-item-name">
-
-            ${item.nombre}
-
-            </div>
+        <div class="cart-item-name">
+        ${item.nombre}
+        </div>
 
 
-            <div class="cart-item-price">
-
-            S/ ${item.precio.toFixed(2)}
-
-            </div>
+        <div class="cart-item-price">
+        S/ ${item.precio.toFixed(2)}
+        </div>
 
 
-            <div class="quantity">
+        <div class="quantity">
 
-                <button
-                onclick="cambiarCantidad(${item.id},-1)"
-                >
-                −
-                </button>
+        <button
+        onclick="cambiarCantidad(${item.id},-1)"
+        >
+        −
+        </button>
 
-                <span>
-                ${item.cantidad}
-                </span>
+        <span>
+        ${item.cantidad}
+        </span>
 
-                <button
-                onclick="cambiarCantidad(${item.id},1)"
-                >
-                +
-                </button>
+        <button
+        onclick="cambiarCantidad(${item.id},1)"
+        >
+        +
+        </button>
 
-            </div>
+        </div>
 
         </div>
 
@@ -2588,9 +2956,7 @@ function actualizarCarrito(){
         class="remove-item"
         onclick="eliminarProducto(${item.id})"
         >
-
         🗑️
-
         </button>
 
         `;
@@ -2615,7 +2981,9 @@ function cambiarCantidad(id,cambio){
     );
 
 
-    if(!item) return;
+    if(!item){
+        return;
+    }
 
 
     item.cantidad += cambio;
@@ -2637,7 +3005,7 @@ function cambiarCantidad(id,cambio){
 
 
 /* =====================================================
-   ELIMINAR PRODUCTO
+   ELIMINAR
 ===================================================== */
 
 function eliminarProducto(id){
@@ -2692,7 +3060,315 @@ function cerrarCarrito(event){
 
 
 /* =====================================================
-   PEDIDO POR WHATSAPP
+   ABRIR DATOS CLIENTE
+===================================================== */
+
+function abrirDatosCliente(){
+
+    if(carrito.length === 0){
+
+        alert(
+        "Tu carrito está vacío. Agrega algún producto primero."
+        );
+
+        return;
+    }
+
+
+    document
+    .getElementById("cart-overlay")
+    .classList
+    .remove("active");
+
+
+    document
+    .getElementById("customer-overlay")
+    .classList
+    .add("active");
+
+}
+
+
+/* =====================================================
+   CERRAR DATOS CLIENTE
+===================================================== */
+
+function cerrarDatosCliente(event){
+
+    if(
+        event &&
+        event.target !==
+        document.getElementById("customer-overlay")
+    ){
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("customer-overlay")
+    .classList
+    .remove("active");
+
+}
+
+
+/* =====================================================
+   MOSTRAR RESUMEN
+===================================================== */
+
+function mostrarResumen(){
+
+    const nombre =
+    document
+    .getElementById("cliente-nombre")
+    .value
+    .trim();
+
+
+    const celular =
+    document
+    .getElementById("cliente-celular")
+    .value
+    .trim();
+
+
+    const direccion =
+    document
+    .getElementById("cliente-direccion")
+    .value
+    .trim();
+
+
+    const referencia =
+    document
+    .getElementById("cliente-referencia")
+    .value
+    .trim();
+
+
+    const entrega =
+    document
+    .getElementById("cliente-entrega")
+    .value;
+
+
+    if(!nombre){
+
+        alert(
+        "Por favor ingresa tu nombre."
+        );
+
+        return;
+    }
+
+
+    if(!celular){
+
+        alert(
+        "Por favor ingresa tu número de celular."
+        );
+
+        return;
+    }
+
+
+    if(!direccion){
+
+        alert(
+        "Por favor ingresa tu dirección de entrega."
+        );
+
+        return;
+    }
+
+
+    datosCliente = {
+
+        nombre:nombre,
+
+        celular:celular,
+
+        direccion:direccion,
+
+        referencia:referencia,
+
+        entrega:entrega
+
+    };
+
+
+    generarResumen();
+
+
+    document
+    .getElementById("customer-overlay")
+    .classList
+    .remove("active");
+
+
+    document
+    .getElementById("summary-overlay")
+    .classList
+    .add("active");
+
+}
+
+
+/* =====================================================
+   GENERAR RESUMEN
+===================================================== */
+
+function generarResumen(){
+
+    const productsContainer =
+    document.getElementById("summary-products");
+
+    const customerContainer =
+    document.getElementById("customer-summary");
+
+    const totalElement =
+    document.getElementById("summary-total");
+
+
+    let total = 0;
+
+
+    productsContainer.innerHTML = "";
+
+
+    carrito.forEach(item =>{
+
+        const subtotal =
+        item.precio *
+        item.cantidad;
+
+
+        total += subtotal;
+
+
+        const div =
+        document.createElement("div");
+
+
+        div.className =
+        "summary-product";
+
+
+        div.innerHTML = `
+
+        <div>
+
+        <div class="summary-product-name">
+        ${item.nombre}
+        </div>
+
+        <div class="summary-product-detail">
+        ${item.cantidad} × S/ ${item.precio.toFixed(2)}
+        </div>
+
+        </div>
+
+
+        <div class="summary-product-total">
+        S/ ${subtotal.toFixed(2)}
+        </div>
+
+        `;
+
+
+        productsContainer.appendChild(div);
+
+    });
+
+
+    customerContainer.innerHTML = `
+
+    <strong>👤 Cliente:</strong>
+    ${datosCliente.nombre}
+
+    <br>
+
+    <strong>📱 Celular:</strong>
+    ${datosCliente.celular}
+
+    <br>
+
+    <strong>📍 Dirección:</strong>
+    ${datosCliente.direccion}
+
+    ${
+        datosCliente.referencia
+        ?
+        `<br><strong>📝 Referencia:</strong>
+        ${datosCliente.referencia}`
+        :
+        ""
+    }
+
+    <br>
+
+    <strong>🚚 Entrega:</strong>
+    ${datosCliente.entrega}
+
+    `;
+
+
+    totalElement.textContent =
+    "S/ " +
+    total.toFixed(2);
+
+}
+
+
+/* =====================================================
+   VOLVER A DATOS
+===================================================== */
+
+function volverDatosCliente(){
+
+    document
+    .getElementById("summary-overlay")
+    .classList
+    .remove("active");
+
+
+    document
+    .getElementById("customer-overlay")
+    .classList
+    .add("active");
+
+}
+
+
+/* =====================================================
+   CERRAR RESUMEN
+===================================================== */
+
+function cerrarResumen(event){
+
+    if(
+        event &&
+        event.target !==
+        document.getElementById("summary-overlay")
+    ){
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("summary-overlay")
+    .classList
+    .remove("active");
+
+}
+
+
+/* =====================================================
+   PEDIR POR WHATSAPP
 ===================================================== */
 
 function pedirWhatsApp(){
@@ -2708,10 +3384,11 @@ function pedirWhatsApp(){
 
 
     let mensaje =
-    "Hola DESTÁPALA 👋%0A%0A";
+    "Hola DESTÁPALA 👋\n\n";
+
 
     mensaje +=
-    "Quiero realizar el siguiente pedido:%0A%0A";
+    "Quiero realizar el siguiente pedido:\n\n";
 
 
     let total = 0;
@@ -2734,20 +3411,53 @@ function pedirWhatsApp(){
         item.cantidad +
         " - S/ " +
         subtotal.toFixed(2) +
-        "%0A";
+        "\n";
 
     });
 
 
     mensaje +=
-    "%0A*Total: S/ " +
+    "\n*Total productos: S/ " +
     total.toFixed(2) +
-    "*";
+    "*\n";
+
+
+    mensaje +=
+    "\n👤 *Datos del cliente*";
+
+
+    mensaje +=
+    "\nNombre: " +
+    datosCliente.nombre;
+
+
+    mensaje +=
+    "\nCelular: " +
+    datosCliente.celular;
+
+
+    mensaje +=
+    "\nDirección: " +
+    datosCliente.direccion;
+
+
+    if(datosCliente.referencia){
+
+        mensaje +=
+        "\nReferencia: " +
+        datosCliente.referencia;
+
+    }
+
+
+    mensaje +=
+    "\nEntrega: " +
+    datosCliente.entrega;
 
 
     const url =
     "https://wa.me/51979726473?text=" +
-    mensaje;
+    encodeURIComponent(mensaje);
 
 
     window.open(
