@@ -1,188 +1,2983 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DESTÁPALA | Licorería</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--gold:#B58A3A;--gold-light:#D6B56A;--black:#171717;--gray:#6F6F6F;--light:#F7F5F1;--white:#fff}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--black);background:#fff}a{text-decoration:none;color:inherit}button{font-family:inherit}
-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid #eee}
-.header-container{max-width:1250px;margin:auto;height:82px;padding:0 30px;display:flex;align-items:center;justify-content:space-between}
-.logo,.footer-logo{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:3px}.logo{font-size:32px}.logo span,.footer-logo span{color:var(--gold)}
-nav{display:flex;gap:30px;align-items:center}nav a{font-size:14px;font-weight:600;transition:.3s}nav a:hover{color:var(--gold)}
-.cart{border:1px solid var(--gold);padding:10px 16px;border-radius:30px;color:var(--gold);background:#fff;cursor:pointer;font-weight:700}.cart:hover{background:var(--gold);color:#fff}
-.hero{min-height:650px;display:flex;align-items:center;position:relative;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.45) 48%,rgba(0,0,0,.1)),url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=85') center/cover}
-.hero-content{max-width:1250px;width:100%;margin:auto;padding:70px 30px;color:#fff}.hero-small{color:var(--gold-light);font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:18px}
-.hero h1{font-family:'Playfair Display',serif;font-size:76px;line-height:1;letter-spacing:2px}.hero h1 span{color:var(--gold-light)}.hero p{margin-top:25px;font-size:20px;max-width:520px;line-height:1.6}
-.hero-buttons{display:flex;gap:15px;margin-top:35px;flex-wrap:wrap}.btn{padding:14px 28px;border-radius:30px;font-weight:700;transition:.3s;display:inline-block;border:none;cursor:pointer}.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:#977126;transform:translateY(-2px)}.btn-outline{border:1px solid #fff;color:#fff}.btn-outline:hover{background:#fff;color:var(--black)}
-.section{max-width:1250px;margin:auto;padding:80px 30px}.section-header{text-align:center;margin-bottom:45px}.section-label{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:700}.section-title{font-family:'Playfair Display',serif;font-size:42px;margin-top:10px}.section-description{color:var(--gray);max-width:600px;margin:15px auto 0}
-.category-title{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:25px}.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:65px}
-.category-card{min-height:170px;border:1px solid #e8e4dd;border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#fff;transition:.3s;cursor:pointer;position:relative;overflow:hidden}.category-card::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transition:.3s}.category-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(0,0,0,.08)}.category-card:hover::after{transform:scaleX(1)}.category-icon{font-size:42px;margin-bottom:15px}.category-name{font-weight:700;font-size:16px}.category-sub{color:var(--gray);font-size:12px;margin-top:5px}
-.products{background:var(--light)}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.product-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #e8e4dd;transition:.3s}.product-card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,.1)}
-.product-image{width:100%;height:280px;background:#f7f5f1;display:flex;align-items:center;justify-content:center;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:15px}.product-emoji{font-size:90px}
-.product-info{padding:20px}.product-category{color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}.product-name{font-family:'Playfair Display',serif;font-size:20px;margin-top:8px;min-height:52px}.product-description{color:var(--gray);font-size:13px;margin-top:5px;min-height:35px}.product-price{font-size:21px;font-weight:700;margin-top:15px}.product-button{width:100%;margin-top:15px;padding:12px;border:none;border-radius:25px;background:var(--gold);color:#fff;font-weight:700;cursor:pointer;transition:.3s}.product-button:hover{background:#977126}
-.promo{background:var(--black);color:#fff;border-radius:22px;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:30px}.promo h2{font-family:'Playfair Display',serif;font-size:38px}.promo p{color:#ccc;margin-top:10px}
-footer{background:#111;color:#fff;padding:55px 30px 25px}.footer-container{max-width:1250px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px}.footer-logo{font-size:30px}footer p{color:#aaa;margin-top:15px;line-height:1.6}.footer-title{font-weight:700;margin-bottom:15px}.footer-links{display:flex;flex-direction:column;gap:10px;color:#aaa;font-size:14px}.footer-links a:hover{color:#fff}
-.social-icons{display:flex;gap:14px;margin-top:18px;align-items:center}.social-icons a{width:42px;height:42px;border:1px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;transition:.3s}.social-icons a:hover{background:#fff;color:#111;transform:translateY(-3px)}.social-icons svg{width:21px;height:21px;fill:currentColor}
-.whatsapp{position:fixed;right:25px;bottom:25px;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,.25);z-index:999;transition:.3s}.whatsapp:hover{transform:scale(1.08)}.whatsapp svg{width:31px;height:31px;fill:#fff}
-.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:3000;padding:20px}.cart-overlay.active{display:flex}.cart-modal{width:100%;max-width:520px;max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:30px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
-.cart-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;padding-bottom:18px}.cart-header h2{font-family:'Playfair Display',serif;font-size:30px}.close-cart{border:none;background:none;font-size:28px;cursor:pointer;color:#555}.cart-items{margin-top:20px}.empty-cart{text-align:center;padding:40px 10px;color:var(--gray)}
-.cart-item{display:grid;grid-template-columns:55px 1fr auto;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid #eee}.cart-item-icon{width:55px;height:55px;border-radius:12px;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:28px}.cart-item-name{font-weight:700;font-size:14px}.cart-item-price{color:var(--gold);font-size:13px;margin-top:4px}.quantity{display:flex;align-items:center;gap:8px;margin-top:7px}.quantity button{width:25px;height:25px;border-radius:50%;border:1px solid #ccc;background:#fff;cursor:pointer}.quantity span{font-weight:700;min-width:18px;text-align:center}.remove-item{border:none;background:none;color:#999;cursor:pointer;font-size:18px}.cart-total{display:flex;justify-content:space-between;font-size:20px;font-weight:700;margin-top:25px;padding-top:20px;border-top:1px solid #ddd}.whatsapp-order{width:100%;margin-top:20px;padding:15px;border:none;border-radius:30px;background:#25D366;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
-@media(max-width:1000px){.product-grid{grid-template-columns:repeat(3,1fr)}.footer-container{grid-template-columns:repeat(2,1fr)}}@media(max-width:900px){nav{gap:15px}.category-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:58px}}@media(max-width:700px){.product-grid{grid-template-columns:repeat(2,1fr)}.footer-container{grid-template-columns:1fr}}@media(max-width:600px){.header-container{height:70px;padding:0 18px}.logo{font-size:24px}nav a:not(.cart){display:none}.hero{min-height:600px}.hero-content{padding:50px 20px}.hero h1{font-size:48px}.hero p{font-size:17px}.section{padding:60px 20px}.section-title{font-size:34px}.category-grid{grid-template-columns:repeat(2,1fr);gap:12px}.category-card{min-height:145px}.product-grid{grid-template-columns:1fr}.promo{padding:35px 25px;flex-direction:column;align-items:flex-start}.cart{padding:9px 12px;font-size:13px}}
+
+/* =====================================================
+   IDENTIDAD DESTÁPALA
+===================================================== */
+
+:root{
+    --yellow:#F4C542;
+    --yellow-dark:#D9A900;
+    --black:#111111;
+    --black-soft:#1C1C1C;
+    --gray:#6F6F6F;
+    --gray-light:#F6F6F4;
+    --border:#E8E8E5;
+    --white:#FFFFFF;
+}
+
+
+/* =====================================================
+   BASE
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    color:var(--black);
+    background:var(--white);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid #eeeeee;
+}
+
+.header-container{
+    max-width:1250px;
+    margin:auto;
+
+    min-height:88px;
+
+    padding:12px 30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+
+/* LOGO REAL */
+
+.logo{
+    display:flex;
+    align-items:center;
+
+    flex-shrink:0;
+}
+
+.logo img{
+    width:205px;
+    height:auto;
+
+    display:block;
+
+    object-fit:contain;
+}
+
+
+/* NAVEGACIÓN */
+
+nav{
+    display:flex;
+    gap:30px;
+
+    align-items:center;
+}
+
+nav a{
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--yellow-dark);
+}
+
+
+/* =====================================================
+   CARRITO HEADER
+===================================================== */
+
+.cart{
+    border:1px solid var(--black);
+
+    padding:10px 17px;
+
+    border-radius:30px;
+
+    color:var(--black);
+
+    background:white;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.cart:hover{
+    background:var(--black);
+
+    color:white;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:650px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.82) 0%,
+        rgba(0,0,0,.58) 48%,
+        rgba(0,0,0,.18) 100%
+    ),
+
+    url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+}
+
+.hero-content{
+    max-width:1250px;
+
+    width:100%;
+
+    margin:auto;
+
+    padding:70px 30px;
+
+    color:white;
+}
+
+.hero-small{
+    color:var(--yellow);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+
+    font-size:76px;
+
+    line-height:1;
+
+    letter-spacing:2px;
+}
+
+.hero h1 span{
+    color:var(--yellow);
+}
+
+.hero p{
+    margin-top:25px;
+
+    font-size:20px;
+
+    max-width:520px;
+
+    line-height:1.6;
+}
+
+.hero-buttons{
+    display:flex;
+
+    gap:15px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.btn{
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    display:inline-block;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.btn-yellow{
+    background:var(--yellow);
+
+    color:var(--black);
+}
+
+.btn-yellow:hover{
+    background:var(--yellow-dark);
+
+    transform:translateY(-2px);
+}
+
+.btn-outline{
+    border:1px solid white;
+
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+
+    color:var(--black);
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.section{
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:80px 30px;
+}
+
+.section-header{
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+.section-label{
+    color:var(--yellow-dark);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.section-title{
+    font-family:'Playfair Display',serif;
+
+    font-size:42px;
+
+    margin-top:10px;
+}
+
+.section-description{
+    color:var(--gray);
+
+    max-width:600px;
+
+    margin:15px auto 0;
+}
+
+
+/* =====================================================
+   CATEGORÍAS
+===================================================== */
+
+.category-title{
+    font-family:'Playfair Display',serif;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+}
+
+.category-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+
+    margin-bottom:65px;
+}
+
+.category-card{
+    min-height:170px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:white;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.category-card::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--yellow);
+
+    transform:scaleX(0);
+
+    transition:.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.08);
+}
+
+.category-card:hover::after{
+    transform:scaleX(1);
+}
+
+.category-icon{
+    font-size:42px;
+
+    margin-bottom:15px;
+}
+
+.category-name{
+    font-weight:700;
+
+    font-size:16px;
+}
+
+.category-sub{
+    color:var(--gray);
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+
+/* =====================================================
+   PRODUCTOS
+===================================================== */
+
+.products{
+    background:var(--gray-light);
+}
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:22px;
+}
+
+.product-card{
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.10);
+}
+
+
+/* =====================================================
+   IMÁGENES
+===================================================== */
+
+.product-image{
+    width:100%;
+
+    height:280px;
+
+    background:#FAFAF8;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    display:block;
+
+    padding:15px;
+}
+
+.product-emoji{
+    font-size:90px;
+}
+
+
+/* =====================================================
+   INFORMACIÓN PRODUCTO
+===================================================== */
+
+.product-info{
+    padding:20px;
+}
+
+.product-category{
+    color:var(--yellow-dark);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+}
+
+.product-name{
+    font-family:'Playfair Display',serif;
+
+    font-size:20px;
+
+    margin-top:8px;
+
+    min-height:52px;
+}
+
+.product-description{
+    color:var(--gray);
+
+    font-size:13px;
+
+    margin-top:5px;
+
+    min-height:35px;
+}
+
+.product-price{
+    font-size:21px;
+
+    font-weight:700;
+
+    margin-top:15px;
+}
+
+.product-button{
+    width:100%;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:var(--black);
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.product-button:hover{
+    background:var(--yellow);
+
+    color:var(--black);
+}
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
+.product-filters{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:35px;
+}
+
+.filter-button{
+    border:1px solid #D8D8D4;
+
+    background:white;
+
+    color:var(--black);
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.filter-button:hover{
+    border-color:var(--yellow);
+
+    background:#FFF9DF;
+}
+
+.filter-button.active{
+    background:var(--black);
+
+    color:white;
+
+    border-color:var(--black);
+}
+
+.filter-result{
+    text-align:center;
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    margin-top:-20px;
+
+    margin-bottom:25px;
+}
+
+
+/* =====================================================
+   SIN PRODUCTOS
+===================================================== */
+
+.no-products{
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:var(--gray);
+}
+
+
+/* =====================================================
+   PROMOCIONES
+===================================================== */
+
+.promo{
+    background:var(--black);
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.promo h2{
+    font-family:'Playfair Display',serif;
+
+    font-size:38px;
+}
+
+.promo p{
+    color:#ccc;
+
+    margin-top:10px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:#111;
+
+    color:white;
+
+    padding:55px 30px 25px;
+}
+
+.footer-container{
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:50px;
+}
+
+
+/* LOGO FOOTER */
+
+.footer-logo img{
+    width:190px;
+
+    height:auto;
+
+    display:block;
+
+    background:white;
+
+    padding:8px;
+
+    border-radius:6px;
+}
+
+footer p{
+    color:#aaa;
+
+    margin-top:15px;
+
+    line-height:1.6;
+}
+
+.footer-title{
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    color:#aaa;
+
+    font-size:14px;
+}
+
+.footer-links a:hover{
+    color:var(--yellow);
+}
+
+
+/* =====================================================
+   REDES SOCIALES
+===================================================== */
+
+.social-icons{
+    display:flex;
+
+    gap:14px;
+
+    margin-top:18px;
+
+    align-items:center;
+}
+
+.social-icons a{
+    width:42px;
+
+    height:42px;
+
+    border:1px solid #555;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:var(--yellow);
+
+    color:var(--black);
+
+    border-color:var(--yellow);
+
+    transform:translateY(-3px);
+}
+
+.social-icons svg{
+    width:21px;
+
+    height:21px;
+
+    fill:currentColor;
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.25);
+
+    z-index:999;
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.08);
+}
+
+.whatsapp svg{
+    width:31px;
+
+    height:31px;
+
+    fill:white;
+}
+
+
+/* =====================================================
+   MODAL CARRITO
+===================================================== */
+
+.cart-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:3000;
+
+    padding:20px;
+}
+
+.cart-overlay.active{
+    display:flex;
+}
+
+.cart-modal{
+    width:100%;
+
+    max-width:520px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 25px 70px
+    rgba(0,0,0,.25);
+}
+
+.cart-header{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid #eee;
+
+    padding-bottom:18px;
+}
+
+.cart-header h2{
+    font-family:'Playfair Display',serif;
+
+    font-size:30px;
+}
+
+.close-cart{
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#555;
+}
+
+.cart-items{
+    margin-top:20px;
+}
+
+.empty-cart{
+    text-align:center;
+
+    padding:40px 10px;
+
+    color:var(--gray);
+}
+
+.cart-item{
+    display:grid;
+
+    grid-template-columns:
+    55px 1fr auto;
+
+    gap:12px;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.cart-item-icon{
+    width:55px;
+
+    height:55px;
+
+    border-radius:12px;
+
+    background:var(--gray-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+}
+
+.cart-item-name{
+    font-weight:700;
+
+    font-size:14px;
+}
+
+.cart-item-price{
+    color:var(--yellow-dark);
+
+    font-size:13px;
+
+    margin-top:4px;
+}
+
+.quantity{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:7px;
+}
+
+.quantity button{
+    width:25px;
+
+    height:25px;
+
+    border-radius:50%;
+
+    border:1px solid #ccc;
+
+    background:white;
+
+    cursor:pointer;
+}
+
+.quantity span{
+    font-weight:700;
+
+    min-width:18px;
+
+    text-align:center;
+}
+
+.remove-item{
+    border:none;
+
+    background:none;
+
+    color:#999;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+.cart-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-top:25px;
+
+    padding-top:20px;
+
+    border-top:1px solid #ddd;
+}
+
+.whatsapp-order{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#25D366;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .product-grid{
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+
+    .footer-container{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:900px){
+
+    nav{
+        gap:15px;
+    }
+
+    .category-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .product-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header-container{
+        min-height:70px;
+
+        padding:10px 18px;
+    }
+
+    .logo img{
+        width:145px;
+    }
+
+    nav a:not(.cart){
+        display:none;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-content{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section{
+        padding:60px 20px;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .category-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .category-card{
+        min-height:145px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:300px;
+    }
+
+    .product-filters{
+        gap:8px;
+    }
+
+    .filter-button{
+        padding:9px 13px;
+
+        font-size:12px;
+    }
+
+    .promo{
+        padding:35px 25px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .cart{
+        padding:9px 12px;
+
+        font-size:13px;
+    }
+
+}
+
+
+/* =====================================================
+   LOGO FOOTER RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    .footer-logo img{
+        width:165px;
+    }
+
+}
+
 </style>
+
 </head>
+
+
 <body>
 
-<header><div class="header-container">
-<a href="#inicio" class="logo">DESTÁP<span>ALA</span></a>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="header-container">
+
+
+<a href="#inicio" class="logo">
+
+<img
+src="imagenes/logo-destapala.png"
+alt="DESTÁPALA Licorería"
+>
+
+</a>
+
+
 <nav>
-<a href="#inicio">Inicio</a><a href="#categorias">Categorías</a><a href="#productos">Productos</a><a href="#promociones">Promociones</a><a href="#contacto">Contacto</a>
-<button class="cart" onclick="abrirCarrito()">🛒 Carrito <span id="cart-count">0</span></button>
-</nav></div></header>
 
-<section class="hero" id="inicio"><div class="hero-content">
-<div class="hero-small">LICORERÍA · DELIVERY · EXPERIENCIAS</div>
-<h1>SALUD POR TI,<br>POR MÍ Y... <span>¡DESTÁPALA!</span></h1>
-<p>Descubre licores, bebidas y complementos seleccionados para cada momento.</p>
-<div class="hero-buttons"><a href="#categorias" class="btn btn-gold">VER CATEGORÍAS</a><a href="#promociones" class="btn btn-outline">VER PROMOCIONES</a></div>
-</div></section>
+<a href="#inicio">
+Inicio
+</a>
 
-<section class="section" id="categorias"><div class="section-header">
-<div class="section-label">DESCUBRE DESTÁPALA</div><h2 class="section-title">Nuestras categorías</h2>
-<p class="section-description">Todo lo que necesitas para disfrutar, compartir y celebrar.</p></div>
+<a href="#categorias">
+Categorías
+</a>
 
-<h3 class="category-title">🍾 Licores</h3>
-<div class="category-grid">
-<div class="category-card"><div class="category-icon">🥃</div><div class="category-name">Whisky</div><div class="category-sub">Clásicos y premium</div></div>
-<div class="category-card"><div class="category-icon">🍹</div><div class="category-name">Ron</div><div class="category-sub">Para cada ocasión</div></div>
-<div class="category-card"><div class="category-icon">🍸</div><div class="category-name">Vodka</div><div class="category-sub">Marcas seleccionadas</div></div>
-<div class="category-card"><div class="category-icon">🍷</div><div class="category-name">Vinos</div><div class="category-sub">Tintos, blancos y más</div></div>
-<div class="category-card"><div class="category-icon">🍇</div><div class="category-name">Piscos</div><div class="category-sub">Orgullo peruano</div></div>
-<div class="category-card"><div class="category-icon">🍺</div><div class="category-name">Cervezas</div><div class="category-sub">Botellas, latas y packs</div></div>
-<div class="category-card"><div class="category-icon">🍹</div><div class="category-name">Listos para tomar</div><div class="category-sub">Mike's y otras opciones</div></div>
+<a href="#productos">
+Productos
+</a>
+
+<a href="#promociones">
+Promociones
+</a>
+
+<a href="#contacto">
+Contacto
+</a>
+
+
+<button
+class="cart"
+onclick="abrirCarrito()"
+>
+
+🛒 Carrito
+<span id="cart-count">0</span>
+
+</button>
+
+</nav>
+
 </div>
 
-<h3 class="category-title">🥤 Complementos</h3>
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+class="hero"
+id="inicio"
+>
+
+<div class="hero-content">
+
+<div class="hero-small">
+
+LICORERÍA · DELIVERY · EXPERIENCIAS
+
+</div>
+
+
+<h1>
+
+SALUD POR TI,<br>
+
+POR MÍ Y... <span>¡DESTÁPALA!</span>
+
+</h1>
+
+
+<p>
+
+Descubre licores, bebidas y complementos seleccionados para cada momento.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+href="#categorias"
+class="btn btn-yellow"
+>
+
+VER CATEGORÍAS
+
+</a>
+
+
+<a
+href="#promociones"
+class="btn btn-outline"
+>
+
+VER PROMOCIONES
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORÍAS
+===================================================== -->
+
+<section
+class="section"
+id="categorias"
+>
+
+<div class="section-header">
+
+<div class="section-label">
+DESCUBRE DESTÁPALA
+</div>
+
+<h2 class="section-title">
+Nuestras categorías
+</h2>
+
+<p class="section-description">
+
+Todo lo que necesitas para disfrutar,
+compartir y celebrar.
+
+</p>
+
+</div>
+
+
+<h3 class="category-title">
+🍾 Licores
+</h3>
+
+
 <div class="category-grid">
-<div class="category-card"><div class="category-icon">🥤</div><div class="category-name">Bebidas</div><div class="category-sub">Agua, gaseosas y energizantes</div></div>
-<div class="category-card"><div class="category-icon">🚬</div><div class="category-name">Cigarros</div><div class="category-sub">Productos disponibles</div></div>
-<div class="category-card"><div class="category-icon">🍬</div><div class="category-name">Chicles</div><div class="category-sub">Para acompañar</div></div>
-<div class="category-card"><div class="category-icon">🔥</div><div class="category-name">Promociones</div><div class="category-sub">Combos y ofertas especiales</div></div>
-</div></section>
 
-<section class="products" id="productos"><div class="section">
-<div class="section-header"><div class="section-label">CATÁLOGO DESTÁPALA</div><h2 class="section-title">Nuestros productos</h2><p class="section-description">Productos seleccionados para comenzar tu experiencia DESTÁPALA.</p></div>
-<div class="product-grid" id="product-grid"></div>
-</div></section>
 
-<section class="section" id="promociones"><div class="promo"><div><div class="section-label">DESTÁPALA</div><h2>Promociones y combos</h2><p>Próximamente encontrarás combos especiales para celebrar y compartir.</p></div><a href="#productos" class="btn btn-gold">EXPLORAR</a></div></section>
+<div
+class="category-card"
+onclick="filtrarCategoria('Whisky')"
+>
 
-<footer id="contacto"><div class="footer-container">
-<div><div class="footer-logo">DESTÁP<span>ALA</span></div><p>Salud por ti, por mí y... ¡Destápala!<br>Tu licorería para cada momento.</p></div>
-<div><div class="footer-title">DESTÁPALA</div><div class="footer-links"><a href="#inicio">Inicio</a><a href="#categorias">Categorías</a><a href="#productos">Productos</a><a href="#promociones">Promociones</a></div></div>
-<div><div class="footer-title">Categorías</div><div class="footer-links"><span>Whisky</span><span>Ron</span><span>Vinos</span><span>Piscos</span><span>Cervezas</span><span>Listos para tomar</span><span>Bebidas</span><span>Cigarros</span></div></div>
-<div><div class="footer-title">SÍGUENOS</div><div class="social-icons">
-<a href="https://www.instagram.com/licoreriadestapala.08/" target="_blank" rel="noopener noreferrer" title="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" stroke="none"/></svg></a>
-<a href="https://www.facebook.com/share/1HbFzfAc2t/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" title="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v6h4v-6h3.2l.8-4H13V9c0-.7.3-1 1-1z"/></svg></a>
-<a href="https://www.tiktok.com/@licoreriadestapala.08" target="_blank" rel="noopener noreferrer" title="TikTok"><svg viewBox="0 0 24 24"><path d="M16 3c.5 2.5 2 4 4 4v3c-1.5 0-2.8-.4-4-1.1V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1c-.3-.1-.6-.2-1-.2a3 3 0 1 0 3 3V3h3z"/></svg></a>
-<a href="https://wa.me/51979726473" target="_blank" rel="noopener noreferrer" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
-</div></div></div>
-<div style="max-width:1250px;margin:30px auto 0;color:#777;font-size:13px">© 2026 DESTÁPALA · Todos los derechos reservados</div>
+<div class="category-icon">
+🥃
+</div>
+
+<div class="category-name">
+Whisky
+</div>
+
+<div class="category-sub">
+Clásicos y premium
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Ron')"
+>
+
+<div class="category-icon">
+🍹
+</div>
+
+<div class="category-name">
+Ron
+</div>
+
+<div class="category-sub">
+Para cada ocasión
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Vodka')"
+>
+
+<div class="category-icon">
+🍸
+</div>
+
+<div class="category-name">
+Vodka
+</div>
+
+<div class="category-sub">
+Marcas seleccionadas
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Vinos')"
+>
+
+<div class="category-icon">
+🍷
+</div>
+
+<div class="category-name">
+Vinos
+</div>
+
+<div class="category-sub">
+Tintos, blancos y más
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Pisco')"
+>
+
+<div class="category-icon">
+🍇
+</div>
+
+<div class="category-name">
+Piscos
+</div>
+
+<div class="category-sub">
+Orgullo peruano
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Cervezas')"
+>
+
+<div class="category-icon">
+🍺
+</div>
+
+<div class="category-name">
+Cervezas
+</div>
+
+<div class="category-sub">
+Botellas, latas y packs
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Listos para tomar')"
+>
+
+<div class="category-icon">
+🍹
+</div>
+
+<div class="category-name">
+Listos para tomar
+</div>
+
+<div class="category-sub">
+Mike's y otras opciones
+</div>
+
+</div>
+
+
+</div>
+
+
+<h3 class="category-title">
+🥤 Complementos
+</h3>
+
+
+<div class="category-grid">
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Bebidas')"
+>
+
+<div class="category-icon">
+🥤
+</div>
+
+<div class="category-name">
+Bebidas
+</div>
+
+<div class="category-sub">
+Agua, gaseosas y energizantes
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Cigarros')"
+>
+
+<div class="category-icon">
+🚬
+</div>
+
+<div class="category-name">
+Cigarros
+</div>
+
+<div class="category-sub">
+Productos disponibles
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Chicles')"
+>
+
+<div class="category-icon">
+🍬
+</div>
+
+<div class="category-name">
+Chicles
+</div>
+
+<div class="category-sub">
+Para acompañar
+</div>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filtrarCategoria('Promociones')"
+>
+
+<div class="category-icon">
+🔥
+</div>
+
+<div class="category-name">
+Promociones
+</div>
+
+<div class="category-sub">
+Combos y ofertas especiales
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTOS
+===================================================== -->
+
+<section
+class="products"
+id="productos"
+>
+
+<div class="section">
+
+
+<div class="section-header">
+
+<div class="section-label">
+CATÁLOGO DESTÁPALA
+</div>
+
+<h2 class="section-title">
+Nuestros productos
+</h2>
+
+<p class="section-description">
+
+Productos seleccionados para comenzar
+tu experiencia DESTÁPALA.
+
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     FILTROS
+===================================================== -->
+
+<div class="product-filters">
+
+
+<button
+class="filter-button active"
+data-filter="Todos"
+onclick="filtrarCategoria('Todos')"
+>
+Todos
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Whisky"
+onclick="filtrarCategoria('Whisky')"
+>
+Whisky
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Ron"
+onclick="filtrarCategoria('Ron')"
+>
+Ron
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Vodka"
+onclick="filtrarCategoria('Vodka')"
+>
+Vodka
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Pisco"
+onclick="filtrarCategoria('Pisco')"
+>
+Pisco
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Vinos"
+onclick="filtrarCategoria('Vinos')"
+>
+Vinos
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Cervezas"
+onclick="filtrarCategoria('Cervezas')"
+>
+Cervezas
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Listos para tomar"
+onclick="filtrarCategoria('Listos para tomar')"
+>
+Listos para tomar
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Licores"
+onclick="filtrarCategoria('Licores')"
+>
+Licores
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Cigarros"
+onclick="filtrarCategoria('Cigarros')"
+>
+Cigarros
+</button>
+
+
+<button
+class="filter-button"
+data-filter="Chicles"
+onclick="filtrarCategoria('Chicles')"
+>
+Chicles
+</button>
+
+
+</div>
+
+
+<div
+class="filter-result"
+id="filter-result"
+>
+Mostrando todos los productos
+</div>
+
+
+<div
+class="product-grid"
+id="product-grid"
+>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROMOCIONES
+===================================================== -->
+
+<section
+class="section"
+id="promociones"
+>
+
+<div class="promo">
+
+<div>
+
+<div class="section-label">
+DESTÁPALA
+</div>
+
+<h2>
+Promociones y combos
+</h2>
+
+<p>
+Próximamente encontrarás combos especiales
+para celebrar y compartir.
+</p>
+
+</div>
+
+
+<a
+href="#productos"
+class="btn btn-yellow"
+>
+
+EXPLORAR
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer
+id="contacto"
+>
+
+
+<div class="footer-container">
+
+
+<div>
+
+<div class="footer-logo">
+
+<img
+src="imagenes/logo-destapala.png"
+alt="DESTÁPALA Licorería"
+>
+
+</div>
+
+
+<p>
+
+Salud por ti, por mí y... ¡Destápala!
+
+<br>
+
+Tu licorería para cada momento.
+
+</p>
+
+</div>
+
+
+
+<div>
+
+<div class="footer-title">
+DESTÁPALA
+</div>
+
+<div class="footer-links">
+
+<a href="#inicio">
+Inicio
+</a>
+
+<a href="#categorias">
+Categorías
+</a>
+
+<a href="#productos">
+Productos
+</a>
+
+<a href="#promociones">
+Promociones
+</a>
+
+</div>
+
+</div>
+
+
+
+<div>
+
+<div class="footer-title">
+Categorías
+</div>
+
+<div class="footer-links">
+
+<span>Whisky</span>
+
+<span>Ron</span>
+
+<span>Vinos</span>
+
+<span>Piscos</span>
+
+<span>Cervezas</span>
+
+<span>Listos para tomar</span>
+
+<span>Bebidas</span>
+
+<span>Cigarros</span>
+
+<span>Chicles</span>
+
+</div>
+
+</div>
+
+
+
+<div>
+
+<div class="footer-title">
+SÍGUENOS
+</div>
+
+
+<div class="social-icons">
+
+
+<!-- INSTAGRAM -->
+
+<a
+href="https://www.instagram.com/licoreriadestapala.08/"
+target="_blank"
+rel="noopener noreferrer"
+title="Instagram"
+>
+
+<svg viewBox="0 0 24 24">
+
+<rect
+x="3"
+y="3"
+width="18"
+height="18"
+rx="5"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+/>
+
+<circle
+cx="12"
+cy="12"
+r="4"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+/>
+
+<circle
+cx="17.5"
+cy="6.5"
+r="1"
+stroke="none"
+/>
+
+</svg>
+
+</a>
+
+
+<!-- FACEBOOK -->
+
+<a
+href="https://www.facebook.com/share/1HbFzfAc2t/?mibextid=wwXIfr"
+target="_blank"
+rel="noopener noreferrer"
+title="Facebook"
+>
+
+<svg viewBox="0 0 24 24">
+
+<path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v6h4v-6h3.2l.8-4H13V9c0-.7.3-1 1-1z"/>
+
+</svg>
+
+</a>
+
+
+<!-- TIKTOK -->
+
+<a
+href="https://www.tiktok.com/@licoreriadestapala.08"
+target="_blank"
+rel="noopener noreferrer"
+title="TikTok"
+>
+
+<svg viewBox="0 0 24 24">
+
+<path d="M16 3c.5 2.5 2 4 4 4v3c-1.5 0-2.8-.4-4-1.1V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1c-.3-.1-.6-.2-1-.2a3 3 0 1 0 3 3V3h3z"/>
+
+</svg>
+
+</a>
+
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/51979726473"
+target="_blank"
+rel="noopener noreferrer"
+title="WhatsApp"
+>
+
+<svg viewBox="0 0 24 24">
+
+<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/>
+
+</svg>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div
+style="
+max-width:1250px;
+margin:30px auto 0;
+color:#777;
+font-size:13px;
+"
+>
+
+© 2026 DESTÁPALA · Todos los derechos reservados
+
+</div>
+
+
 </footer>
 
-<a class="whatsapp" href="https://wa.me/51979726473?text=Hola%20DEST%C3%81PALA%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" title="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
 
-<div class="cart-overlay" id="cart-overlay" onclick="cerrarCarrito(event)"><div class="cart-modal" onclick="event.stopPropagation()">
-<div class="cart-header"><h2>Mi carrito</h2><button class="close-cart" onclick="cerrarCarrito()">×</button></div>
-<div class="cart-items" id="cart-items"></div>
-<div class="cart-total"><span>Total</span><span id="cart-total">S/ 0.00</span></div>
-<button class="whatsapp-order" onclick="pedirWhatsApp()">💬 PEDIR POR WHATSAPP</button>
-</div></div>
+
+<!-- =====================================================
+     WHATSAPP FLOTANTE
+===================================================== -->
+
+<a
+class="whatsapp"
+href="https://wa.me/51979726473?text=Hola%20DEST%C3%81PALA%2C%20quiero%20hacer%20una%20consulta."
+target="_blank"
+rel="noopener noreferrer"
+title="Escríbenos por WhatsApp"
+>
+
+<svg viewBox="0 0 24 24">
+
+<path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6z"/>
+
+</svg>
+
+</a>
+
+
+
+<!-- =====================================================
+     CARRITO
+===================================================== -->
+
+<div
+class="cart-overlay"
+id="cart-overlay"
+onclick="cerrarCarrito(event)"
+>
+
+<div
+class="cart-modal"
+onclick="event.stopPropagation()"
+>
+
+
+<div class="cart-header">
+
+<h2>
+Mi carrito
+</h2>
+
+<button
+class="close-cart"
+onclick="cerrarCarrito()"
+>
+
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cart-items"
+>
+</div>
+
+
+<div class="cart-total">
+
+<span>
+Total
+</span>
+
+<span id="cart-total">
+S/ 0.00
+</span>
+
+</div>
+
+
+<button
+class="whatsapp-order"
+onclick="pedirWhatsApp()"
+>
+
+💬 PEDIR POR WHATSAPP
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
-const productos=[
-{id:1,nombre:"Ballantine's Finest 700 ml",precio:53,cat:"Whisky",desc:"700 ml",img:"imagenes/ballantines-finest-700ml.jpg",icono:"🥃"},
-{id:2,nombre:"Johnnie Walker Red 750 ml",precio:55,cat:"Whisky",desc:"750 ml",icono:"🥃"},
-{id:3,nombre:"Ron Cartavio Black 1L",precio:32,cat:"Ron",desc:"1 litro",icono:"🍹"},
-{id:4,nombre:"Vodka Russkaya Manzana 750 ml",precio:26,cat:"Vodka",desc:"750 ml",icono:"🍸"},
-{id:5,nombre:"Whisky Something Special 750 ml",precio:58,cat:"Whisky",desc:"750 ml",icono:"🥃"},
-{id:6,nombre:"Ron Flor de Caña 4 años",precio:48,cat:"Ron",desc:"Presentación disponible",icono:"🍹"},
-{id:7,nombre:"Ron Havana Club 700 ml",precio:39,cat:"Ron",desc:"700 ml",icono:"🍹"},
-{id:8,nombre:"Tequila 1800 Reposado 750 ml",precio:120,cat:"Tequila",desc:"750 ml",icono:"🍸"},
-{id:9,nombre:"Pisco Santiago Queirolo Quebranta 700 ml",precio:32,cat:"Pisco",desc:"700 ml",icono:"🍇"},
-{id:10,nombre:"Pisco Tabernero Italia La Botija 700 ml",precio:35,cat:"Pisco",desc:"700 ml",icono:"🍇"},
-{id:11,nombre:"Crema de Pisco Nieto Algarrobina 500 ml",precio:25,cat:"Licores",desc:"500 ml",icono:"🍶"},
-{id:12,nombre:"Crema de Pisco Nieto Coco 500 ml",precio:25,cat:"Licores",desc:"500 ml",icono:"🍶"},
-{id:13,nombre:"Licor Menta 750 ml",precio:20,cat:"Licores",desc:"750 ml",icono:"🍸"},
-{id:14,nombre:"Espumante Especial 750 ml Verde",precio:17,cat:"Espumante",desc:"750 ml",icono:"🍾"},
-{id:15,nombre:"Mike's Maracuyá 355 ml",precio:6.5,cat:"Listos para tomar",desc:"355 ml",icono:"🍹"},
-{id:16,nombre:"Cerveza Pilsen Lata 355 ml",precio:4.5,cat:"Cervezas",desc:"Lata 355 ml",icono:"🍺"},
-{id:17,nombre:"Cerveza Pilsen Botella 630 ml",precio:4.5,cat:"Cervezas",desc:"Botella 630 ml",icono:"🍺"},
-{id:18,nombre:"Cerveza Heineken 330 ml",precio:0,cat:"Cervezas",desc:"330 ml",icono:"🍺"},
-{id:19,nombre:"Cigarro Marlboro",precio:2.5,cat:"Cigarros",desc:"Unidad",icono:"🚬"},
-{id:20,nombre:"Chicle Adams",precio:.25,cat:"Chicles",desc:"Unidad",icono:"🍬"}
+
+
+/* =====================================================
+   PRODUCTOS
+   ESTA ES LA LISTA DE 20 DE LA VERSIÓN ACTUAL
+===================================================== */
+
+const productos = [
+
+{
+    id:1,
+    nombre:"Ballantine's Finest 700 ml",
+    precio:53,
+    cat:"Whisky",
+    desc:"700 ml",
+    img:"imagenes/ballantines-finest-700ml.jpg",
+    icono:"🥃"
+},
+
+{
+    id:2,
+    nombre:"Johnnie Walker Red 750 ml",
+    precio:55,
+    cat:"Whisky",
+    desc:"750 ml",
+    img:"imagenes/johnnie-walker-red-750ml.jpg",
+    icono:"🥃"
+},
+
+{
+    id:3,
+    nombre:"Ron Cartavio Black 1L",
+    precio:32,
+    cat:"Ron",
+    desc:"1 litro",
+    img:"imagenes/ron-cartavio-black-1l.jpg",
+    icono:"🍹"
+},
+
+{
+    id:4,
+    nombre:"Vodka Russkaya Manzana 750 ml",
+    precio:26,
+    cat:"Vodka",
+    desc:"750 ml",
+    img:"imagenes/vodka-russkaya-750ml.jpg",
+    icono:"🍸"
+},
+
+{
+    id:5,
+    nombre:"Whisky Something Special 750 ml",
+    precio:58,
+    cat:"Whisky",
+    desc:"750 ml",
+    icono:"🥃"
+},
+
+{
+    id:6,
+    nombre:"Ron Flor de Caña 4 años",
+    precio:48,
+    cat:"Ron",
+    desc:"Presentación disponible",
+    img:"imagenes/ron-flor-de-cana-4-anos-750ml.jpg",
+    icono:"🍹"
+},
+
+{
+    id:7,
+    nombre:"Ron Havana Club 700 ml",
+    precio:39,
+    cat:"Ron",
+    desc:"700 ml",
+    img:"imagenes/ron-havana-club-700ml.jpg",
+    icono:"🍹"
+},
+
+{
+    id:8,
+    nombre:"Tequila 1800 Reposado 750 ml",
+    precio:120,
+    cat:"Tequila",
+    desc:"750 ml",
+    img:"imagenes/tequila-1800-reposado-750ml.jpg",
+    icono:"🍸"
+},
+
+{
+    id:9,
+    nombre:"Pisco Santiago Queirolo Quebranta 700 ml",
+    precio:32,
+    cat:"Pisco",
+    desc:"700 ml",
+    img:"imagenes/pisco-santiago-queirolo-quebranta-700ml.jpg",
+    icono:"🍇"
+},
+
+{
+    id:10,
+    nombre:"Pisco Tabernero Italia La Botija 700 ml",
+    precio:35,
+    cat:"Pisco",
+    desc:"700 ml",
+    icono:"🍇"
+},
+
+{
+    id:11,
+    nombre:"Crema de Pisco Nieto Algarrobina 500 ml",
+    precio:25,
+    cat:"Licores",
+    desc:"500 ml",
+    icono:"🍶"
+},
+
+{
+    id:12,
+    nombre:"Crema de Pisco Nieto Coco 500 ml",
+    precio:25,
+    cat:"Licores",
+    desc:"500 ml",
+    icono:"🍶"
+},
+
+{
+    id:13,
+    nombre:"Licor Menta 750 ml",
+    precio:20,
+    cat:"Licores",
+    desc:"750 ml",
+    icono:"🍸"
+},
+
+{
+    id:14,
+    nombre:"Espumante Especial 750 ml Verde",
+    precio:17,
+    cat:"Espumante",
+    desc:"750 ml",
+    icono:"🍾"
+},
+
+{
+    id:15,
+    nombre:"Mike's Maracuyá 355 ml",
+    precio:6.5,
+    cat:"Listos para tomar",
+    desc:"355 ml",
+    img:"imagenes/mikes-355ml.jpg",
+    icono:"🍹"
+},
+
+{
+    id:16,
+    nombre:"Cerveza Pilsen Lata 355 ml",
+    precio:4.5,
+    cat:"Cervezas",
+    desc:"Lata 355 ml",
+    icono:"🍺"
+},
+
+{
+    id:17,
+    nombre:"Cerveza Pilsen Botella 630 ml",
+    precio:4.5,
+    cat:"Cervezas",
+    desc:"Botella 630 ml",
+    icono:"🍺"
+},
+
+{
+    id:18,
+    nombre:"Cerveza Heineken 330 ml",
+    precio:0,
+    cat:"Cervezas",
+    desc:"330 ml",
+    icono:"🍺"
+},
+
+{
+    id:19,
+    nombre:"Cigarro Marlboro",
+    precio:2.5,
+    cat:"Cigarros",
+    desc:"Unidad",
+    icono:"🚬"
+},
+
+{
+    id:20,
+    nombre:"Chicle Adams",
+    precio:.25,
+    cat:"Chicles",
+    desc:"Unidad",
+    icono:"🍬"
+}
+
 ];
 
-let carrito=[];
+
+/* =====================================================
+   CARRITO
+===================================================== */
+
+let carrito = [];
+
+let categoriaActual = "Todos";
+
+
+/* =====================================================
+   RENDER PRODUCTOS
+===================================================== */
 
 function renderProductos(){
- const grid=document.getElementById("product-grid");
- grid.innerHTML=productos.map(p=>`
- <div class="product-card">
-  <div class="product-image">
-   ${p.img?`<img src="${p.img}" alt="${p.nombre}">`:`<div class="product-emoji">${p.icono}</div>`}
-  </div>
-  <div class="product-info">
-   <div class="product-category">${p.cat}</div>
-   <div class="product-name">${p.nombre}</div>
-   <div class="product-description">${p.desc}</div>
-   <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
-   <button class="product-button" onclick="agregarProducto(${p.id})">🛒 Agregar al carrito</button>
-  </div>
- </div>`).join("");
+
+    const grid =
+    document.getElementById("product-grid");
+
+    const resultado =
+    document.getElementById("filter-result");
+
+
+    let lista;
+
+
+    if(categoriaActual === "Todos"){
+
+        lista = productos;
+
+        resultado.textContent =
+        "Mostrando todos los productos";
+
+    }else{
+
+        lista =
+        productos.filter(
+            p => p.cat === categoriaActual
+        );
+
+        resultado.textContent =
+        "Mostrando " +
+        lista.length +
+        " producto(s) de " +
+        categoriaActual;
+
+    }
+
+
+    if(lista.length === 0){
+
+        grid.innerHTML = `
+
+        <div class="no-products">
+
+            <div style="font-size:45px;">
+                🔎
+            </div>
+
+            <br>
+
+            No encontramos productos
+            en esta categoría.
+
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    grid.innerHTML =
+
+    lista.map(p => `
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                ${
+                    p.img
+
+                    ?
+
+                    `
+                    <img
+                    src="${p.img}"
+                    alt="${p.nombre}"
+                    loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                    >
+
+                    <div
+                    class="product-emoji"
+                    style="display:none;"
+                    >
+                    ${p.icono}
+                    </div>
+                    `
+
+                    :
+
+                    `
+                    <div class="product-emoji">
+                    ${p.icono}
+                    </div>
+                    `
+                }
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-category">
+                ${p.cat}
+                </div>
+
+
+                <div class="product-name">
+                ${p.nombre}
+                </div>
+
+
+                <div class="product-description">
+                ${p.desc}
+                </div>
+
+
+                <div class="product-price">
+
+                ${
+                    p.precio > 0
+
+                    ?
+
+                    "S/ " +
+                    p.precio.toFixed(2)
+
+                    :
+
+                    "Consultar precio"
+                }
+
+                </div>
+
+
+                <button
+                class="product-button"
+                onclick="agregarProducto(${p.id})"
+                >
+
+                🛒 Agregar al carrito
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
 }
 
+
+/* =====================================================
+   FILTRAR CATEGORÍA
+===================================================== */
+
+function filtrarCategoria(categoria){
+
+    categoriaActual =
+    categoria;
+
+
+    document
+    .querySelectorAll(".filter-button")
+    .forEach(btn => {
+
+        btn.classList.toggle(
+            "active",
+            btn.dataset.filter === categoria
+        );
+
+    });
+
+
+    renderProductos();
+
+
+    document
+    .getElementById("productos")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   AGREGAR PRODUCTO
+===================================================== */
+
 function agregarProducto(id){
- const p=productos.find(x=>x.id===id);
- if(!p||p.precio<=0){alert("Este producto tiene precio pendiente de actualizar.");return;}
- const item=carrito.find(x=>x.id===id);
- if(item)item.cantidad++;else carrito.push({...p,cantidad:1});
- actualizarCarrito();abrirCarrito();
+
+    const producto =
+    productos.find(
+        p => p.id === id
+    );
+
+
+    if(!producto){
+
+        return;
+
+    }
+
+
+    if(producto.precio <= 0){
+
+        alert(
+        "Este producto tiene precio pendiente de actualizar."
+        );
+
+        return;
+
+    }
+
+
+    const existente =
+    carrito.find(
+        item => item.id === id
+    );
+
+
+    if(existente){
+
+        existente.cantidad++;
+
+    }else{
+
+        carrito.push({
+
+            ...producto,
+
+            cantidad:1
+
+        });
+
+    }
+
+
+    actualizarCarrito();
+
+    abrirCarrito();
+
 }
+
+
+/* =====================================================
+   ACTUALIZAR CARRITO
+===================================================== */
+
 function actualizarCarrito(){
- const c=document.getElementById("cart-items"),count=document.getElementById("cart-count"),totalEl=document.getElementById("cart-total");
- let total=0,cantidad=0;
- carrito.forEach(i=>{cantidad+=i.cantidad;total+=i.precio*i.cantidad});
- count.textContent=cantidad;totalEl.textContent="S/ "+total.toFixed(2);
- if(!carrito.length){c.innerHTML='<div class="empty-cart">🛒<br><br>Tu carrito está vacío.<br>Agrega tus productos favoritos.</div>';return}
- c.innerHTML=carrito.map(i=>`
- <div class="cart-item">
-  <div class="cart-item-icon">${i.icono}</div>
-  <div><div class="cart-item-name">${i.nombre}</div><div class="cart-item-price">S/ ${i.precio.toFixed(2)}</div>
-  <div class="quantity"><button onclick="cambiarCantidad(${i.id},-1)">−</button><span>${i.cantidad}</span><button onclick="cambiarCantidad(${i.id},1)">+</button></div></div>
-  <button class="remove-item" onclick="eliminarProducto(${i.id})">🗑️</button>
- </div>`).join("");
+
+    const container =
+    document.getElementById("cart-items");
+
+    const contador =
+    document.getElementById("cart-count");
+
+    const totalElement =
+    document.getElementById("cart-total");
+
+
+    let cantidadTotal = 0;
+
+    let total = 0;
+
+
+    carrito.forEach(item => {
+
+        cantidadTotal +=
+        item.cantidad;
+
+        total +=
+        item.precio *
+        item.cantidad;
+
+    });
+
+
+    contador.textContent =
+    cantidadTotal;
+
+
+    totalElement.textContent =
+    "S/ " +
+    total.toFixed(2);
+
+
+    if(carrito.length === 0){
+
+        container.innerHTML = `
+
+        <div class="empty-cart">
+
+            🛒
+
+            <br><br>
+
+            Tu carrito está vacío.
+
+            <br>
+
+            Agrega tus productos favoritos.
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    carrito.forEach(item => {
+
+        const div =
+        document.createElement("div");
+
+
+        div.className =
+        "cart-item";
+
+
+        div.innerHTML = `
+
+        <div class="cart-item-icon">
+
+            ${item.icono}
+
+        </div>
+
+
+        <div>
+
+            <div class="cart-item-name">
+
+                ${item.nombre}
+
+            </div>
+
+
+            <div class="cart-item-price">
+
+                S/ ${item.precio.toFixed(2)}
+
+            </div>
+
+
+            <div class="quantity">
+
+                <button
+                onclick="cambiarCantidad(${item.id},-1)"
+                >
+                −
+                </button>
+
+
+                <span>
+                ${item.cantidad}
+                </span>
+
+
+                <button
+                onclick="cambiarCantidad(${item.id},1)"
+                >
+                +
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button
+        class="remove-item"
+        onclick="eliminarProducto(${item.id})"
+        >
+
+        🗑️
+
+        </button>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
 }
+
+
+/* =====================================================
+   CAMBIAR CANTIDAD
+===================================================== */
+
 function cambiarCantidad(id,cambio){
- const i=carrito.find(x=>x.id===id);if(!i)return;i.cantidad+=cambio;
- if(i.cantidad<=0)carrito=carrito.filter(x=>x.id!==id);actualizarCarrito();
+
+    const item =
+    carrito.find(
+        x => x.id === id
+    );
+
+
+    if(!item){
+
+        return;
+
+    }
+
+
+    item.cantidad +=
+    cambio;
+
+
+    if(item.cantidad <= 0){
+
+        carrito =
+        carrito.filter(
+            x => x.id !== id
+        );
+
+    }
+
+
+    actualizarCarrito();
+
 }
-function eliminarProducto(id){carrito=carrito.filter(x=>x.id!==id);actualizarCarrito()}
-function abrirCarrito(){document.getElementById("cart-overlay").classList.add("active")}
-function cerrarCarrito(e){if(e&&e.target!==document.getElementById("cart-overlay"))return;document.getElementById("cart-overlay").classList.remove("active")}
+
+
+/* =====================================================
+   ELIMINAR
+===================================================== */
+
+function eliminarProducto(id){
+
+    carrito =
+    carrito.filter(
+        item => item.id !== id
+    );
+
+
+    actualizarCarrito();
+
+}
+
+
+/* =====================================================
+   ABRIR CARRITO
+===================================================== */
+
+function abrirCarrito(){
+
+    document
+    .getElementById("cart-overlay")
+    .classList
+    .add("active");
+
+}
+
+
+/* =====================================================
+   CERRAR CARRITO
+===================================================== */
+
+function cerrarCarrito(event){
+
+    if(
+        event &&
+        event.target !==
+        document.getElementById("cart-overlay")
+    ){
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("cart-overlay")
+    .classList
+    .remove("active");
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
 function pedirWhatsApp(){
- if(!carrito.length){alert("Tu carrito está vacío. Agrega algún producto primero.");return}
- let mensaje="Hola DESTÁPALA 👋%0A%0AQuiero realizar el siguiente pedido:%0A%0A",total=0;
- carrito.forEach(i=>{let s=i.precio*i.cantidad;total+=s;mensaje+="• "+i.nombre+" x"+i.cantidad+" - S/ "+s.toFixed(2)+"%0A"});
- mensaje+="%0A*Total: S/ "+total.toFixed(2)+"*";
- window.open("https://wa.me/51979726473?text="+mensaje,"_blank");
+
+    if(carrito.length === 0){
+
+        alert(
+        "Tu carrito está vacío. Agrega algún producto primero."
+        );
+
+        return;
+
+    }
+
+
+    let mensaje =
+    "Hola DESTÁPALA 👋%0A%0A";
+
+
+    mensaje +=
+    "Quiero realizar el siguiente pedido:%0A%0A";
+
+
+    let total = 0;
+
+
+    carrito.forEach(item => {
+
+        const subtotal =
+        item.precio *
+        item.cantidad;
+
+
+        total +=
+        subtotal;
+
+
+        mensaje +=
+        "• " +
+        item.nombre +
+        " x" +
+        item.cantidad +
+        " - S/ " +
+        subtotal.toFixed(2) +
+        "%0A";
+
+    });
+
+
+    mensaje +=
+    "%0A*Total: S/ " +
+    total.toFixed(2) +
+    "*";
+
+
+    const url =
+    "https://wa.me/51979726473?text=" +
+    mensaje;
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
-renderProductos();actualizarCarrito();
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+renderProductos();
+
+actualizarCarrito();
+
 </script>
+
+
 </body>
+
 </html>
