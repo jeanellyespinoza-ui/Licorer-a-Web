@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -35,6 +35,32 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 .cart-item{display:grid;grid-template-columns:55px 1fr auto;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid #eee}.cart-item-icon{width:55px;height:55px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:28px}.cart-item-name{font-weight:700;font-size:14px}.cart-item-price{color:var(--gold);font-size:13px;margin-top:4px}.quantity{display:flex;align-items:center;gap:8px;margin-top:7px}.quantity button{width:25px;height:25px;border-radius:50%;border:1px solid #ccc;background:#fff;cursor:pointer}.quantity span{font-weight:700;min-width:18px;text-align:center}.remove-item{border:none;background:none;color:#999;cursor:pointer;font-size:18px}.cart-total{display:flex;justify-content:space-between;font-size:20px;font-weight:700;margin-top:25px;padding-top:20px;border-top:1px solid #ddd}.whatsapp-order{width:100%;margin-top:20px;padding:15px;border:none;border-radius:30px;background:#25D366;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
 .catalog-tools{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 0 35px}.filter-buttons{display:flex;gap:8px;flex-wrap:wrap}.filter-btn{border:1px solid #D8D1C2;background:#fff;color:#222;border-radius:30px;padding:9px 15px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}.filter-btn:hover,.filter-btn.active{background:#D4AF37;border-color:#D4AF37;color:#111}.product-search{min-width:230px;border:1px solid #D8D1C2;border-radius:30px;padding:10px 16px;font-family:inherit;outline:none;background:#fff}.product-search:focus{border-color:#D4AF37;box-shadow:0 0 0 3px rgba(212,175,55,.12)}
 @media(max-width:1000px){.product-grid{grid-template-columns:repeat(3,1fr)}.footer-container{grid-template-columns:repeat(2,1fr)}}@media(max-width:900px){nav{gap:15px}.category-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:58px}}@media(max-width:700px){.product-grid{grid-template-columns:repeat(2,1fr)}.footer-container{grid-template-columns:1fr}}@media(max-width:600px){.logo img{width:150px}.header-container{height:70px;padding:0 18px}.logo{font-size:24px}nav a:not(.cart){display:none}.hero{min-height:560px;background:linear-gradient(135deg,#fff 0%,#FAF8F2 48%,#F3EBDD 100%);border-bottom:1px solid #E7E0D2}.hero-content{padding:50px 20px}.hero h1{font-size:48px}.hero p{font-size:17px}.section{padding:60px 20px}.section-title{font-size:34px}.category-grid{grid-template-columns:repeat(2,1fr);gap:12px}.category-card{min-height:145px}.product-grid{grid-template-columns:1fr}.promo{padding:35px 25px;flex-direction:column;align-items:flex-start}.cart{padding:9px 12px;font-size:13px}}
+
+.category-card{cursor:pointer}
+.category-card:active{transform:translateY(-2px)}
+.family-cover{height:300px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#f8f6f1;padding:8px}
+.family-cover.single{display:flex}
+.family-cover img{width:100%;height:100%;object-fit:contain;background:#fff;border-radius:2px;padding:8px}
+.family-info{padding:20px}
+.family-variants{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.family-variant-pill{border:1px solid #ddd4c2;background:#fff;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:600}
+.family-cover-label{position:absolute;top:12px;left:12px;background:#fff;padding:7px 10px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+.family-card-image{position:relative}
+.variant-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:3500;padding:20px}
+.variant-overlay.active{display:flex}
+.variant-modal{width:100%;max-width:900px;max-height:90vh;overflow:auto;background:#fff;border-radius:22px;padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+.variant-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid #eee;padding-bottom:18px}
+.variant-modal-head h3{font-size:30px;font-weight:600}
+.variant-modal-head p{color:#777;margin-top:5px}
+.variant-close{border:none;background:none;font-size:30px;cursor:pointer}
+.variant-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.variant-item{border:1px solid var(--line);padding:14px;border-radius:14px;background:#fff}
+.variant-item img{width:100%;height:220px;object-fit:contain;background:#fff}
+.variant-item h4{font-size:15px;margin-top:10px}
+.variant-item .variant-price{font-size:18px;font-weight:700;margin-top:8px}
+.variant-item button{width:100%;margin-top:12px;padding:10px;border:1px solid var(--gold);border-radius:20px;background:var(--gold);font-weight:700;cursor:pointer}
+@media(max-width:700px){.variant-grid{grid-template-columns:1fr 1fr}.family-cover{height:250px}}
+@media(max-width:480px){.variant-grid{grid-template-columns:1fr}.variant-modal{padding:20px}.variant-modal-head h3{font-size:24px}}
 </style>
 </head>
 <body>
@@ -59,14 +85,16 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 <h3 class="category-title">🍾 Licores</h3>
 <div class="category-grid">
-<div class="category-card"><div class="category-icon">🥃</div><div class="category-name">Whisky</div><div class="category-sub">Clásicos y premium</div></div>
-<div class="category-card"><div class="category-icon">🍹</div><div class="category-name">Ron</div><div class="category-sub">Para cada ocasión</div></div>
-<div class="category-card"><div class="category-icon">🍸</div><div class="category-name">Vodka</div><div class="category-sub">Marcas seleccionadas</div></div>
-<div class="category-card"><div class="category-icon">🍷</div><div class="category-name">Vinos</div><div class="category-sub">Tintos, blancos y más</div></div>
-<div class="category-card"><div class="category-icon">🍇</div><div class="category-name">Piscos</div><div class="category-sub">Orgullo peruano</div></div>
-<div class="category-card"><div class="category-icon">🍺</div><div class="category-name">Cervezas</div><div class="category-sub">Botellas, latas y packs</div></div>
-<div class="category-card"><div class="category-icon">🍹</div><div class="category-name">Listos para tomar</div><div class="category-sub">Mike's, Four Loko y otras opciones</div></div>
-<div class="category-card"><div class="category-icon">🍾</div><div class="category-name">Espumantes</div><div class="category-sub">Para brindar</div></div>
+<div class="category-card" onclick="irCategoria('Whisky')"><div class="category-icon">🥃</div><div class="category-name">Whisky</div><div class="category-sub">Clásicos y premium</div></div>
+<div class="category-card" onclick="irCategoria('Ron')"><div class="category-icon">🍹</div><div class="category-name">Ron</div><div class="category-sub">Para cada ocasión</div></div>
+<div class="category-card" onclick="irCategoria('Vodka')"><div class="category-icon">🍸</div><div class="category-name">Vodka</div><div class="category-sub">Marcas seleccionadas</div></div>
+<div class="category-card" onclick="irCategoria('Vinos')"><div class="category-icon">🍷</div><div class="category-name">Vinos</div><div class="category-sub">Tintos, blancos y más</div></div>
+<div class="category-card" onclick="irCategoria('Pisco')"><div class="category-icon">🍇</div><div class="category-name">Piscos</div><div class="category-sub">Orgullo peruano</div></div>
+<div class="category-card" onclick="irCategoria('Cervezas')"><div class="category-icon">🍺</div><div class="category-name">Cervezas</div><div class="category-sub">Botellas, latas y packs</div></div>
+<div class="category-card" onclick="irCategoria('Listos para tomar')"><div class="category-icon">🍹</div><div class="category-name">Listos para tomar</div><div class="category-sub">Mike's, Four Loko y otras opciones</div></div>
+<div class="category-card" onclick="irCategoria('Licores')"><div class="category-icon">🍾</div><div class="category-name">Licores</div><div class="category-sub">Sabores y clásicos</div></div>
+<div class="category-card" onclick="irCategoria('Espumante')"><div class="category-icon">🥂</div><div class="category-name">Espumantes</div><div class="category-sub">Para brindar</div></div>
+<div class="category-card" onclick="irCategoria('Tequila')"><div class="category-icon">🥃</div><div class="category-name">Tequila</div><div class="category-sub">Para celebrar</div></div>
 </div>
 
 <h3 class="category-title">🥤 Complementos</h3>
@@ -74,7 +102,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 <div class="category-card"><div class="category-icon">🥤</div><div class="category-name">Bebidas</div><div class="category-sub">Agua, gaseosas y energizantes</div></div>
 <div class="category-card"><div class="category-icon">🚬</div><div class="category-name">Cigarros</div><div class="category-sub">Productos disponibles</div></div>
 <div class="category-card"><div class="category-icon">🍬</div><div class="category-name">Chicles</div><div class="category-sub">Para acompañar</div></div>
-<div class="category-card"><div class="category-icon">🔥</div><div class="category-name">Promociones</div><div class="category-sub">Combos y ofertas especiales</div></div>
+<div class="category-card" onclick="document.getElementById('promociones').scrollIntoView({behavior:'smooth'})"><div class="category-icon">🔥</div><div class="category-name">Promociones</div><div class="category-sub">Combos y ofertas especiales</div></div>
 </div></section>
 
 <section class="products" id="productos"><div class="section">
@@ -120,6 +148,11 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 <a class="whatsapp" href="https://wa.me/51992797697?text=Hola%20DEST%C3%81PALA%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" title="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.3-3.2-2.9-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5-.1-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.5c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.6 1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
 
+<div class="variant-overlay" id="variant-overlay" onclick="cerrarVariantes(event)">
+<div class="variant-modal" onclick="event.stopPropagation()">
+<div class="variant-modal-head"><div><h3 id="variant-title"></h3><p id="variant-subtitle"></p></div><button class="variant-close" onclick="cerrarVariantes()">×</button></div>
+<div class="variant-grid" id="variant-grid"></div>
+</div></div>
 <div class="cart-overlay" id="cart-overlay" onclick="cerrarCarrito(event)"><div class="cart-modal" onclick="event.stopPropagation()">
 <div class="cart-header"><h2>Mi carrito</h2><button class="close-cart" onclick="cerrarCarrito()">×</button></div>
 <div class="cart-items" id="cart-items"></div>
@@ -131,8 +164,11 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 const productos=[
 {id:1,nombre:"Ballantine's Finest 700 ml",precio:53,cat:"Whisky",desc:"700 ml",img:"imagenes/ballantines-finest-700ml.jpg",icono:"🥃"},
 {id:2,nombre:"Johnnie Walker Red 750 ml",precio:55,cat:"Whisky",desc:"750 ml",img:"imagenes/johnnie-walker-red-750ml.jpg",icono:"🥃"},
-{id:3,nombre:"Ron Cartavio Black 1L",precio:32,cat:"Ron",desc:"1 litro",img:"imagenes/ron-cartavio-black-1l.jpg",icono:"🍹"},
-{id:4,nombre:"Vodka Russkaya Azul 750 ml",precio:26,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-azul-750ml.jpg",icono:"🍸"},
+{id:3,nombre:"Ron Cartavio Black 1L",precio:32,cat:"Ron",desc:"1 litro",img:"imagenes/ron-cartavio-black-1l.jpg",icono:"🍹",grupo:"Ron Cartavio Black"},
+{id:61,nombre:"Ron Cartavio Black 750 ml",precio:0,cat:"Ron",desc:"750 ml",img:"imagenes/ron-cartavio-black-750ml.jpg",icono:"🍹",grupo:"Ron Cartavio Black"},
+{id:4,nombre:"Vodka Russkaya Azul 750 ml",precio:26,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-azul-750ml.jpg",icono:"🍸",grupo:"Vodka Russkaya"},
+{id:59,nombre:"Vodka Russkaya Verde 750 ml",precio:0,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-green-750ml.jpg",icono:"🍸",grupo:"Vodka Russkaya"},
+{id:60,nombre:"Vodka Russkaya Pink 750 ml",precio:0,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-pink-750ml.jpg",icono:"🍸",grupo:"Vodka Russkaya"},
 {id:5,nombre:"Whisky Something Special 750 ml",precio:62,cat:"Whisky",desc:"750 ml",img:"imagenes/whisky-something-special-750ml.jpg",icono:"🥃"},
 {id:6,nombre:"Ron Flor de Caña 4 años 750 ml",precio:48,cat:"Ron",desc:"750 ml",img:"imagenes/ron-flor-de-cana-4-anos-750ml.jpg",icono:"🍹"},
 {id:7,nombre:"Ron Havana Club 700 ml",precio:39,cat:"Ron",desc:"700 ml",img:"imagenes/ron-havana-club-700ml.jpg",icono:"🍹"},
@@ -144,28 +180,28 @@ const productos=[
 {id:13,nombre:"Licor Menta 750 ml",precio:20,cat:"Licores",desc:"750 ml",img:"imagenes/licor-menta-750ml.jpg",icono:"🍸"},
 {id:14,nombre:"Jägermeister 500 ml",precio:0,cat:"Licores",desc:"500 ml",img:"imagenes/jagermeister-500ml.jpg",icono:"🍾"},
 {id:15,nombre:"Licor Curaçao Blue 700 ml",precio:0,cat:"Licores",desc:"700 ml",img:"imagenes/licor-curacao-blue-700ml.jpg",icono:"🍹"},
-{id:16,nombre:"Vino Santiago Queirolo Rosé 750 ml",precio:18,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-rose-750ml.jpg",icono:"🍷"},
+{id:16,nombre:"Vino Santiago Queirolo Rosé 750 ml",precio:18,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-rose-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
 {id:17,nombre:"Pack Regalo Queirolo",precio:38,cat:"Vinos",desc:"2 vinos + 2 copas en una sola caja. Ideal para regalo.",img:"imagenes/pack-regalo-vino-queirolo.jpg",icono:"🎁"},
-{id:18,nombre:"Vino Santiago Queirolo Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-borgona-750ml.jpg",icono:"🍷"},
-{id:19,nombre:"Vino Tabernero Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-borgona-750ml.jpg",icono:"🍷"},
-{id:20,nombre:"Vino Tabernero Blanco 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-blanco-750ml.jpg",icono:"🍷"},
-{id:21,nombre:"Vino Tacama Tinto",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-tinto.jpg",icono:"🍷"},
-{id:22,nombre:"Vino Tacama Blanco",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-blanco.jpg",icono:"🍷"},
+{id:18,nombre:"Vino Santiago Queirolo Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
+{id:19,nombre:"Vino Tabernero Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
+{id:20,nombre:"Vino Tabernero Blanco 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-blanco-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
+{id:21,nombre:"Vino Tacama Tinto",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-tinto.jpg",icono:"🍷",grupo:"Vino Tacama"},
+{id:22,nombre:"Vino Tacama Blanco",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-blanco.jpg",icono:"🍷",grupo:"Vino Tacama"},
 {id:23,nombre:"Espumante Especial 750 ml Verde",precio:17,cat:"Espumante",desc:"750 ml",icono:"🍾"},
-{id:24,nombre:"Mike's 355 ml",precio:6.5,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-355ml.jpg",icono:"🍹"},
-{id:25,nombre:"Mike's Fresa 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-fresa-355ml.jpg",icono:"🍹"},
-{id:26,nombre:"Mike's Limón 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-limon-355ml.jpg",icono:"🍹"},
-{id:27,nombre:"Mike's Mango 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-mango-355ml.jpg",icono:"🍹"},
-{id:28,nombre:"Mike's Manzana 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-manzana-355ml.jpg",icono:"🍹"},
-{id:29,nombre:"Mike's Maracuyá 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-maracuya-355ml.jpg",icono:"🍹"},
-{id:30,nombre:"Four Loko Maracuyá 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-maracuya-473ml.jpg",icono:"🍹"},
-{id:31,nombre:"Four Loko Sandía 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-sandia-473ml.jpg",icono:"🍹"},
-{id:32,nombre:"Four Loko Morado 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-morado-473ml.jpg",icono:"🍹"},
-{id:33,nombre:"Four Loko Rojo 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-rojo-473ml.jpg",icono:"🍹"},
-{id:34,nombre:"Four Loko Verde 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-verde-473ml.jpg",icono:"🍹"},
+{id:24,nombre:"Mike's 355 ml",precio:6.5,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:25,nombre:"Mike's Fresa 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-fresa-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:26,nombre:"Mike's Limón 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-limon-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:27,nombre:"Mike's Mango 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-mango-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:28,nombre:"Mike's Manzana 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-manzana-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:29,nombre:"Mike's Maracuyá 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-maracuya-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:30,nombre:"Four Loko Maracuyá 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-maracuya-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:31,nombre:"Four Loko Sandía 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-sandia-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:32,nombre:"Four Loko Morado 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-morado-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:33,nombre:"Four Loko Rojo 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-rojo-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:34,nombre:"Four Loko Verde 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-verde-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
 {id:35,nombre:"Cerveza Pilsen Lata 355 ml",precio:4.5,cat:"Cervezas",desc:"Lata 355 ml",img:"imagenes/pilsen-six-lata-355ml.jpg",icono:"🍺"},
-{id:36,nombre:"Cerveza Pilsen Six Botella 305 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-botella-305ml.jpg",icono:"🍺"},
-{id:37,nombre:"Cerveza Pilsen Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-laton-473ml.jpg",icono:"🍺"},
+{id:36,nombre:"Cerveza Pilsen Six Botella 305 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-botella-305ml.jpg",icono:"🍺",grupo:"Pilsen Six"},
+{id:37,nombre:"Cerveza Pilsen Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-laton-473ml.jpg",icono:"🍺",grupo:"Pilsen Six"},
 {id:38,nombre:"Cerveza Heineken Botella 330 ml",precio:0,cat:"Cervezas",desc:"330 ml",img:"imagenes/heineken-botella-330ml.jpg",icono:"🍺"},
 {id:39,nombre:"Heineken Lata 250 ml",precio:0,cat:"Cervezas",desc:"250 ml",img:"imagenes/heineken-lata-250ml.jpg",icono:"🍺"},
 {id:40,nombre:"Budweiser Lata 355 ml",precio:0,cat:"Cervezas",desc:"355 ml",img:"imagenes/budweiser-lata-355ml.jpg",icono:"🍺"},
@@ -174,13 +210,13 @@ const productos=[
 {id:43,nombre:"Coronita Six Pack 210 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/coronita-sixpack-210ml.jpg",icono:"🍺"},
 {id:44,nombre:"Cusqueña Dorada 473 ml",precio:0,cat:"Cervezas",desc:"473 ml",img:"imagenes/cusquena-dorada-473ml.jpg",icono:"🍺"},
 {id:45,nombre:"Cusqueña Golden Lata 473 ml",precio:0,cat:"Cervezas",desc:"473 ml",img:"imagenes/cusquena-golden-lata-473ml.jpg",icono:"🍺"},
-{id:46,nombre:"Cusqueña Negra Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-negra-six-botella-310ml.jpg",icono:"🍺"},
-{id:47,nombre:"Cusqueña Negra Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-negra-six-laton-473ml.jpg",icono:"🍺"},
+{id:46,nombre:"Cusqueña Negra Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-negra-six-botella-310ml.jpg",icono:"🍺",grupo:"Cusqueña Negra"},
+{id:47,nombre:"Cusqueña Negra Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-negra-six-laton-473ml.jpg",icono:"🍺",grupo:"Cusqueña Negra"},
 {id:48,nombre:"Cusqueña Quinua 473 ml",precio:0,cat:"Cervezas",desc:"473 ml",img:"imagenes/cusquena-quinua-473ml.jpg",icono:"🍺"},
 {id:49,nombre:"Cusqueña Roja Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-roja-six-473ml.jpg",icono:"🍺"},
-{id:50,nombre:"Cusqueña Trigo Botella 620 ml",precio:0,cat:"Cervezas",desc:"620 ml",img:"imagenes/cusquena-trigo-botella-620ml.jpg",icono:"🍺"},
-{id:51,nombre:"Cusqueña Trigo Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-trigo-six-botella-310ml.jpg",icono:"🍺"},
-{id:52,nombre:"Cusqueña Trigo Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-trigo-six-laton-473ml.jpg",icono:"🍺"},
+{id:50,nombre:"Cusqueña Trigo Botella 620 ml",precio:0,cat:"Cervezas",desc:"620 ml",img:"imagenes/cusquena-trigo-botella-620ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
+{id:51,nombre:"Cusqueña Trigo Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-trigo-six-botella-310ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
+{id:52,nombre:"Cusqueña Trigo Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-trigo-six-laton-473ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
 {id:53,nombre:"Tres Cruces Six 355 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/tres-cruces-six-355ml.jpg",icono:"🍺"},
 {id:54,nombre:"Tres Cruces Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/tres-cruces-six-473ml.jpg",icono:"🍺"},
 {id:55,nombre:"Tres Cruces Light Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/tres-cruces%20ligth-six-473ml.jpg",icono:"🍺"},
@@ -200,22 +236,82 @@ function renderProductos(){
    const texto=(p.nombre+" "+p.cat+" "+p.desc).toLowerCase();
    return catOk && texto.includes(termino);
  });
- grid.innerHTML=visibles.map(p=>`
- <div class="product-card">
-  <div class="product-image">
-   ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
-   <div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>
-  </div>
-  <div class="product-info">
-   <div class="product-category">${p.cat}</div>
-   <div class="product-name">${p.nombre}</div>
-   <div class="product-description">${p.desc}</div>
-   <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
-   <button class="product-button" onclick="agregarProducto(${p.id})">🛒 Agregar al carrito</button>
-  </div>
- </div>`).join("");
+
+ const grupos=new Map();
+ visibles.forEach(p=>{
+   const key=p.grupo || "producto-"+p.id;
+   if(!grupos.has(key)) grupos.set(key,[]);
+   grupos.get(key).push(p);
+ });
+
+ grid.innerHTML=[...grupos.entries()].map(([key,items])=>{
+   const esFamilia=items.length>1;
+   if(!esFamilia){
+     const p=items[0];
+     return `
+     <div class="product-card">
+      <div class="product-image">
+       ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
+       <div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>
+      </div>
+      <div class="product-info">
+       <div class="product-category">${p.cat}</div>
+       <div class="product-name">${p.nombre}</div>
+       <div class="product-description">${p.desc}</div>
+       <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
+       <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
+      </div>
+     </div>`;
+   }
+   const cover=items.slice(0,3);
+   const coverHtml=cover.map(p=>p.img?`<img src="${p.img}" alt="${p.nombre}">`:`<div class="product-emoji">${p.icono}</div>`).join("");
+   const precios=items.filter(p=>p.precio>0).map(p=>p.precio);
+   const min=precios.length?Math.min(...precios):0;
+   const precioTexto=min?`Desde S/ ${min.toFixed(2)}`:"Consultar precios";
+   return `
+   <div class="product-card family-card" onclick="abrirVariantes('${escapeAttr(key)}')">
+    <div class="family-card-image">
+      <div class="family-cover ${cover.length===1?'single':''}">${coverHtml}</div>
+      <div class="family-cover-label">Ver presentaciones</div>
+    </div>
+    <div class="family-info">
+      <div class="product-category">${items[0].cat}</div>
+      <div class="product-name">${key}</div>
+      <div class="product-description">${items.length} opciones · Elige tu presentación o sabor</div>
+      <div class="product-price">${precioTexto}</div>
+      <div class="family-variants">${items.slice(0,5).map(p=>`<span class="family-variant-pill">${p.desc}</span>`).join("")}</div>
+    </div>
+   </div>`;
+ }).join("") || '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No encontramos productos en esta categoría.</div>';
 }
 
+function escapeAttr(value){return String(value).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+
+function abrirVariantes(grupo){
+ const items=productos.filter(p=>p.grupo===grupo);
+ if(!items.length)return;
+ document.getElementById("variant-title").textContent=grupo;
+ document.getElementById("variant-subtitle").textContent=`Elige la presentación o sabor que deseas.`;
+ document.getElementById("variant-grid").innerHTML=items.map(p=>`
+  <div class="variant-item">
+   ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none'">`:`<div style="height:220px;display:flex;align-items:center;justify-content:center;font-size:80px">${p.icono}</div>`}
+   <h4>${p.nombre}</h4>
+   <div class="product-description">${p.desc}</div>
+   <div class="variant-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
+   <button onclick="event.stopPropagation(); agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar":"💬 Consultar"}</button>
+  </div>`).join("");
+ document.getElementById("variant-overlay").classList.add("active");
+}
+function cerrarVariantes(e){
+ if(e&&e.target!==document.getElementById("variant-overlay"))return;
+ document.getElementById("variant-overlay").classList.remove("active");
+}
+function irCategoria(cat){
+ categoriaActual=cat;
+ document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+ renderProductos();
+ document.getElementById("productos").scrollIntoView({behavior:"smooth",block:"start"});
+}
 function agregarProducto(id){
  const p=productos.find(x=>x.id===id);
  if(!p||p.precio<=0){alert("Este producto tiene precio pendiente de actualizar.");return;}
@@ -259,9 +355,8 @@ function pedirWhatsApp(){
 
 document.querySelectorAll(".filter-btn").forEach(btn=>{
  btn.addEventListener("click",()=>{
-   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-   btn.classList.add("active");
    categoriaActual=btn.dataset.cat;
+   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b===btn));
    renderProductos();
  });
 });
