@@ -38,9 +38,9 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 .category-card{cursor:pointer}
 .category-card:active{transform:translateY(-2px)}
-.family-cover{height:300px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#f8f6f1;padding:8px}
+.family-cover{height:300px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#f7f4ed;padding:8px}
 .family-cover.single{display:flex}
-.family-cover img{width:100%;height:100%;object-fit:contain;background:#fff;border-radius:2px;padding:8px}
+.family-cover img{width:100%;height:100%;object-fit:contain;background:#fff;border-radius:2px;padding:10px}
 .family-info{padding:20px}
 .family-variants{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
 .family-variant-pill{border:1px solid #ddd4c2;background:#fff;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:600}
@@ -61,27 +61,6 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 .variant-item button{width:100%;margin-top:12px;padding:10px;border:1px solid var(--gold);border-radius:20px;background:var(--gold);font-weight:700;cursor:pointer}
 @media(max-width:700px){.variant-grid{grid-template-columns:1fr 1fr}.family-cover{height:250px}}
 @media(max-width:480px){.variant-grid{grid-template-columns:1fr}.variant-modal{padding:20px}.variant-modal-head h3{font-size:24px}}
-
-.family-card{cursor:default}
-.family-image-area{position:relative}
-.family-main-image{width:100%;height:300px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.family-main-image img{width:100%;height:100%;object-fit:contain;padding:15px}
-.family-cover-label{position:absolute;top:12px;left:12px;background:#fff;padding:7px 10px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;border:1px solid var(--line)}
-.family-info{padding:20px}
-.family-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.family-count{font-size:11px;color:#888;white-space:nowrap}
-.family-variants{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px;align-items:flex-start}
-.variant-choice{width:58px;border:1px solid #ddd4c2;background:#fff;border-radius:8px;padding:4px;cursor:pointer;transition:.2s;text-align:center}
-.variant-choice:hover{border-color:var(--gold);transform:translateY(-2px)}
-.variant-choice.active{border:2px solid var(--gold);padding:3px}
-.variant-choice img{width:48px;height:58px;object-fit:contain;display:block;margin:auto}
-.variant-choice .variant-name{font-size:8px;line-height:1.15;margin-top:3px;color:#555;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.family-selected{margin-top:12px;padding-top:12px;border-top:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.family-selected-name{font-size:12px;font-weight:600}
-.family-selected-price{font-size:16px;font-weight:700}
-.family-add{width:100%;margin-top:12px;padding:11px;border:1px solid var(--gold);border-radius:2px;background:#fff;color:#111;font-weight:700;cursor:pointer}
-.family-add:hover{background:var(--gold)}
-@media(max-width:600px){.family-main-image{height:280px}}
 </style>
 </head>
 <body>
@@ -120,7 +99,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 <h3 class="category-title">🥤 Complementos</h3>
 <div class="category-grid">
-<div class="category-card" onclick="irCategoria('Bebidas')"><div class="category-icon">🥤</div><div class="category-name">Bebidas</div><div class="category-sub">Agua, gaseosas y energizantes</div></div>
+<div class="category-card" onclick="irCategoria('Complementos')"><div class="category-icon">🥤</div><div class="category-name">Bebidas</div><div class="category-sub">Agua, gaseosas y energizantes</div></div>
 <div class="category-card" onclick="irCategoria('Cigarros')"><div class="category-icon">🚬</div><div class="category-name">Cigarros</div><div class="category-sub">Productos disponibles</div></div>
 <div class="category-card" onclick="irCategoria('Chicles')"><div class="category-icon">🍬</div><div class="category-name">Chicles</div><div class="category-sub">Para acompañar</div></div>
 <div class="category-card" onclick="document.getElementById('promociones').scrollIntoView({behavior:'smooth'})"><div class="category-icon">🔥</div><div class="category-name">Promociones</div><div class="category-sub">Combos y ofertas especiales</div></div>
@@ -196,14 +175,14 @@ const productos=[
 {id:8,nombre:"Tequila 1800 Reposado 750 ml",precio:120,cat:"Tequila",desc:"750 ml",img:"imagenes/tequila-1800-reposado-750ml.jpg",icono:"🍸"},
 {id:9,nombre:"Pisco Santiago Queirolo Quebranta 700 ml",precio:32,cat:"Pisco",desc:"700 ml",img:"imagenes/pisco-santiago-queirolo-quebranta-700ml.jpg",icono:"🍇"},
 {id:10,nombre:"Pisco Tabernero Quebranta 700 ml",precio:35,cat:"Pisco",desc:"700 ml",img:"imagenes/pisco-tabernero-quebranta-700ml.jpg",icono:"🍇"},
-{id:11,nombre:"Crema de Pisco Nieto Algarrobina 500 ml",precio:25,cat:"Licores",desc:"500 ml",img:"imagenes/crema-pisco-nieto-algarrobina-500ml.jpg",icono:"🍶"},
-{id:12,nombre:"Crema de Pisco Nieto Coco 500 ml",precio:25,cat:"Licores",desc:"500 ml",img:"imagenes/crema-pisco-nieto-coco-500ml.jpg",icono:"🍶"},
+{id:11,nombre:"Crema de Pisco Nieto Algarrobina 500 ml",precio:25,cat:"Licores",desc:"500 ml",img:"imagenes/crema-pisco-nieto-algarrobina-500ml.jpg",icono:"🍶",grupo:"Crema de Pisco Nieto"},
+{id:12,nombre:"Crema de Pisco Nieto Coco 500 ml",precio:25,cat:"Licores",desc:"500 ml",img:"imagenes/crema-pisco-nieto-coco-500ml.jpg",icono:"🍶",grupo:"Crema de Pisco Nieto"},
 {id:13,nombre:"Licor Menta 750 ml",precio:20,cat:"Licores",desc:"750 ml",img:"imagenes/licor-menta-750ml.jpg",icono:"🍸"},
 {id:14,nombre:"Jägermeister 500 ml",precio:0,cat:"Licores",desc:"500 ml",img:"imagenes/jagermeister-500ml.jpg",icono:"🍾"},
 {id:15,nombre:"Licor Curaçao Blue 700 ml",precio:0,cat:"Licores",desc:"700 ml",img:"imagenes/licor-curacao-blue-700ml.jpg",icono:"🍹"},
-{id:16,nombre:"Vino Santiago Queirolo Rosé 750 ml",precio:18,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-rose-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
+{id:16,nombre:"Vino Santiago Queirolo Rosé 750 ml",precio:18,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-rose-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo",grupo:"Vino Santiago Queirolo"},
 {id:17,nombre:"Pack Regalo Queirolo",precio:38,cat:"Vinos",desc:"2 vinos + 2 copas en una sola caja. Ideal para regalo.",img:"imagenes/pack-regalo-vino-queirolo.jpg",icono:"🎁"},
-{id:18,nombre:"Vino Santiago Queirolo Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
+{id:18,nombre:"Vino Santiago Queirolo Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo",grupo:"Vino Santiago Queirolo"},
 {id:19,nombre:"Vino Tabernero Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
 {id:20,nombre:"Vino Tabernero Blanco 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-blanco-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
 {id:21,nombre:"Vino Tacama Tinto",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-tinto.jpg",icono:"🍷",grupo:"Vino Tacama"},
@@ -220,11 +199,11 @@ const productos=[
 {id:32,nombre:"Four Loko Morado 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-morado-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
 {id:33,nombre:"Four Loko Rojo 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-rojo-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
 {id:34,nombre:"Four Loko Verde 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-verde-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
-{id:35,nombre:"Cerveza Pilsen Lata 355 ml",precio:4.5,cat:"Cervezas",desc:"Lata 355 ml",img:"imagenes/pilsen-six-lata-355ml.jpg",icono:"🍺"},
+{id:35,nombre:"Cerveza Pilsen Lata 355 ml",precio:4.5,cat:"Cervezas",desc:"Lata 355 ml",img:"imagenes/pilsen-six-lata-355ml.jpg",icono:"🍺",grupo:"Pilsen"},
 {id:36,nombre:"Cerveza Pilsen Six Botella 305 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-botella-305ml.jpg",icono:"🍺",grupo:"Pilsen Six"},
 {id:37,nombre:"Cerveza Pilsen Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-laton-473ml.jpg",icono:"🍺",grupo:"Pilsen Six"},
-{id:38,nombre:"Cerveza Heineken Botella 330 ml",precio:0,cat:"Cervezas",desc:"330 ml",img:"imagenes/heineken-botella-330ml.jpg",icono:"🍺"},
-{id:39,nombre:"Heineken Lata 250 ml",precio:0,cat:"Cervezas",desc:"250 ml",img:"imagenes/heineken-lata-250ml.jpg",icono:"🍺"},
+{id:38,nombre:"Cerveza Heineken Botella 330 ml",precio:0,cat:"Cervezas",desc:"330 ml",img:"imagenes/heineken-botella-330ml.jpg",icono:"🍺",grupo:"Heineken"},
+{id:39,nombre:"Heineken Lata 250 ml",precio:0,cat:"Cervezas",desc:"250 ml",img:"imagenes/heineken-lata-250ml.jpg",icono:"🍺",grupo:"Heineken"},
 {id:40,nombre:"Budweiser Lata 355 ml",precio:0,cat:"Cervezas",desc:"355 ml",img:"imagenes/budweiser-lata-355ml.jpg",icono:"🍺"},
 {id:41,nombre:"Corona Six Pack 330 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cerveza-corona-sixpack-330ml.jpg",icono:"🍺"},
 {id:42,nombre:"Corona Cero 355 ml",precio:0,cat:"Cervezas",desc:"355 ml",img:"imagenes/corona-cero-355ml.jpg",icono:"🍺"},
@@ -249,119 +228,128 @@ const productos=[
 let carrito=[];
 let categoriaActual="Todos";
 
-function escaparHtml(texto){
-  return String(texto).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
-}
-function slug(texto){
-  return String(texto).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-}
-function precioTexto(precio){return precio>0?"S/ "+precio.toFixed(2):"Consultar precio";}
-
 function renderProductos(){
-  const grid=document.getElementById("product-grid");
-  const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();
-  const visibles=productos.filter(p=>{
-    const catOk=categoriaActual==="Todos" || p.cat===categoriaActual;
-    const texto=(p.nombre+" "+p.cat+" "+p.desc+" "+(p.grupo||"")).toLowerCase();
-    return catOk && texto.includes(termino);
-  });
-
-  const grupos=new Map();
-  visibles.forEach(p=>{
-    const key=p.grupo || "producto-"+p.id;
-    if(!grupos.has(key)) grupos.set(key,[]);
-    grupos.get(key).push(p);
-  });
-
-  if(!grupos.size){
-    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:50px;color:#777">No encontramos productos en esta categoría.</div>';
-    return;
-  }
-
-  grid.innerHTML=[...grupos.entries()].map(([key,items])=>{
-    if(items.length===1) return renderProductoIndividual(items[0]);
-    return renderFamilia(key,items);
-  }).join("");
+ const grid=document.getElementById("product-grid");
+ const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();
+ const visibles=productos.filter(p=>{
+   const catOk=categoriaActual==="Todos" || p.cat===categoriaActual ||
+     (categoriaActual==="Complementos" && ["Cigarros","Chicles","Bebidas"].includes(p.cat));
+   return catOk && (p.nombre+" "+p.cat+" "+p.desc).toLowerCase().includes(termino);
+ });
+ const grupos=new Map();
+ visibles.forEach(p=>{
+   const key=p.grupo || ("producto-"+p.id);
+   if(!grupos.has(key)) grupos.set(key,[]);
+   grupos.get(key).push(p);
+ });
+ grid.innerHTML=[...grupos.entries()].map(([key,items])=>{
+   if(items.length===1){
+     const p=items[0];
+     return `<div class="product-card"><div class="product-image">${
+       p.img?`<img src="${p.img}" alt="${p.nombre}" loading="lazy">`:`<div class="product-emoji">${p.icono}</div>`
+     }</div><div class="product-info"><div class="product-category">${p.cat}</div>
+     <div class="product-name">${p.nombre}</div><div class="product-description">${p.desc}</div>
+     <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
+     <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
+     </div></div>`;
+   }
+   const cover=items.slice(0,3);
+   const imgs=cover.map(p=>p.img?`<img src="${p.img}" alt="${p.nombre}" loading="lazy">`:`<div class="product-emoji">${p.icono}</div>`).join("");
+   const prices=items.filter(p=>p.precio>0).map(p=>p.precio);
+   const price=prices.length?`Desde S/ ${Math.min(...prices).toFixed(2)}`:"Consultar precios";
+   return `<div class="product-card family-card" onclick="abrirVariantes('${String(key).replace(/'/g,"\\'")}')">
+     <div class="family-card-image"><div class="family-cover">${imgs}</div>
+     <div class="family-cover-label">VER PRESENTACIONES</div></div>
+     <div class="family-info"><div class="product-category">${items[0].cat}</div>
+     <div class="product-name">${key}</div>
+     <div class="product-description">${items.length} opciones · Elige tu sabor o presentación</div>
+     <div class="product-price">${price}</div></div></div>`;
+ }).join("") || `<div style="grid-column:1/-1;text-align:center;padding:60px;color:#777">🔎<br><br>No encontramos productos en esta categoría.</div>`;
 }
 
-function renderProductoIndividual(p){
-  const imagen=p.img
-    ? `<img src="${p.img}" alt="${escaparHtml(p.nombre)}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`
-    : "";
-  const emoji=`<div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>`;
 
-  return `<article class="product-card">
-    <div class="product-image">${imagen}${emoji}</div>
-    <div class="product-info">
-      <div class="product-category">${escaparHtml(p.cat)}</div>
-      <div class="product-name">${escaparHtml(p.nombre)}</div>
-      <div class="product-description">${escaparHtml(p.desc)}</div>
-      <div class="product-price">${precioTexto(p.precio)}</div>
-      <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?'🛒 Agregar al carrito':'💬 Consultar precio'}</button>
-    </div>
-  </article>`;
-}
+ const grid=document.getElementById("product-grid");
+ const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();
+ const visibles=productos.filter(p=>{
+   const catOk=categoriaActual==="Todos" || p.cat===categoriaActual || (categoriaActual==="Complementos" && ["Cigarros","Chicles","Bebidas"].includes(p.cat));
+   const texto=(p.nombre+" "+p.cat+" "+p.desc).toLowerCase();
+   return catOk && texto.includes(termino);
+ });
 
-function renderFamilia(grupo,items){
-  const seleccionado=items[0];
-  const idFamilia=slug(grupo);
-  const portada=seleccionado.img
-    ? `<img src="${seleccionado.img}" alt="${escaparHtml(seleccionado.nombre)}" onerror="this.style.display='none'">`
-    : `<div class="product-emoji">${seleccionado.icono}</div>`;
+ const grupos=new Map();
+ visibles.forEach(p=>{
+   const key=p.grupo || "producto-"+p.id;
+   if(!grupos.has(key)) grupos.set(key,[]);
+   grupos.get(key).push(p);
+ });
 
-  const variantes=items.map(p=>`<button class="variant-choice ${p.id===seleccionado.id?'active':''}" onclick="seleccionarVariante(event,'${escaparHtml(grupo)}',${p.id})" title="${escaparHtml(p.nombre)}">
-    ${p.img?`<img src="${p.img}" alt="${escaparHtml(p.nombre)}">`:`<div style="height:58px;display:flex;align-items:center;justify-content:center;font-size:28px">${p.icono}</div>`}
-    <div class="variant-name">${escaparHtml(p.desc)}</div>
-  </button>`).join("");
-
-  return `<article class="product-card family-card" id="familia-${idFamilia}">
-    <div class="family-image-area">
-      <div class="family-main-image">${portada}</div>
+ grid.innerHTML=[...grupos.entries()].map(([key,items])=>{
+   const esFamilia=items.length>1;
+   if(!esFamilia){
+     const p=items[0];
+     return `
+     <div class="product-card">
+      <div class="product-image">
+       ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
+       <div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>
+      </div>
+      <div class="product-info">
+       <div class="product-category">${p.cat}</div>
+       <div class="product-name">${p.nombre}</div>
+       <div class="product-description">${p.desc}</div>
+       <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
+       <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
+      </div>
+     </div>`;
+   }
+   const cover=items.slice(0,3);
+   const coverHtml=cover.map(p=>p.img?`<img src="${p.img}" alt="${p.nombre}">`:`<div class="product-emoji">${p.icono}</div>`).join("");
+   const precios=items.filter(p=>p.precio>0).map(p=>p.precio);
+   const min=precios.length?Math.min(...precios):0;
+   const precioTexto=min?`Desde S/ ${min.toFixed(2)}`:"Consultar precios";
+   return `
+   <div class="product-card family-card" onclick="abrirVariantes('${escapeAttr(key)}')">
+    <div class="family-card-image">
+      <div class="family-cover ${cover.length===1?'single':''}">${coverHtml}</div>
       <div class="family-cover-label">Ver presentaciones</div>
     </div>
     <div class="family-info">
-      <div class="product-category">${escaparHtml(items[0].cat)}</div>
-      <div class="family-title-row">
-        <div class="product-name">${escaparHtml(grupo)}</div>
-        <div class="family-count">${items.length} opciones</div>
-      </div>
-      <div class="product-description">Elige tu sabor o presentación</div>
-      <div class="family-variants">${variantes}</div>
-      <div class="family-selected">
-        <div class="family-selected-name">${escaparHtml(seleccionado.nombre)}</div>
-        <div class="family-selected-price">${precioTexto(seleccionado.precio)}</div>
-      </div>
-      <button class="family-add" onclick="agregarProducto(${seleccionado.id})">${seleccionado.precio>0?'🛒 Agregar al carrito':'💬 Consultar precio'}</button>
+      <div class="product-category">${items[0].cat}</div>
+      <div class="product-name">${key}</div>
+      <div class="product-description">${items.length} opciones · Elige tu presentación o sabor</div>
+      <div class="product-price">${precioTexto}</div>
+      <div class="family-variants">${items.slice(0,5).map(p=>`<span class="family-variant-pill">${p.desc}</span>`).join("")}</div>
     </div>
-  </article>`;
+   </div>`;
+ }).join("") || '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No encontramos productos en esta categoría.</div>';
 }
 
-function seleccionarVariante(event,grupo,id){
-  event.stopPropagation();
-  const item=productos.find(p=>p.id===id);
-  if(!item)return;
-  const contenedor=document.getElementById("familia-"+slug(grupo));
-  if(!contenedor)return;
-  const main=contenedor.querySelector(".family-main-image");
-  main.innerHTML=item.img
-    ? `<img src="${item.img}" alt="${escaparHtml(item.nombre)}" onerror="this.style.display='none'">`
-    : `<div class="product-emoji">${item.icono}</div>`;
-  contenedor.querySelector(".family-selected-name").textContent=item.nombre;
-  contenedor.querySelector(".family-selected-price").textContent=precioTexto(item.precio);
-  const boton=contenedor.querySelector(".family-add");
-  boton.textContent=item.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio";
-  boton.setAttribute("onclick","agregarProducto("+item.id+")");
-  contenedor.querySelectorAll(".variant-choice").forEach(btn=>btn.classList.remove("active"));
-  event.currentTarget.classList.add("active");
-}
+function escapeAttr(value){return String(value).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
 
+function abrirVariantes(grupo){
+ const items=productos.filter(p=>p.grupo===grupo);
+ if(!items.length)return;
+ document.getElementById("variant-title").textContent=grupo;
+ document.getElementById("variant-subtitle").textContent="Elige el sabor o la presentación que deseas.";
+ document.getElementById("variant-grid").innerHTML=items.map(p=>`
+ <div class="variant-item">
+   ${p.img?`<img src="${p.img}" alt="${p.nombre}" loading="lazy">`:`<div style="height:210px;display:flex;align-items:center;justify-content:center;font-size:70px">${p.icono}</div>`}
+   <h4>${p.nombre}</h4><div class="variant-desc">${p.desc}</div>
+   <div class="variant-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
+   <button onclick="event.stopPropagation();agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar":"💬 Consultar"}</button>
+ </div>`).join("");
+ document.getElementById("variant-overlay").classList.add("active");
+}
+function cerrarVariantes(e){
+ if(e&&e.target!==document.getElementById("variant-overlay"))return;
+ document.getElementById("variant-overlay").classList.remove("active");
+}
 function irCategoria(cat){
-  categoriaActual=cat;
-  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
-  renderProductos();
-  document.getElementById("productos").scrollIntoView({behavior:"smooth",block:"start"});
+ categoriaActual=cat;
+ document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+ renderProductos();
+ document.getElementById("productos").scrollIntoView({behavior:"smooth",block:"start"});
 }
-
 function agregarProducto(id){
  const p=productos.find(x=>x.id===id);
  if(!p||p.precio<=0){alert("Este producto tiene precio pendiente de actualizar.");return;}
