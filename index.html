@@ -38,8 +38,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 .category-card{cursor:pointer}
 .category-card:active{transform:translateY(-2px)}
-.family-cover{height:300px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#f8f6f1;padding:8px}
-.family-cover.single{display:flex}
+.family-cover{height:300px;display:flex;align-items:center;justify-content:center;background:#f8f6f1;padding:8px}
 .family-cover img{width:100%;height:100%;object-fit:contain;background:#fff;border-radius:2px;padding:8px}
 .family-info{padding:20px}
 .family-variants{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
@@ -164,68 +163,147 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 const productos=[
 {id:1,nombre:"Ballantine's Finest 700 ml",precio:53,cat:"Whisky",desc:"700 ml",img:"imagenes/ballantines-finest-700ml.jpg",icono:"🥃"},
 {id:2,nombre:"Johnnie Walker Red 750 ml",precio:55,cat:"Whisky",desc:"750 ml",img:"imagenes/johnnie-walker-red-750ml.jpg",icono:"🥃"},
-{id:3,nombre:"Ron Cartavio Black 1L",precio:32,cat:"Ron",desc:"1 litro",img:"imagenes/ron-cartavio-black-1l.jpg",icono:"🍹",grupo:"Ron Cartavio Black"},
+{id:5,nombre:"Whisky Something Special 750 ml",precio:62,cat:"Whisky",desc:"750 ml",img:"imagenes/whisky-something-special-750ml.jpg",icono:"🥃"},
+
+{id:3,nombre:"Ron Cartavio Black 1 L",precio:32,cat:"Ron",desc:"1 litro",img:"imagenes/ron-cartavio-black-1l.jpg",icono:"🍹",grupo:"Ron Cartavio Black"},
 {id:61,nombre:"Ron Cartavio Black 750 ml",precio:0,cat:"Ron",desc:"750 ml",img:"imagenes/ron-cartavio-black-750ml.jpg",icono:"🍹",grupo:"Ron Cartavio Black"},
+{id:6,nombre:"Ron Flor de Caña 4 años 750 ml",precio:48,cat:"Ron",desc:"750 ml",img:"imagenes/ron-flor-de-cana-4-anos-750ml.jpg",icono:"🍹"},
+{id:7,nombre:"Ron Havana Club 700 ml",precio:39,cat:"Ron",desc:"700 ml",img:"imagenes/ron-havana-club-700ml.jpg",icono:"🍹"},
+{id:65,nombre:"Ron Cartavio 1.75 L",precio:0,cat:"Ron",desc:"1.75 L",img:"imagenes/ron-cartavio-1750ml.jpg",icono:"🍹"},
+{id:66,nombre:"Ron Cartavio Blanco 750 ml",precio:0,cat:"Ron",desc:"750 ml",img:"imagenes/ron-cartavio-blanco-750ml.jpg",icono:"🍹"},
+{id:67,nombre:"Ron Cartavio Rubio 750 ml",precio:0,cat:"Ron",desc:"750 ml",img:"imagenes/ron-cartavio-rubio-750ml.jpg",icono:"🍹"},
+
 {id:4,nombre:"Vodka Russkaya Azul 750 ml",precio:26,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-azul-750ml.jpg",icono:"🍸",grupo:"Vodka Russkaya"},
 {id:59,nombre:"Vodka Russkaya Verde 750 ml",precio:0,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-green-750ml.jpg",icono:"🍸",grupo:"Vodka Russkaya"},
 {id:60,nombre:"Vodka Russkaya Pink 750 ml",precio:0,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-russkaya-pink-750ml.jpg",icono:"🍸",grupo:"Vodka Russkaya"},
-{id:5,nombre:"Whisky Something Special 750 ml",precio:62,cat:"Whisky",desc:"750 ml",img:"imagenes/whisky-something-special-750ml.jpg",icono:"🥃"},
-{id:6,nombre:"Ron Flor de Caña 4 años 750 ml",precio:48,cat:"Ron",desc:"750 ml",img:"imagenes/ron-flor-de-cana-4-anos-750ml.jpg",icono:"🍹"},
-{id:7,nombre:"Ron Havana Club 700 ml",precio:39,cat:"Ron",desc:"700 ml",img:"imagenes/ron-havana-club-700ml.jpg",icono:"🍹"},
-{id:8,nombre:"Tequila 1800 Reposado 750 ml",precio:120,cat:"Tequila",desc:"750 ml",img:"imagenes/tequila-1800-reposado-750ml.jpg",icono:"🍸"},
-{id:9,nombre:"Pisco Santiago Queirolo Quebranta 700 ml",precio:32,cat:"Pisco",desc:"700 ml",img:"imagenes/pisco-santiago-queirolo-quebranta-700ml.jpg",icono:"🍇"},
-{id:10,nombre:"Pisco Tabernero Quebranta 700 ml",precio:35,cat:"Pisco",desc:"700 ml",img:"imagenes/pisco-tabernero-quebranta-700ml.jpg",icono:"🍇"},
-{id:11,nombre:"Crema de Pisco Nieto Algarrobina 500 ml",precio:25,cat:"Licores",desc:"500 ml",img:"imagenes/crema-pisco-nieto-algarrobina-500ml.jpg",icono:"🍶"},
-{id:12,nombre:"Crema de Pisco Nieto Coco 500 ml",precio:25,cat:"Licores",desc:"500 ml",img:"imagenes/crema-pisco-nieto-coco-500ml.jpg",icono:"🍶"},
+{id:68,nombre:"Vodka Smirnoff Green 700 ml",precio:0,cat:"Vodka",desc:"700 ml",img:"imagenes/vodka-smirnoff-green-700ml.jpg",icono:"🍸"},
+{id:69,nombre:"Vodka Smirnoff Red 750 ml",precio:0,cat:"Vodka",desc:"750 ml",img:"imagenes/vodka-smirnoff-red-750ml.jpg",icono:"🍸"},
+
+{id:8,nombre:"Tequila 1800 Reposado 750 ml",precio:120,cat:"Tequila",desc:"750 ml",img:"imagenes/tequila-1800-reposado-750ml.jpg",icono:"🍸",grupo:"Tequilas"},
+{id:70,nombre:"Tequila José Cuervo Blanco 750 ml",precio:0,cat:"Tequila",desc:"750 ml",img:"imagenes/tequila-jose-cuervo-blanco-750ml.jpg",icono:"🍸",grupo:"Tequilas"},
+{id:71,nombre:"Tequila José Cuervo Rubio 750 ml",precio:0,cat:"Tequila",desc:"750 ml",img:"imagenes/tequila-jose-cuervo-rubio-750ml.jpg",icono:"🍸",grupo:"Tequilas"},
+
+{id:9,nombre:"Pisco Santiago Queirolo Quebranta 700 ml",precio:32,cat:"Pisco",desc:"Quebranta · 700 ml",img:"imagenes/pisco-santiago-queirolo-quebranta-700ml.jpg",icono:"🍇",grupo:"Pisco Santiago Queirolo"},
+{id:72,nombre:"Pisco Santiago Queirolo Acholado 700 ml",precio:0,cat:"Pisco",desc:"Acholado · 700 ml",img:"imagenes/pisco-santiago-queirolo-acholado-700ml.jpg",icono:"🍇",grupo:"Pisco Santiago Queirolo"},
+{id:10,nombre:"Pisco Tabernero Quebranta 700 ml",precio:35,cat:"Pisco",desc:"Quebranta · 700 ml",img:"imagenes/pisco-tabernero-quebranta-700ml.jpg",icono:"🍇",grupo:"Pisco Tabernero"},
+{id:73,nombre:"Pisco Tabernero Acholado 700 ml",precio:0,cat:"Pisco",desc:"Acholado · 700 ml",img:"imagenes/pisco-tabernero-acholado-700ml.jpg",icono:"🍇",grupo:"Pisco Tabernero"},
+{id:74,nombre:"Pisco Tabernero Italia 700 ml",precio:0,cat:"Pisco",desc:"Italia · 700 ml",img:"imagenes/pisco-tabernero-italia-700ml.jpg",icono:"🍇",grupo:"Pisco Tabernero"},
+{id:75,nombre:"Pisco Cuatro Gallos Quebranta 700 ml",precio:0,cat:"Pisco",desc:"Quebranta · 700 ml",img:"imagenes/pisco-cuatro-gallos-quebranta-700ml.jpg",icono:"🍇",grupo:"Pisco Cuatro Gallos"},
+{id:76,nombre:"Pisco Cuatro Gallos Acholado 700 ml",precio:0,cat:"Pisco",desc:"Acholado · 700 ml",img:"imagenes/pisco-cuatro-gallos-acholado-700ml.jpg",icono:"🍇",grupo:"Pisco Cuatro Gallos"},
+{id:77,nombre:"Pisco Caravedo Quebranta 700 ml",precio:0,cat:"Pisco",desc:"Quebranta · 700 ml",img:"imagenes/pisco-caravedo-quebranta-700ml.jpg",icono:"🍇"},
+
+{id:11,nombre:"Crema de Pisco Nieto Algarrobina 500 ml",precio:25,cat:"Licores",desc:"Algarrobina · 500 ml",img:"imagenes/crema-pisco-nieto-algarrobina-500ml.jpg",icono:"🍶",grupo:"Crema de Pisco Nieto"},
+{id:12,nombre:"Crema de Pisco Nieto Coco 500 ml",precio:25,cat:"Licores",desc:"Coco · 500 ml",img:"imagenes/crema-pisco-nieto-coco-500ml.jpg",icono:"🍶",grupo:"Crema de Pisco Nieto"},
+{id:78,nombre:"Crema de Pisco Nieto Café 500 ml",precio:0,cat:"Licores",desc:"Café · 500 ml",img:"imagenes/crema-pisco-nieto-cafe-500ml.jpg",icono:"🍶",grupo:"Crema de Pisco Nieto"},
+{id:79,nombre:"Crema de Pisco Nieto Lucma 500 ml",precio:0,cat:"Licores",desc:"Lucma · 500 ml",img:"imagenes/crema-pisco-nieto-lucma-500ml.jpg",icono:"🍶",grupo:"Crema de Pisco Nieto"},
 {id:13,nombre:"Licor Menta 750 ml",precio:20,cat:"Licores",desc:"750 ml",img:"imagenes/licor-menta-750ml.jpg",icono:"🍸"},
 {id:14,nombre:"Jägermeister 500 ml",precio:0,cat:"Licores",desc:"500 ml",img:"imagenes/jagermeister-500ml.jpg",icono:"🍾"},
 {id:15,nombre:"Licor Curaçao Blue 700 ml",precio:0,cat:"Licores",desc:"700 ml",img:"imagenes/licor-curacao-blue-700ml.jpg",icono:"🍹"},
-{id:16,nombre:"Vino Santiago Queirolo Rosé 750 ml",precio:18,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-rose-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
-{id:17,nombre:"Pack Regalo Queirolo",precio:38,cat:"Vinos",desc:"2 vinos + 2 copas en una sola caja. Ideal para regalo.",img:"imagenes/pack-regalo-vino-queirolo.jpg",icono:"🎁"},
-{id:18,nombre:"Vino Santiago Queirolo Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-santiago-queirolo-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
-{id:19,nombre:"Vino Tabernero Borgoña 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
-{id:20,nombre:"Vino Tabernero Blanco 750 ml",precio:0,cat:"Vinos",desc:"750 ml",img:"imagenes/vino-tabernero-blanco-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
-{id:21,nombre:"Vino Tacama Tinto",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-tinto.jpg",icono:"🍷",grupo:"Vino Tacama"},
-{id:22,nombre:"Vino Tacama Blanco",precio:0,cat:"Vinos",desc:"Presentación según stock",img:"imagenes/vino-tacama-blanco.jpg",icono:"🍷",grupo:"Vino Tacama"},
+
+{id:16,nombre:"Vino Santiago Queirolo Rosé 750 ml",precio:18,cat:"Vinos",desc:"Rosé · 750 ml",img:"imagenes/vino-santiago-queirolo-rose-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
+{id:18,nombre:"Vino Santiago Queirolo Borgoña 750 ml",precio:0,cat:"Vinos",desc:"Borgoña · 750 ml",img:"imagenes/vino-santiago-queirolo-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Santiago Queirolo"},
+{id:19,nombre:"Vino Tabernero Borgoña 750 ml",precio:0,cat:"Vinos",desc:"Borgoña · 750 ml",img:"imagenes/vino-tabernero-borgona-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
+{id:20,nombre:"Vino Tabernero Blanco 750 ml",precio:0,cat:"Vinos",desc:"Blanco · 750 ml",img:"imagenes/vino-tabernero-blanco-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
+{id:80,nombre:"Vino Tabernero Rosé 750 ml",precio:0,cat:"Vinos",desc:"Rosé · 750 ml",img:"imagenes/vino-tabernero-rose-750ml.jpg",icono:"🍷",grupo:"Vino Tabernero"},
+{id:21,nombre:"Vino Tacama Tinto",precio:0,cat:"Vinos",desc:"Tinto",img:"imagenes/vino-tacama-tinto.jpg",icono:"🍷",grupo:"Vino Tacama"},
+{id:22,nombre:"Vino Tacama Blanco",precio:0,cat:"Vinos",desc:"Blanco",img:"imagenes/vino-tacama-blanco.jpg",icono:"🍷",grupo:"Vino Tacama"},
+{id:17,nombre:"Pack Regalo Queirolo",precio:38,cat:"Vinos",desc:"2 vinos + 2 copas en una sola caja",img:"imagenes/pack-regalo-vino-queirolo.jpg",icono:"🎁"},
+
 {id:23,nombre:"Espumante Especial 750 ml Verde",precio:17,cat:"Espumante",desc:"750 ml",icono:"🍾"},
-{id:24,nombre:"Mike's 355 ml",precio:6.5,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-355ml.jpg",icono:"🍹",grupo:"Mike's"},
-{id:25,nombre:"Mike's Fresa 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-fresa-355ml.jpg",icono:"🍹",grupo:"Mike's"},
-{id:26,nombre:"Mike's Limón 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-limon-355ml.jpg",icono:"🍹",grupo:"Mike's"},
-{id:27,nombre:"Mike's Mango 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-mango-355ml.jpg",icono:"🍹",grupo:"Mike's"},
-{id:28,nombre:"Mike's Manzana 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-manzana-355ml.jpg",icono:"🍹",grupo:"Mike's"},
-{id:29,nombre:"Mike's Maracuyá 355 ml",precio:0,cat:"Listos para tomar",desc:"355 ml",img:"imagenes/mikes-maracuya-355ml.jpg",icono:"🍹",grupo:"Mike's"},
-{id:30,nombre:"Four Loko Maracuyá 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-maracuya-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
-{id:31,nombre:"Four Loko Sandía 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-sandia-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
-{id:32,nombre:"Four Loko Morado 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-morado-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
-{id:33,nombre:"Four Loko Rojo 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-rojo-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
-{id:34,nombre:"Four Loko Verde 473 ml",precio:0,cat:"Listos para tomar",desc:"473 ml",img:"imagenes/four-loko-verde-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
-{id:35,nombre:"Cerveza Pilsen Lata 355 ml",precio:4.5,cat:"Cervezas",desc:"Lata 355 ml",img:"imagenes/pilsen-six-lata-355ml.jpg",icono:"🍺"},
-{id:36,nombre:"Cerveza Pilsen Six Botella 305 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-botella-305ml.jpg",icono:"🍺",grupo:"Pilsen Six"},
-{id:37,nombre:"Cerveza Pilsen Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/pilsen-six-laton-473ml.jpg",icono:"🍺",grupo:"Pilsen Six"},
-{id:38,nombre:"Cerveza Heineken Botella 330 ml",precio:0,cat:"Cervezas",desc:"330 ml",img:"imagenes/heineken-botella-330ml.jpg",icono:"🍺"},
-{id:39,nombre:"Heineken Lata 250 ml",precio:0,cat:"Cervezas",desc:"250 ml",img:"imagenes/heineken-lata-250ml.jpg",icono:"🍺"},
-{id:40,nombre:"Budweiser Lata 355 ml",precio:0,cat:"Cervezas",desc:"355 ml",img:"imagenes/budweiser-lata-355ml.jpg",icono:"🍺"},
-{id:41,nombre:"Corona Six Pack 330 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cerveza-corona-sixpack-330ml.jpg",icono:"🍺"},
-{id:42,nombre:"Corona Cero 355 ml",precio:0,cat:"Cervezas",desc:"355 ml",img:"imagenes/corona-cero-355ml.jpg",icono:"🍺"},
-{id:43,nombre:"Coronita Six Pack 210 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/coronita-sixpack-210ml.jpg",icono:"🍺"},
+
+{id:24,nombre:"Mike's 355 ml",precio:6.5,cat:"Listos para tomar",desc:"Original · 355 ml",img:"imagenes/mikes-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:25,nombre:"Mike's Fresa 355 ml",precio:0,cat:"Listos para tomar",desc:"Fresa · 355 ml",img:"imagenes/mikes-fresa-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:26,nombre:"Mike's Limón 355 ml",precio:0,cat:"Listos para tomar",desc:"Limón · 355 ml",img:"imagenes/mikes-limon-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:27,nombre:"Mike's Mango 355 ml",precio:0,cat:"Listos para tomar",desc:"Mango · 355 ml",img:"imagenes/mikes-mango-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:28,nombre:"Mike's Manzana 355 ml",precio:0,cat:"Listos para tomar",desc:"Manzana · 355 ml",img:"imagenes/mikes-manzana-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:29,nombre:"Mike's Maracuyá 355 ml",precio:0,cat:"Listos para tomar",desc:"Maracuyá · 355 ml",img:"imagenes/mikes-maracuya-355ml.jpg",icono:"🍹",grupo:"Mike's"},
+{id:30,nombre:"Four Loko Maracuyá 473 ml",precio:0,cat:"Listos para tomar",desc:"Maracuyá · 473 ml",img:"imagenes/four-loko-maracuya-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:31,nombre:"Four Loko Sandía 473 ml",precio:0,cat:"Listos para tomar",desc:"Sandía · 473 ml",img:"imagenes/four-loko-sandia-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:32,nombre:"Four Loko Morado 473 ml",precio:0,cat:"Listos para tomar",desc:"Morado · 473 ml",img:"imagenes/four-loko-morado-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:33,nombre:"Four Loko Rojo 473 ml",precio:0,cat:"Listos para tomar",desc:"Rojo · 473 ml",img:"imagenes/four-loko-rojo-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:34,nombre:"Four Loko Verde 473 ml",precio:0,cat:"Listos para tomar",desc:"Verde · 473 ml",img:"imagenes/four-loko-verde-473ml.jpg",icono:"🍹",grupo:"Four Loko"},
+{id:81,nombre:"Cartavio Hit Daiquiri de Mango 355 ml",precio:0,cat:"Listos para tomar",desc:"Daiquiri de Mango · 355 ml",icono:"🍹",grupo:"Cartavio Hit"},
+{id:82,nombre:"Cartavio Hit Piña Colada 355 ml",precio:0,cat:"Listos para tomar",desc:"Piña Colada · 355 ml",icono:"🍹",grupo:"Cartavio Hit"},
+{id:83,nombre:"Cartavio Hit Daiquiri de Fresa 355 ml",precio:0,cat:"Listos para tomar",desc:"Daiquiri de Fresa · 355 ml",icono:"🍹",grupo:"Cartavio Hit"},
+{id:84,nombre:"Cartavio Hit Chilcano de Ron 355 ml",precio:0,cat:"Listos para tomar",desc:"Chilcano de Ron · 355 ml",icono:"🍹",grupo:"Cartavio Hit"},
+{id:85,nombre:"Russkaya Wild Passion Fruit 355 ml",precio:0,cat:"Listos para tomar",desc:"Passion Fruit · 355 ml",icono:"🍹",grupo:"Russkaya Wild"},
+{id:86,nombre:"Russkaya Wild Tropical Orange 355 ml",precio:0,cat:"Listos para tomar",desc:"Tropical Orange · 355 ml",icono:"🍹",grupo:"Russkaya Wild"},
+{id:87,nombre:"Russkaya Wild Mojito 355 ml",precio:0,cat:"Listos para tomar",desc:"Mojito · 355 ml",icono:"🍹",grupo:"Russkaya Wild"},
+{id:88,nombre:"Russkaya Wild Sex on the Beach 355 ml",precio:0,cat:"Listos para tomar",desc:"Sex on the Beach · 355 ml",icono:"🍹",grupo:"Russkaya Wild"},
+{id:89,nombre:"Atomic Mora 473 ml",precio:0,cat:"Listos para tomar",desc:"Mora · 473 ml",icono:"🍹",grupo:"Atomic"},
+{id:90,nombre:"Atomic Manzana 473 ml",precio:0,cat:"Listos para tomar",desc:"Manzana · 473 ml",icono:"🍹",grupo:"Atomic"},
+{id:91,nombre:"Atomic Blueberry 473 ml",precio:0,cat:"Listos para tomar",desc:"Blueberry · 473 ml",icono:"🍹",grupo:"Atomic"},
+{id:92,nombre:"Smirnoff Lata 350 ml",precio:0,cat:"Listos para tomar",desc:"Lata · 350 ml",icono:"🍹",grupo:"Smirnoff 350 ml"},
+{id:93,nombre:"Smirnoff Botella 350 ml",precio:0,cat:"Listos para tomar",desc:"Botella · 350 ml",icono:"🍹",grupo:"Smirnoff 350 ml"},
+
+{id:35,nombre:"Cerveza Pilsen Lata 355 ml",precio:4.5,cat:"Cervezas",desc:"Lata · 355 ml",img:"imagenes/pilsen-six-lata-355ml.jpg",icono:"🍺",grupo:"Pilsen"},
+{id:36,nombre:"Cerveza Pilsen Six Botella 305 ml",precio:0,cat:"Cervezas",desc:"Six pack · Botella 305 ml",img:"imagenes/pilsen-six-botella-305ml.jpg",icono:"🍺",grupo:"Pilsen"},
+{id:37,nombre:"Cerveza Pilsen Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack · Lata 473 ml",img:"imagenes/pilsen-six-laton-473ml.jpg",icono:"🍺",grupo:"Pilsen"},
+{id:38,nombre:"Cerveza Heineken Botella 330 ml",precio:0,cat:"Cervezas",desc:"Botella · 330 ml",img:"imagenes/heineken-botella-330ml.jpg",icono:"🍺",grupo:"Heineken"},
+{id:39,nombre:"Heineken Lata 250 ml",precio:0,cat:"Cervezas",desc:"Lata · 250 ml",img:"imagenes/heineken-lata-250ml.jpg",icono:"🍺",grupo:"Heineken"},
+{id:40,nombre:"Budweiser Lata 355 ml",precio:0,cat:"Cervezas",desc:"Lata · 355 ml",img:"imagenes/budweiser-lata-355ml.jpg",icono:"🍺"},
+{id:41,nombre:"Corona Six Pack 330 ml",precio:0,cat:"Cervezas",desc:"Six pack · 330 ml",img:"imagenes/cerveza-corona-sixpack-330ml.jpg",icono:"🍺",grupo:"Corona"},
+{id:42,nombre:"Corona Cero 355 ml",precio:0,cat:"Cervezas",desc:"355 ml",img:"imagenes/corona-cero-355ml.jpg",icono:"🍺",grupo:"Corona"},
+{id:43,nombre:"Coronita Six Pack 210 ml",precio:0,cat:"Cervezas",desc:"Six pack · 210 ml",img:"imagenes/coronita-sixpack-210ml.jpg",icono:"🍺"},
 {id:44,nombre:"Cusqueña Dorada 473 ml",precio:0,cat:"Cervezas",desc:"473 ml",img:"imagenes/cusquena-dorada-473ml.jpg",icono:"🍺"},
 {id:45,nombre:"Cusqueña Golden Lata 473 ml",precio:0,cat:"Cervezas",desc:"473 ml",img:"imagenes/cusquena-golden-lata-473ml.jpg",icono:"🍺"},
-{id:46,nombre:"Cusqueña Negra Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-negra-six-botella-310ml.jpg",icono:"🍺",grupo:"Cusqueña Negra"},
-{id:47,nombre:"Cusqueña Negra Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-negra-six-laton-473ml.jpg",icono:"🍺",grupo:"Cusqueña Negra"},
+{id:46,nombre:"Cusqueña Negra Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack · Botella 310 ml",img:"imagenes/cusquena-negra-six-botella-310ml.jpg",icono:"🍺",grupo:"Cusqueña Negra"},
+{id:47,nombre:"Cusqueña Negra Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack · Lata 473 ml",img:"imagenes/cusquena-negra-six-laton-473ml.jpg",icono:"🍺",grupo:"Cusqueña Negra"},
 {id:48,nombre:"Cusqueña Quinua 473 ml",precio:0,cat:"Cervezas",desc:"473 ml",img:"imagenes/cusquena-quinua-473ml.jpg",icono:"🍺"},
-{id:49,nombre:"Cusqueña Roja Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-roja-six-473ml.jpg",icono:"🍺"},
-{id:50,nombre:"Cusqueña Trigo Botella 620 ml",precio:0,cat:"Cervezas",desc:"620 ml",img:"imagenes/cusquena-trigo-botella-620ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
-{id:51,nombre:"Cusqueña Trigo Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-trigo-six-botella-310ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
-{id:52,nombre:"Cusqueña Trigo Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/cusquena-trigo-six-laton-473ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
-{id:53,nombre:"Tres Cruces Six 355 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/tres-cruces-six-355ml.jpg",icono:"🍺"},
-{id:54,nombre:"Tres Cruces Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/tres-cruces-six-473ml.jpg",icono:"🍺"},
-{id:55,nombre:"Tres Cruces Light Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack",img:"imagenes/tres-cruces%20ligth-six-473ml.jpg",icono:"🍺"},
+{id:49,nombre:"Cusqueña Roja Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack · 473 ml",img:"imagenes/cusquena-roja-six-473ml.jpg",icono:"🍺"},
+{id:50,nombre:"Cusqueña Trigo Botella 620 ml",precio:0,cat:"Cervezas",desc:"Botella · 620 ml",img:"imagenes/cusquena-trigo-botella-620ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
+{id:51,nombre:"Cusqueña Trigo Six Botella 310 ml",precio:0,cat:"Cervezas",desc:"Six pack · Botella 310 ml",img:"imagenes/cusquena-trigo-six-botella-310ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
+{id:52,nombre:"Cusqueña Trigo Six Lata 473 ml",precio:0,cat:"Cervezas",desc:"Six pack · Lata 473 ml",img:"imagenes/cusquena-trigo-six-laton-473ml.jpg",icono:"🍺",grupo:"Cusqueña Trigo"},
+{id:53,nombre:"Tres Cruces Six 355 ml",precio:0,cat:"Cervezas",desc:"Six pack · 355 ml",img:"imagenes/tres-cruces-six-355ml.jpg",icono:"🍺",grupo:"Tres Cruces"},
+{id:54,nombre:"Tres Cruces Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack · 473 ml",img:"imagenes/tres-cruces-six-473ml.jpg",icono:"🍺",grupo:"Tres Cruces"},
+{id:55,nombre:"Tres Cruces Light Six 473 ml",precio:0,cat:"Cervezas",desc:"Six pack · Light 473 ml",img:"imagenes/tres-cruces%20ligth-six-473ml.jpg",icono:"🍺",grupo:"Tres Cruces"},
+
 {id:56,nombre:"Cigarro Marlboro",precio:2.5,cat:"Cigarros",desc:"Unidad",icono:"🚬"},
-{id:57,nombre:"Chicle Adams",precio:.25,cat:"Chicles",desc:"Unidad",icono:"🍬"},
+{id:94,nombre:"Lucky Mora 10 unidades",precio:0,cat:"Cigarros",desc:"10 unidades",icono:"🚬",grupo:"Lucky Mora"},
+{id:95,nombre:"Lucky Mora 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades",icono:"🚬",grupo:"Lucky Mora"},
+{id:96,nombre:"Lucky Sandía 10 unidades",precio:0,cat:"Cigarros",desc:"10 unidades",icono:"🚬",grupo:"Lucky Sandía"},
+{id:97,nombre:"Lucky Sandía 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades",icono:"🚬",grupo:"Lucky Sandía"},
+{id:98,nombre:"Lucky Naranja 10 unidades",precio:0,cat:"Cigarros",desc:"10 unidades",icono:"🚬",grupo:"Lucky Naranja"},
+{id:99,nombre:"Lucky Naranja 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades",icono:"🚬",grupo:"Lucky Naranja"},
+{id:100,nombre:"Lucky Eclipse 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades",icono:"🚬"},
+{id:101,nombre:"Esse 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades",icono:"🚬"},
+{id:102,nombre:"Pine 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades",icono:"🚬"},
+{id:103,nombre:"Golden Verde 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades · Verde",icono:"🚬",grupo:"Golden"},
+{id:104,nombre:"Golden Dorado 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades · Dorado",icono:"🚬",grupo:"Golden"},
+{id:105,nombre:"Golden Rojo 20 unidades",precio:0,cat:"Cigarros",desc:"20 unidades · Rojo",icono:"🚬",grupo:"Golden"},
+
+{id:57,nombre:"Chicle Trident Mora",precio:0,cat:"Chicles",desc:"Mora · unidad",icono:"🍬",grupo:"Trident"},
+{id:106,nombre:"Chicle Trident Menta",precio:0,cat:"Chicles",desc:"Menta · unidad",icono:"🍬",grupo:"Trident"},
+{id:107,nombre:"Chicle Trident Fresa",precio:0,cat:"Chicles",desc:"Fresa · unidad",icono:"🍬",grupo:"Trident"},
+{id:108,nombre:"Chicle Trident Sandía",precio:0,cat:"Chicles",desc:"Sandía · unidad",icono:"🍬",grupo:"Trident"},
+{id:109,nombre:"Halls Rojo en barra",precio:0,cat:"Chicles",desc:"Barra · Rojo",icono:"🍬",grupo:"Halls en barra"},
+{id:110,nombre:"Halls Negro en barra",precio:0,cat:"Chicles",desc:"Barra · Negro",icono:"🍬",grupo:"Halls en barra"},
+{id:111,nombre:"Halls Mora en barra",precio:0,cat:"Chicles",desc:"Barra · Mora",icono:"🍬",grupo:"Halls en barra"},
+{id:112,nombre:"Halls Azul en barra",precio:0,cat:"Chicles",desc:"Barra · Azul",icono:"🍬",grupo:"Halls en barra"},
+
+{id:113,nombre:"Inka Chips Jalapeño 135 g",precio:0,cat:"Snacks",desc:"135 g",img:"imagenes/inka-chips-jalapeno-135g.jpg",icono:"🍟"},
+{id:114,nombre:"Inka Chips Sal de Mar 135 g",precio:0,cat:"Snacks",desc:"135 g",img:"imagenes/inka-chips-sal-de-mar-135g.jpg",icono:"🍟"},
+{id:115,nombre:"Piqueos 190 g",precio:0,cat:"Snacks",desc:"190 g",img:"imagenes/piqueos-190g.jpg",icono:"🥨"},
+
 {id:58,nombre:"Red Bull 250 ml",precio:0,cat:"Bebidas",desc:"250 ml",img:"imagenes/red-bull-250ml.jpg",icono:"🥤"},
-{id:62,nombre:"Coca-Cola 1.5 L",precio:0,cat:"Bebidas",desc:"1.5 L descartable",img:"imagenes/coca-cola-1.5lt.jpg",icono:"🥤"},
-{id:63,nombre:"Coca-Cola 600 ml",precio:0,cat:"Bebidas",desc:"600 ml",img:"imagenes/coca-cola-600ml.jpg",icono:"🥤"},
-{id:64,nombre:"Coca-Cola 3 L",precio:0,cat:"Bebidas",desc:"3 litros",img:"imagenes/coca-cola-3lt.jpg",icono:"🥤"}
+{id:62,nombre:"Coca-Cola 1.5 L",precio:0,cat:"Bebidas",desc:"1.5 L descartable",img:"imagenes/coca-cola-1.5lt.jpg",icono:"🥤",grupo:"Coca-Cola"},
+{id:63,nombre:"Coca-Cola 600 ml",precio:0,cat:"Bebidas",desc:"600 ml",img:"imagenes/coca-cola-600ml.jpg",icono:"🥤",grupo:"Coca-Cola"},
+{id:64,nombre:"Coca-Cola 3 L",precio:0,cat:"Bebidas",desc:"3 L",img:"imagenes/coca-cola-3lt.jpg",icono:"🥤",grupo:"Coca-Cola"},
+{id:116,nombre:"Inca Kola 600 ml",precio:0,cat:"Bebidas",desc:"600 ml",icono:"🥤",grupo:"Inca Kola"},
+{id:117,nombre:"Inca Kola 3 L",precio:0,cat:"Bebidas",desc:"3 L",icono:"🥤",grupo:"Inca Kola"},
+{id:118,nombre:"Sprite 3 L",precio:0,cat:"Bebidas",desc:"3 L",icono:"🥤"},
+{id:119,nombre:"Ginger Schweppes 1.5 L",precio:0,cat:"Bebidas",desc:"1.5 L",icono:"🥤"},
+{id:120,nombre:"Pepsi 3 L",precio:0,cat:"Bebidas",desc:"3 L",icono:"🥤"},
+{id:121,nombre:"Fanta Naranja 3 L",precio:0,cat:"Bebidas",desc:"3 L · Naranja",icono:"🥤",grupo:"Fanta 3 L"},
+{id:122,nombre:"Fanta Roja 3 L",precio:0,cat:"Bebidas",desc:"3 L · Roja",icono:"🥤",grupo:"Fanta 3 L"},
+{id:123,nombre:"Frugos del Valle Durazno 1.5 L",precio:0,cat:"Bebidas",desc:"1.5 L · Durazno",icono:"🥤",grupo:"Frugos del Valle 1.5 L"},
+{id:124,nombre:"Frugos del Valle Naranja 1.5 L",precio:0,cat:"Bebidas",desc:"1.5 L · Naranja",icono:"🥤",grupo:"Frugos del Valle 1.5 L"},
+
+{id:125,nombre:"Tabernero Sour Maracuyá 700 ml",precio:0,cat:"Licores",desc:"700 ml",icono:"🍹"},
+{id:126,nombre:"Piscano Sour Maracupisco 700 ml",precio:0,cat:"Licores",desc:"700 ml",icono:"🍹"},
+
+{id:127,nombre:"Hielo 1.5 kg",precio:0,cat:"Hielo",desc:"Bolsa 1.5 kg",icono:"🧊",grupo:"Hielo"},
+{id:128,nombre:"Hielo 3 kg",precio:0,cat:"Hielo",desc:"Bolsa 3 kg",icono:"🧊",grupo:"Hielo"}
 ];
 
 let carrito=[];
@@ -235,7 +313,7 @@ function renderProductos(){
  const grid=document.getElementById("product-grid");
  const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();
  const visibles=productos.filter(p=>{
-   const catOk=categoriaActual==="Todos" || p.cat===categoriaActual || (categoriaActual==="Complementos" && ["Cigarros","Chicles","Bebidas"].includes(p.cat));
+   const catOk=categoriaActual==="Todos" || p.cat===categoriaActual || (categoriaActual==="Complementos" && ["Cigarros","Chicles","Bebidas","Snacks","Hielo"].includes(p.cat));
    const texto=(p.nombre+" "+p.cat+" "+p.desc).toLowerCase();
    return catOk && texto.includes(termino);
  });
@@ -266,8 +344,8 @@ function renderProductos(){
       </div>
      </div>`;
    }
-   const cover=items.slice(0,3);
-   const coverHtml=cover.map(p=>p.img?`<img src="${p.img}" alt="${p.nombre}">`:`<div class="product-emoji">${p.icono}</div>`).join("");
+   const cover=items[0];
+   const coverHtml=cover.img?`<img src="${cover.img}" alt="${cover.nombre}">`:`<div class="product-emoji">${cover.icono}</div>`;
    const precios=items.filter(p=>p.precio>0).map(p=>p.precio);
    const min=precios.length?Math.min(...precios):0;
    const precioTexto=min?`Desde S/ ${min.toFixed(2)}`:"Consultar precios";
@@ -280,7 +358,7 @@ function renderProductos(){
     <div class="family-info">
       <div class="product-category">${items[0].cat}</div>
       <div class="product-name">${key}</div>
-      <div class="product-description">${items.length} opciones · Elige tu presentación o sabor</div>
+      <div class="product-description">${items.length} opciones · Toca para elegir presentación o sabor</div>
       <div class="product-price">${precioTexto}</div>
       <div class="family-variants">${items.slice(0,5).map(p=>`<span class="family-variant-pill">${p.desc}</span>`).join("")}</div>
     </div>
