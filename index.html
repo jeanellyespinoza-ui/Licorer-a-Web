@@ -17,7 +17,7 @@ header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px soli
 nav{display:flex;gap:30px;align-items:center}nav a{font-size:14px;font-weight:600;transition:.3s}nav a:hover{color:var(--gold)}
 .cart{border:1px solid var(--gold);padding:10px 16px;border-radius:30px;color:var(--gold);background:#fff;cursor:pointer;font-weight:700}.cart:hover{background:var(--gold);color:#fff}
 .hero{min-height:650px;display:flex;align-items:center;position:relative;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.45) 48%,rgba(0,0,0,.1)),url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1800&q=85') center/cover}
-.hero-content{max-width:1320px;width:100%;margin:auto;padding:75px 30px;color:#111;position:relative;z-index:2}.hero-small{color:#B28A22;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.hero-content{max-width:1320px;width:100%;margin:auto;padding:75px 30px;color:#fff;position:relative;z-index:2}.hero-small{color:#F0C85A;font-weight:700;letter-spacing:2px;text-transform:uppercase}
 .hero h1{font-weight:500;font-size:76px;line-height:1;letter-spacing:2px}.hero h1 span{color:#D4AF37}.hero p{margin-top:25px;font-size:20px;max-width:520px;line-height:1.6}
 .hero-buttons{display:flex;gap:15px;margin-top:35px;flex-wrap:wrap}.btn{padding:14px 28px;border-radius:30px;font-weight:700;transition:.3s;display:inline-block;border:none;cursor:pointer}.btn-gold{background:var(--gold);color:#111}.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}.btn-outline{border:1px solid var(--black);color:var(--black);background:#fff}
 .section{max-width:1250px;margin:auto;padding:80px 30px}.section-header{text-align:center;margin-bottom:45px}.section-label{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:700}.section-title{font-weight:500;font-size:42px;margin-top:10px}.section-description{color:var(--gray);max-width:600px;margin:15px auto 0}
@@ -147,6 +147,148 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
   .family-cover{height:270px}
 }
 
+
+/* ===== DESTÁPALA · CATEGORÍAS VISUALES V3 ===== */
+.quick-category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+}
+.quick-category-grid .category-card{
+  min-height:255px;
+  padding:0 16px 18px;
+  justify-content:flex-end;
+  background:#fff;
+  border:1px solid #E4DDCF;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(30,25,15,.04);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.quick-category-grid .category-card::before,
+.quick-category-grid .category-card::after{display:none!important}
+.quick-category-grid .category-card:hover{
+  transform:translateY(-5px);
+  border-color:#D4AF37;
+  box-shadow:0 14px 32px rgba(30,25,15,.10);
+}
+.category-photo{
+  width:100%;
+  height:145px;
+  margin-bottom:14px;
+  background:#FAF8F2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:14px 14px 8px 8px;
+}
+.category-photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:14px;
+  display:block;
+}
+.category-photo .category-fallback{
+  font-size:58px;
+  line-height:1;
+}
+.quick-category-grid .category-name{
+  font-size:18px;
+  line-height:1.2;
+  font-weight:800;
+  text-align:center;
+}
+.quick-category-grid .category-sub{
+  font-size:11px;
+  line-height:1.4;
+  min-height:31px;
+  margin:6px 0 10px;
+  color:#777;
+  text-align:center;
+}
+.quick-category-grid .category-cta{
+  position:static;
+  display:flex;
+  width:100%;
+  min-height:36px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #D4AF37;
+  border-radius:22px;
+  color:#8D6E1F;
+  background:#FFFDF8;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+.quick-category-grid .category-card:hover .category-cta{
+  background:#D4AF37;
+  color:#111;
+}
+.quick-category-grid .promo-category{
+  background:#FFFBF1;
+  border-color:#D4AF37;
+}
+.quick-category-grid .promo-category .category-photo{
+  background:#FFF5D9;
+}
+
+.category-menu-note{
+  max-width:650px;
+  margin:12px auto 0;
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
+}
+.products .filter-buttons{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  flex-wrap:nowrap;
+  padding:4px 2px 10px;
+  scrollbar-width:thin;
+}
+.products .filter-btn{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+@media(max-width:1000px){
+  .quick-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .quick-category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .quick-category-grid .category-card{
+    min-height:224px;
+    padding:0 10px 12px;
+    border-radius:15px;
+  }
+  .category-photo{
+    height:112px;
+    margin-bottom:10px;
+    border-radius:12px 12px 7px 7px;
+  }
+  .category-photo img{padding:10px}
+  .category-photo .category-fallback{font-size:45px}
+  .quick-category-grid .category-name{font-size:15px}
+  .quick-category-grid .category-sub{
+    font-size:10px;
+    min-height:28px;
+    margin:4px 0 8px;
+  }
+  .quick-category-grid .category-cta{
+    min-height:34px;
+    font-size:10px;
+  }
+  .category-menu-note{font-size:12px}
+}
+@media(max-width:390px){
+  .quick-category-grid .category-card{min-height:210px}
+  .category-photo{height:100px}
+  .quick-category-grid .category-name{font-size:14px}
+}
+
 </style>
 </head>
 <body>
@@ -167,25 +309,106 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 <section class="section" id="categorias"><div class="section-header">
 <div class="section-label">DESCUBRE DESTÁPALA</div><h2 class="section-title">Nuestras categorías</h2>
-<p class="section-description">Todo lo que necesitas para disfrutar, compartir y celebrar.</p></div>
+<p class="section-description">Elige una categoría y encuentra rápidamente la presentación, marca o variedad que buscas.</p>
+<p class="category-menu-note">Una navegación pensada para comprar rápido desde tu celular.</p></div>
 
 <div class="quick-category-grid">
-<div class="category-card" onclick="irCategoria('Whisky')"><div class="category-icon">🥃</div><div class="category-name">Whisky</div><div class="category-sub">Clásicos y premium</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Ron')"><div class="category-icon">🍹</div><div class="category-name">Ron</div><div class="category-sub">Para cada ocasión</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Vodka')"><div class="category-icon">🍸</div><div class="category-name">Vodka</div><div class="category-sub">Marcas seleccionadas</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Vinos')"><div class="category-icon">🍷</div><div class="category-name">Vinos</div><div class="category-sub">Tintos, blancos y más</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Pisco')"><div class="category-icon">🍇</div><div class="category-name">Piscos</div><div class="category-sub">Por marca y variedad</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Cervezas')"><div class="category-icon">🍺</div><div class="category-name">Cervezas</div><div class="category-sub">Botellas, latas y packs</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Listos para tomar')"><div class="category-icon">🍹</div><div class="category-name">Listos para tomar</div><div class="category-sub">HIT, WILD, Mike's y más</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Licores')"><div class="category-icon">🍾</div><div class="category-name">Licores</div><div class="category-sub">Cremas y sabores</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Espumante')"><div class="category-icon">🥂</div><div class="category-name">Espumantes</div><div class="category-sub">Para brindar</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Tequila')"><div class="category-icon">🥃</div><div class="category-name">Tequila</div><div class="category-sub">Para celebrar</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Bebidas')"><div class="category-icon">🥤</div><div class="category-name">Bebidas</div><div class="category-sub">Gaseosas y energizantes</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Cigarros')"><div class="category-icon">🚬</div><div class="category-name">Cigarros</div><div class="category-sub">Presentaciones disponibles</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Chicles')"><div class="category-icon">🍬</div><div class="category-name">Chicles</div><div class="category-sub">Trident y Halls</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Piqueos')"><div class="category-icon">🥨</div><div class="category-name">Piqueos</div><div class="category-sub">Snacks y chocolates</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card" onclick="irCategoria('Hielo')"><div class="category-icon">🧊</div><div class="category-name">Hielo</div><div class="category-sub">1.5 kg y 3 kg</div><div class="category-cta">Ver productos →</div></div>
-<div class="category-card promo-category" onclick="document.getElementById('promociones').scrollIntoView({behavior:'smooth'})"><div class="category-icon">🔥</div><div class="category-name">Promociones</div><div class="category-sub">Combos y ofertas especiales</div><div class="category-cta">Ver promociones →</div></div>
+<div class="category-card" data-category="Whisky" onclick="irCategoria('Whisky')">
+  <div class="category-photo"><div class="category-fallback">🥃</div></div>
+  <div class="category-name">Whisky</div>
+  <div class="category-sub">Clásicos y premium</div>
+  <div class="category-cta">VER WHISKY →</div>
+</div>
+<div class="category-card" data-category="Ron" onclick="irCategoria('Ron')">
+  <div class="category-photo"><div class="category-fallback">🍹</div></div>
+  <div class="category-name">Ron</div>
+  <div class="category-sub">Cartavio y otras marcas</div>
+  <div class="category-cta">VER RON →</div>
+</div>
+<div class="category-card" data-category="Vodka" onclick="irCategoria('Vodka')">
+  <div class="category-photo"><div class="category-fallback">🍸</div></div>
+  <div class="category-name">Vodka</div>
+  <div class="category-sub">Russkaya · Smirnoff y más</div>
+  <div class="category-cta">VER VODKA →</div>
+</div>
+<div class="category-card" data-category="Vinos" onclick="irCategoria('Vinos')">
+  <div class="category-photo"><div class="category-fallback">🍷</div></div>
+  <div class="category-name">Vinos</div>
+  <div class="category-sub">Tintos, blancos y rosé</div>
+  <div class="category-cta">VER VINOS →</div>
+</div>
+<div class="category-card" data-category="Pisco" onclick="irCategoria('Pisco')">
+  <div class="category-photo"><div class="category-fallback">🍇</div></div>
+  <div class="category-name">Pisco</div>
+  <div class="category-sub">Por marca y variedad</div>
+  <div class="category-cta">VER PISCO →</div>
+</div>
+<div class="category-card" data-category="Cervezas" onclick="irCategoria('Cervezas')">
+  <div class="category-photo"><div class="category-fallback">🍺</div></div>
+  <div class="category-name">Cervezas</div>
+  <div class="category-sub">Botellas, latas y packs</div>
+  <div class="category-cta">VER CERVEZAS →</div>
+</div>
+<div class="category-card" data-category="Listos para tomar" onclick="irCategoria('Listos para tomar')">
+  <div class="category-photo"><div class="category-fallback">🍹</div></div>
+  <div class="category-name">Listos para tomar</div>
+  <div class="category-sub">HIT · WILD · Mike's y más</div>
+  <div class="category-cta">VER LISTOS PARA TOMAR →</div>
+</div>
+<div class="category-card" data-category="Licores" onclick="irCategoria('Licores')">
+  <div class="category-photo"><div class="category-fallback">🍾</div></div>
+  <div class="category-name">Licores</div>
+  <div class="category-sub">Cremas y sabores</div>
+  <div class="category-cta">VER LICORES →</div>
+</div>
+<div class="category-card" data-category="Espumante" onclick="irCategoria('Espumante')">
+  <div class="category-photo"><div class="category-fallback">🥂</div></div>
+  <div class="category-name">Espumantes</div>
+  <div class="category-sub">Para brindar</div>
+  <div class="category-cta">VER ESPUMANTES →</div>
+</div>
+<div class="category-card" data-category="Tequila" onclick="irCategoria('Tequila')">
+  <div class="category-photo"><div class="category-fallback">🥃</div></div>
+  <div class="category-name">Tequila</div>
+  <div class="category-sub">Para celebrar</div>
+  <div class="category-cta">VER TEQUILA →</div>
+</div>
+<div class="category-card" data-category="Bebidas" onclick="irCategoria('Bebidas')">
+  <div class="category-photo"><div class="category-fallback">🥤</div></div>
+  <div class="category-name">Bebidas</div>
+  <div class="category-sub">Gaseosas y energizantes</div>
+  <div class="category-cta">VER BEBIDAS →</div>
+</div>
+<div class="category-card" data-category="Cigarros" onclick="irCategoria('Cigarros')">
+  <div class="category-photo"><div class="category-fallback">🚬</div></div>
+  <div class="category-name">Cigarros</div>
+  <div class="category-sub">Presentaciones disponibles</div>
+  <div class="category-cta">VER CIGARROS →</div>
+</div>
+<div class="category-card" data-category="Chicles" onclick="irCategoria('Chicles')">
+  <div class="category-photo"><div class="category-fallback">🍬</div></div>
+  <div class="category-name">Chicles</div>
+  <div class="category-sub">Trident y Halls</div>
+  <div class="category-cta">VER CHICLES →</div>
+</div>
+<div class="category-card" data-category="Piqueos" onclick="irCategoria('Piqueos')">
+  <div class="category-photo"><div class="category-fallback">🥨</div></div>
+  <div class="category-name">Piqueos</div>
+  <div class="category-sub">Snacks para compartir</div>
+  <div class="category-cta">VER PIQUEOS →</div>
+</div>
+<div class="category-card" data-category="Hielo" onclick="irCategoria('Hielo')">
+  <div class="category-photo"><div class="category-fallback">🧊</div></div>
+  <div class="category-name">Hielo</div>
+  <div class="category-sub">1.5 kg y 3 kg</div>
+  <div class="category-cta">VER HIELO →</div>
+</div>
+<div class="category-card promo-category" onclick="document.getElementById('promociones').scrollIntoView({behavior:'smooth'})">
+  <div class="category-photo"><div class="category-fallback">🔥</div></div>
+  <div class="category-name">Promociones</div>
+  <div class="category-sub">Combos y ofertas especiales</div>
+  <div class="category-cta">VER PROMOCIONES →</div>
+</div>
 </div></section>
 
 <section class="products products-hidden" id="productos"><div class="section">
@@ -272,6 +495,32 @@ const productos=[{"id":1,"nombre":"Ballantine's Finest 700 ml","precio":53,"cat"
 
 let carrito=[];
 let categoriaActual=null;
+
+function cargarImagenesCategorias(){
+  document.querySelectorAll(".quick-category-grid .category-card[data-category]").forEach(card=>{
+    const cat=card.dataset.category;
+    const foto=card.querySelector(".category-photo");
+    const producto=productos.find(p=>p.cat===cat && p.img);
+    if(!foto)return;
+    if(producto && producto.img){
+      const img=document.createElement("img");
+      img.src=producto.img;
+      img.alt=cat;
+      img.loading="lazy";
+      img.onerror=()=>{
+        img.remove();
+        if(!foto.querySelector(".category-fallback")){
+          const f=document.createElement("div");
+          f.className="category-fallback";
+          f.textContent=producto.icono || "🥃";
+          foto.appendChild(f);
+        }
+      };
+      foto.innerHTML="";
+      foto.appendChild(img);
+    }
+  });
+}
 
 function normalizarTexto(v){
   return String(v||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
@@ -484,6 +733,7 @@ document.querySelectorAll(".filter-btn").forEach(btn=>{
  });
 });
 document.getElementById("product-search")?.addEventListener("input",renderProductos);
+cargarImagenesCategorias();
 actualizarCarrito();
 </script>
 </body>
