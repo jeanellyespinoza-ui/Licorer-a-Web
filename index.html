@@ -55,6 +55,61 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 .variant-item button{width:100%;margin-top:12px;padding:10px;border:1px solid var(--gold);border-radius:20px;background:var(--gold);font-weight:700;cursor:pointer}
 @media(max-width:700px){.variant-grid{grid-template-columns:1fr 1fr}.family-cover{height:250px}}
 @media(max-width:480px){.variant-grid{grid-template-columns:1fr}.variant-modal{padding:20px}.variant-modal-head h3{font-size:24px}}
+
+/* ===== DESTÁPALA · CATÁLOGO VISUAL V2 ===== */
+.category-card{min-height:185px;padding:18px}
+.category-card .category-icon{font-size:46px}
+.category-card::before{content:"Ver categoría →";position:absolute;bottom:13px;font-size:10px;font-weight:700;letter-spacing:1px;color:#9B7A1E;opacity:.8}
+.category-card:hover::before{color:#111}
+
+.catalog-tools{display:block;margin:0 0 32px}
+.filter-buttons{display:flex;gap:9px;overflow-x:auto;flex-wrap:nowrap;padding:4px 2px 10px;scrollbar-width:thin}
+.filter-btn{flex:0 0 auto;white-space:nowrap;padding:10px 16px}
+.product-search{display:block;width:100%;max-width:430px;margin:10px auto 0}
+
+.product-grid{grid-template-columns:repeat(3,1fr);align-items:start}
+.product-card{border-radius:16px}
+.product-card.family-card{cursor:default}
+.product-card.family-card:hover{transform:translateY(-4px)}
+.family-card-image{padding:12px;background:#faf8f2}
+.family-cover{height:310px;border-radius:12px;background:#fff;position:relative}
+.family-cover img{padding:12px}
+.family-cover .product-emoji{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.family-cover-label{top:20px;left:20px;border-radius:20px;color:#8D6E1F;border:1px solid #E5D39B}
+
+.family-info{padding:20px}
+.family-info .product-name{min-height:auto;font-size:22px}
+.family-info .product-description{min-height:auto;line-height:1.45}
+.family-option-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#777;margin-top:16px}
+.family-options{display:flex;gap:8px;overflow-x:auto;padding:10px 0 3px;scrollbar-width:thin}
+.family-option{flex:0 0 82px;border:1px solid #DED8CB;border-radius:12px;background:#fff;padding:6px;cursor:pointer;text-align:center;transition:.2s}
+.family-option:hover{border-color:var(--gold);transform:translateY(-2px)}
+.family-option.active{border:2px solid var(--gold);padding:5px;box-shadow:0 5px 14px rgba(212,175,55,.18)}
+.family-option img,.family-option .option-emoji{width:100%;height:66px;object-fit:contain;border-radius:8px;background:#fafafa}
+.family-option .option-emoji{display:flex;align-items:center;justify-content:center;font-size:34px}
+.family-option span{display:block;font-size:10px;font-weight:700;margin-top:5px;line-height:1.2;color:#333}
+.family-option small{display:block;font-size:9px;color:#777;margin-top:2px}
+.family-selected{margin-top:10px;padding:11px 12px;background:#FAF8F2;border-radius:10px;font-size:12px;color:#555}
+.family-selected strong{color:#111}
+.family-card .product-button{border-radius:10px}
+
+.catalog-category-heading{grid-column:1/-1;margin:12px 0 -6px;padding:0 2px}
+.catalog-category-heading h3{font-size:25px;font-weight:600}
+.catalog-category-heading p{font-size:12px;color:#777;margin-top:4px}
+
+@media(max-width:1000px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  .product-grid{grid-template-columns:1fr}
+  .family-cover{height:300px}
+  .category-card{min-height:150px}
+  .filter-buttons{margin-right:-20px;padding-right:20px}
+}
+@media(max-width:480px){
+  .family-cover{height:280px}
+  .family-option{flex-basis:76px}
+}
+
+.variant-overlay{display:none!important}
 </style>
 </head>
 <body>
@@ -108,14 +163,18 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 <button class="filter-btn" data-cat="Whisky">Whisky</button>
 <button class="filter-btn" data-cat="Ron">Ron</button>
 <button class="filter-btn" data-cat="Vodka">Vodka</button>
+<button class="filter-btn" data-cat="Tequila">Tequila</button>
 <button class="filter-btn" data-cat="Pisco">Pisco</button>
 <button class="filter-btn" data-cat="Vinos">Vinos</button>
-<button class="filter-btn" data-cat="Cervezas">Cervezas</button>
-<button class="filter-btn" data-cat="Tequila">Tequila</button>
-<button class="filter-btn" data-cat="Licores">Licores</button>
 <button class="filter-btn" data-cat="Espumante">Espumantes</button>
+<button class="filter-btn" data-cat="Cervezas">Cervezas</button>
 <button class="filter-btn" data-cat="Listos para tomar">Listos para tomar</button>
-<button class="filter-btn" data-cat="Complementos">Complementos</button><button class="filter-btn" data-cat="Bebidas">Bebidas</button><button class="filter-btn" data-cat="Cigarros">Cigarros</button><button class="filter-btn" data-cat="Chicles">Chicles</button><button class="filter-btn" data-cat="Piqueos">Piqueos</button><button class="filter-btn" data-cat="Hielo">Hielo</button>
+<button class="filter-btn" data-cat="Licores">Licores</button>
+<button class="filter-btn" data-cat="Bebidas">Bebidas</button>
+<button class="filter-btn" data-cat="Cigarros">Cigarros</button>
+<button class="filter-btn" data-cat="Chicles">Chicles</button>
+<button class="filter-btn" data-cat="Piqueos">Piqueos</button>
+<button class="filter-btn" data-cat="Hielo">Hielo</button>
 </div>
 <input id="product-search" class="product-search" type="search" placeholder="Buscar producto...">
 </div>
@@ -155,19 +214,150 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 </div></div>
 
 <script>
-const productos=[{"id":1,"nombre":"Ballantine's Finest 700 ml","precio":53,"cat":"Whisky","desc":"700 ml","img":"imagenes/ballantines-finest-700ml.jpg","icono":"🥃"},{"id":2,"nombre":"Johnnie Walker Red 750 ml","precio":55,"cat":"Whisky","desc":"750 ml","img":"imagenes/johnnie-walker-red-750ml.jpg","icono":"🥃"},{"id":3,"nombre":"Johnnie Walker Black 750 ml","precio":0,"cat":"Whisky","desc":"750 ml","img":"imagenes/johnnie-walker-black-750ml.jpg","icono":"🥃"},{"id":4,"nombre":"Whisky Something Special 750 ml","precio":62,"cat":"Whisky","desc":"750 ml","img":"imagenes/whisky-something-special-750ml.jpg","icono":"🥃"},{"id":5,"nombre":"Ron Cartavio Black 1 L","precio":32,"cat":"Ron","desc":"1 L","img":"imagenes/ron-cartavio-black-1l.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":6,"nombre":"Ron Cartavio 1.75 L","precio":0,"cat":"Ron","desc":"1.75 L","img":"imagenes/ron-cartavio-1750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":7,"nombre":"Ron Cartavio Black 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-cartavio-black-750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":8,"nombre":"Ron Cartavio Blanco 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-cartavio-blanco-750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":9,"nombre":"Ron Cartavio Rubio 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-cartavio-rubio-750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":10,"nombre":"Ron Flor de Caña 4 años 750 ml","precio":48,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-flor-de-cana-4-anos-750ml.jpg","icono":"🍹"},{"id":11,"nombre":"Ron Havana Club 700 ml","precio":39,"cat":"Ron","desc":"700 ml","img":"imagenes/ron-havana-club-700ml.jpg","icono":"🍹"},{"id":12,"nombre":"Old Times 1 L","precio":0,"cat":"Ron","desc":"1 L","img":"imagenes/old-times-1lt.jpg","icono":"🍹","grupo":"Old Times"},{"id":13,"nombre":"Old Times 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/old-times-750ml.jpg","icono":"🍹","grupo":"Old Times"},{"id":14,"nombre":"Vodka Russkaya Azul 750 ml","precio":26,"cat":"Vodka","desc":"750 ml","img":"imagenes/vodka-russkaya-azul-750ml.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":15,"nombre":"Vodka Russkaya Azul 1 L","precio":0,"cat":"Vodka","desc":"1 L","img":"imagenes/vodka-russkaya-azul-1lt.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":16,"nombre":"Vodka Russkaya Verde 750 ml","precio":0,"cat":"Vodka","desc":"750 ml","img":"imagenes/vodka-russkaya-green-750ml.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":17,"nombre":"Vodka Russkaya Pink 750 ml","precio":0,"cat":"Vodka","desc":"750 ml","img":"imagenes/vodka-russkaya-pink-750ml.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":18,"nombre":"Smirnoff Botella Original 350 ml","precio":0,"cat":"Vodka","desc":"Botella · 350 ml","img":"imagenes/smirnoff-botella-original-350ml.jpg","icono":"🍸","grupo":"Smirnoff 350 ml"},{"id":19,"nombre":"Smirnoff Botella Apple 355 ml","precio":0,"cat":"Vodka","desc":"Botella · 355 ml","img":"imagenes/smirnoff-botella-apple-355ml.jpg","icono":"🍸","grupo":"Smirnoff 350 ml"},{"id":20,"nombre":"Smirnoff Lata Original 350 ml","precio":0,"cat":"Vodka","desc":"Lata · 350 ml","img":"imagenes/smirnoff-lata-original-350ml.jpg","icono":"🍸","grupo":"Smirnoff 350 ml"},{"id":21,"nombre":"Smirnoff Lata Apple 350 ml","precio":0,"cat":"Vodka","desc":"Lata · 350 ml","img":"imagenes/smirnoff-lata-apple-350ml.jpg","icono":"🍸","grupo":"Smirnoff 350 ml"},{"id":22,"nombre":"Tequila 1800 Reposado 750 ml","precio":120,"cat":"Tequila","desc":"750 ml","img":"imagenes/tequila-1800-reposado-750ml.jpg","icono":"🥃","grupo":"Tequila"},{"id":23,"nombre":"Tequila José Cuervo Blanco 750 ml","precio":0,"cat":"Tequila","desc":"750 ml","img":"imagenes/tequila-jose-cuervo-blanco-750ml.jpg","icono":"🥃","grupo":"Tequila"},{"id":24,"nombre":"Tequila José Cuervo Rubio 750 ml","precio":0,"cat":"Tequila","desc":"750 ml","img":"imagenes/tequila-jose-cuervo-rubio-750ml.jpg","icono":"🥃","grupo":"Tequila"},{"id":25,"nombre":"Pisco Santiago Queirolo Quebranta 700 ml","precio":32,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-santiago-queirolo-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Santiago Queirolo"},{"id":26,"nombre":"Pisco Santiago Queirolo Acholado 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-santiago-queirolo-acholado-700ml.jpg","icono":"🍇","grupo":"Pisco Santiago Queirolo"},{"id":27,"nombre":"Pisco Tabernero Quebranta 700 ml","precio":35,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-tabernero-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Tabernero"},{"id":28,"nombre":"Pisco Tabernero Acholado 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-tabernero-acholado-700ml.jpg","icono":"🍇","grupo":"Pisco Tabernero"},{"id":29,"nombre":"Pisco Tabernero Italia 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-tabernero-italia-700ml.jpg","icono":"🍇","grupo":"Pisco Tabernero"},{"id":30,"nombre":"Pisco Cuatro Gallos Quebranta 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-cuatro-gallos-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Cuatro Gallos"},{"id":31,"nombre":"Pisco Cuatro Gallos Acholado 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-cuatro-gallos-acholado-700ml.jpg","icono":"🍇","grupo":"Pisco Cuatro Gallos"},{"id":32,"nombre":"Pisco Caravedo Quebranta 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-caravedo-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Caravedo"},{"id":33,"nombre":"Crema de Pisco Nieto Algarrobina 500 ml","precio":25,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-algarrobina-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":34,"nombre":"Crema de Pisco Nieto Café 500 ml","precio":0,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-cafe-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":35,"nombre":"Crema de Pisco Nieto Coco 500 ml","precio":25,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-coco-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":36,"nombre":"Crema de Pisco Nieto Lucma 500 ml","precio":0,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-lucma-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":37,"nombre":"Licor Menta 750 ml","precio":20,"cat":"Licores","desc":"750 ml","img":"imagenes/licor-menta-750ml.jpg","icono":"🍸"},{"id":38,"nombre":"Jägermeister 500 ml","precio":0,"cat":"Licores","desc":"500 ml","img":"imagenes/jagermeister-500ml.jpg","icono":"🍾"},{"id":39,"nombre":"Licor Curaçao Blue 700 ml","precio":0,"cat":"Licores","desc":"700 ml","img":"imagenes/licor-curacao-blue-700ml.jpg","icono":"🍹"},{"id":40,"nombre":"Vino Santiago Queirolo Rosé 750 ml","precio":18,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-santiago-queirolo-rose-750ml.jpg","icono":"🍷","grupo":"Vino Santiago Queirolo"},{"id":41,"nombre":"Vino Santiago Queirolo Borgoña 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-santiago-queirolo-borgona-750ml.jpg","icono":"🍷","grupo":"Vino Santiago Queirolo"},{"id":42,"nombre":"Pack Regalo Queirolo","precio":38,"cat":"Vinos","desc":"2 vinos + 2 copas · ideal para regalo","img":"imagenes/pack-regalo-vino-queirolo.jpg","icono":"🎁"},{"id":43,"nombre":"Vino Tabernero Blanco 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-tabernero-blanco-750ml.jpg","icono":"🍷","grupo":"Vino Tabernero"},{"id":44,"nombre":"Vino Tabernero Borgoña 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-tabernero-borgona-750ml.jpg","icono":"🍷","grupo":"Vino Tabernero"},{"id":45,"nombre":"Vino Tabernero Rosé 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-tabernero-rose-750ml.jpg","icono":"🍷","grupo":"Vino Tabernero"},{"id":46,"nombre":"Vino Tacama Tinto","precio":0,"cat":"Vinos","desc":"Presentación según stock","img":"imagenes/vino-tacama-tinto.jpg","icono":"🍷","grupo":"Vino Tacama"},{"id":47,"nombre":"Vino Tacama Blanco","precio":0,"cat":"Vinos","desc":"Presentación según stock","img":"imagenes/vino-tacama-blanco.jpg","icono":"🍷","grupo":"Vino Tacama"},{"id":48,"nombre":"Espumante Especial 750 ml","precio":17,"cat":"Espumante","desc":"750 ml","icono":"🍾"},{"id":49,"nombre":"Mike's 355 ml","precio":6.5,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":50,"nombre":"Mike's Fresa 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-fresa-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":51,"nombre":"Mike's Limón 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-limon-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":52,"nombre":"Mike's Mango 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-mango-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":53,"nombre":"Mike's Manzana 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-manzana-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":54,"nombre":"Mike's Maracuyá 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-maracuya-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":55,"nombre":"Four Loko Maracuyá 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-maracuya-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":56,"nombre":"Four Loko Sandía 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-sandia-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":57,"nombre":"Four Loko Morado 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-morado-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":58,"nombre":"Four Loko Rojo 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-rojo-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":59,"nombre":"Four Loko Verde 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-verde-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":60,"nombre":"Cartavio Hit Cuba Libre 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/Hit-cuba%20libre-355ml.jpg","icono":"🍹","grupo":"Cartavio Hit"},{"id":61,"nombre":"Cartavio Hit Piña Colada 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/hit-pina-colada-355ml.jpg","icono":"🍹","grupo":"Cartavio Hit"},{"id":136,"nombre":"Cartavio Hit Mojito 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/hit-mojito-355ml.jpg","icono":"🍹","grupo":"Cartavio Hit"},{"id":62,"nombre":"Russkaya Wild Passion Fruit 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-passion-fruit-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":63,"nombre":"Russkaya Wild Tropical Orange 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-tropical-orange-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":64,"nombre":"Russkaya Wild Fresh 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-fresh-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":65,"nombre":"Russkaya Wild Sex on the Beach 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-sex-on-the-beach-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":66,"nombre":"Atomic Mora 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/atomic-mora-473ml.jpg","icono":"🍹","grupo":"Atomic"},{"id":67,"nombre":"Atomic Manzana 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/atomic-manzana-473ml.jpg","icono":"🍹","grupo":"Atomic"},{"id":68,"nombre":"Atomic Blueberry 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/atomic-blueberry-473ml.jpg","icono":"🍹","grupo":"Atomic"},{"id":69,"nombre":"Tabernero Sour Maracuyá 700 ml","precio":0,"cat":"Listos para tomar","desc":"700 ml","img":"imagenes/tabernero-sour-maracuya-700ml.jpg","icono":"🍹"},{"id":70,"nombre":"Piscano Sour Maracupisco 700 ml","precio":0,"cat":"Listos para tomar","desc":"700 ml","img":"imagenes/piscano-sour-maracupisco-700ml.jpg","icono":"🍹"},{"id":71,"nombre":"Cerveza Pilsen Lata 355 ml","precio":4.5,"cat":"Cervezas","desc":"Lata 355 ml","img":"imagenes/pilsen-six-lata-355ml.jpg","icono":"🍺"},{"id":72,"nombre":"Cerveza Pilsen Six Botella 305 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/pilsen-six-botella-305ml.jpg","icono":"🍺","grupo":"Pilsen Six"},{"id":73,"nombre":"Cerveza Pilsen Six Lata 355 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/pilsen-six-lata-355ml.jpg","icono":"🍺","grupo":"Pilsen Six"},{"id":74,"nombre":"Cerveza Pilsen Six Lata 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/pilsen-six-laton-473ml.jpg","icono":"🍺","grupo":"Pilsen Six"},{"id":75,"nombre":"Heineken Botella 330 ml","precio":0,"cat":"Cervezas","desc":"330 ml","img":"imagenes/heineken-botella-330ml.jpg","icono":"🍺","grupo":"Heineken"},{"id":76,"nombre":"Heineken Lata 250 ml","precio":0,"cat":"Cervezas","desc":"250 ml","img":"imagenes/heineken-lata-250ml.jpg","icono":"🍺","grupo":"Heineken"},{"id":77,"nombre":"Budweiser Lata 355 ml","precio":0,"cat":"Cervezas","desc":"355 ml","img":"imagenes/budweiser-lata-355ml.jpg","icono":"🍺"},{"id":78,"nombre":"Corona Six Pack 330 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cerveza-corona-sixpack-330ml.jpg","icono":"🍺","grupo":"Corona"},{"id":79,"nombre":"Corona Cero 355 ml","precio":0,"cat":"Cervezas","desc":"355 ml","img":"imagenes/corona-cero-355ml.jpg","icono":"🍺","grupo":"Corona"},{"id":80,"nombre":"Coronita Six Pack 210 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/coronita-sixpack-210ml.jpg","icono":"🍺"},{"id":81,"nombre":"Cusqueña Dorada 473 ml","precio":0,"cat":"Cervezas","desc":"473 ml","img":"imagenes/cusquena-dorada-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":82,"nombre":"Cusqueña Golden Lata 473 ml","precio":0,"cat":"Cervezas","desc":"473 ml","img":"imagenes/cusquena-golden-lata-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":83,"nombre":"Cusqueña Negra Caja 620 ml","precio":0,"cat":"Cervezas","desc":"Caja 620 ml","img":"imagenes/cusquena-negra-caja-620ml.jpg","icono":"🍺","grupo":"Cusqueña Negra"},{"id":84,"nombre":"Cusqueña Negra Six Botella 310 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-negra-six-botella-310ml.jpg","icono":"🍺","grupo":"Cusqueña Negra"},{"id":85,"nombre":"Cusqueña Negra Six Lata 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-negra-six-laton-473ml.jpg","icono":"🍺","grupo":"Cusqueña Negra"},{"id":86,"nombre":"Cusqueña Quinua 473 ml","precio":0,"cat":"Cervezas","desc":"473 ml","img":"imagenes/cusquena-quinua-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":87,"nombre":"Cusqueña Roja Six 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-roja-six-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":88,"nombre":"Cusqueña Trigo Botella 620 ml","precio":0,"cat":"Cervezas","desc":"620 ml","img":"imagenes/cusquena-trigo-botella-620ml.jpg","icono":"🍺","grupo":"Cusqueña Trigo"},{"id":89,"nombre":"Cusqueña Trigo Six Botella 310 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-trigo-six-botella-310ml.jpg","icono":"🍺","grupo":"Cusqueña Trigo"},{"id":90,"nombre":"Cusqueña Trigo Six Lata 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-trigo-six-laton-473ml.jpg","icono":"🍺","grupo":"Cusqueña Trigo"},{"id":91,"nombre":"Tres Cruces Six 355 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/tres-cruces-six-355ml.jpg","icono":"🍺","grupo":"Tres Cruces"},{"id":92,"nombre":"Tres Cruces Six 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/tres-cruces-six-473ml.jpg","icono":"🍺","grupo":"Tres Cruces"},{"id":93,"nombre":"Tres Cruces Light Six 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/tres-cruces%20ligth-six-473ml.jpg","icono":"🍺","grupo":"Tres Cruces"},{"id":94,"nombre":"Coca-Cola 1.5 L descartable","precio":0,"cat":"Bebidas","desc":"1.5 L","img":"imagenes/coca-cola-1.5lt-descartable.jpg","icono":"🥤","grupo":"Coca-Cola"},{"id":95,"nombre":"Coca-Cola 600 ml","precio":0,"cat":"Bebidas","desc":"600 ml","img":"imagenes/coca-cola-600ml.jpg","icono":"🥤","grupo":"Coca-Cola"},{"id":96,"nombre":"Coca-Cola 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/coca-cola-3lt.jpg","icono":"🥤","grupo":"Coca-Cola"},{"id":97,"nombre":"Inca Kola 600 ml","precio":0,"cat":"Bebidas","desc":"600 ml","img":"imagenes/inca-kola-600ml.jpg","icono":"🥤","grupo":"Inca Kola"},{"id":98,"nombre":"Inca Kola 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/inca-kola-3lt.jpg","icono":"🥤","grupo":"Inca Kola"},{"id":99,"nombre":"Fanta Naranja 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/fanta-naranja-3lt.jpg","icono":"🥤","grupo":"Fanta"},{"id":100,"nombre":"Fanta Roja 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/fanta-roja-3lt.jpg","icono":"🥤","grupo":"Fanta"},{"id":101,"nombre":"Frugos del Valle Durazno 970 ml","precio":0,"cat":"Bebidas","desc":"970 ml","img":"imagenes/frugos-del-valle-durazno-970%20ml.jpg","icono":"🥤","grupo":"Frugos del Valle"},{"id":102,"nombre":"Frugos del Valle Naranja 970 ml","precio":0,"cat":"Bebidas","desc":"970 ml","img":"imagenes/frugos-del-valle-naranja-970%20ml.jpg","icono":"🥤","grupo":"Frugos del Valle"},{"id":103,"nombre":"Sprite 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/sprite-3lt.jpg","icono":"🥤"},{"id":104,"nombre":"Pepsi 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/pepsi-3lt.jpg","icono":"🥤"},{"id":105,"nombre":"Ginger Schweppes 1.5 L","precio":0,"cat":"Bebidas","desc":"1.5 L","img":"imagenes/ginger-schweppes-1.5lt.jpg","icono":"🥤"},{"id":106,"nombre":"Tampico 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/Bebida-tampico-3lt.jpg","icono":"🥤"},{"id":107,"nombre":"Red Bull 250 ml","precio":0,"cat":"Bebidas","desc":"250 ml","img":"imagenes/red-bull-250ml.jpg","icono":"🥤"},{"id":108,"nombre":"Lucky Mora 10 unidades","precio":0,"cat":"Cigarros","desc":"10 unidades","img":"imagenes/cigarro-lucky-mora-10unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":109,"nombre":"Lucky Mora 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-mora-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":110,"nombre":"Lucky Sandía 10 unidades","precio":0,"cat":"Cigarros","desc":"10 unidades","img":"imagenes/cigarro-lucky-sandia-10unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":111,"nombre":"Lucky Sandía 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-sandia-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":112,"nombre":"Lucky Naranja 10 unidades","precio":0,"cat":"Cigarros","desc":"10 unidades","img":"imagenes/cigarro-lucky-naranja-10unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":113,"nombre":"Lucky Naranja 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-naranja-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":114,"nombre":"Lucky Eclipse 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-eclipse-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":115,"nombre":"Lucky Strike Azul","precio":0,"cat":"Cigarros","desc":"Presentación disponible","img":"imagenes/cigarro-lucky-strike-azul.jpg","icono":"🚬","grupo":"Lucky Strike"},{"id":116,"nombre":"Lucky Strike Mentol","precio":0,"cat":"Cigarros","desc":"Presentación disponible","img":"imagenes/cigarro-lucky-strike-mentol.jpg","icono":"🚬","grupo":"Lucky Strike"},{"id":117,"nombre":"Golden Verde 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-golden-verde-20unid.jpg","icono":"🚬","grupo":"Golden"},{"id":118,"nombre":"Golden Dorado 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-golden-dorado-20unid.jpg","icono":"🚬","grupo":"Golden"},{"id":119,"nombre":"Golden Rojo 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-golden-rojo-20unid.jpg","icono":"🚬","grupo":"Golden"},{"id":120,"nombre":"Esse 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-esse-20unid.jpg","icono":"🚬"},{"id":121,"nombre":"Pine 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-pine-20unid.jpg","icono":"🚬"},{"id":122,"nombre":"Trident Fresa","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-fresa.jpg","icono":"🍬","grupo":"Trident"},{"id":123,"nombre":"Trident Menta","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-menta.jpg","icono":"🍬","grupo":"Trident"},{"id":124,"nombre":"Trident Mora","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-mora.jpg","icono":"🍬","grupo":"Trident"},{"id":125,"nombre":"Trident Sandía","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-sandia.jpg","icono":"🍬","grupo":"Trident"},{"id":126,"nombre":"Halls en barra Rojo","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-rojo.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":127,"nombre":"Halls en barra Negro","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-negro.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":128,"nombre":"Halls en barra Mora","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-mora.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":129,"nombre":"Halls en barra Azul","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-azul.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":130,"nombre":"Piqueos Original 190 g","precio":0,"cat":"Piqueos","desc":"190 g","img":"imagenes/piqueos-original-190g.jpg","icono":"🥨"},{"id":131,"nombre":"Papas Inka Chips Jalapeño 135 g","precio":0,"cat":"Piqueos","desc":"135 g","img":"imagenes/papas-inka-chips-jalapeno-135g.jpg","icono":"🥔","grupo":"Inka Chips"},{"id":132,"nombre":"Papas Inka Chips Sal de Mar 135 g","precio":0,"cat":"Piqueos","desc":"135 g","img":"imagenes/papas-inka-chips-sal-de-mar-135g.jpg","icono":"🥔","grupo":"Inka Chips"},{"id":133,"nombre":"Chocolate Sublime","precio":0,"cat":"Piqueos","desc":"Chocolate","img":"imagenes/chocolate-sublime.jpg","icono":"🍫"},{"id":134,"nombre":"Hielo 1.5 kg","precio":0,"cat":"Hielo","desc":"1.5 kg","img":"imagenes/hielo-1.5kg.jpg","icono":"🧊","grupo":"Hielo"},{"id":135,"nombre":"Hielo 3 kg","precio":0,"cat":"Hielo","desc":"3 kg","img":"imagenes/hielo-3kg.jpg","icono":"🧊","grupo":"Hielo"}];
+const imagenesCigarros = [
+  "imagenes/cigarro-lucky-mora-10unid.jpg",
+  "imagenes/cigarro-lucky-mora-20unid.jpg",
+  "imagenes/cigarro-lucky-sandia-10unid.jpg",
+  "imagenes/cigarro-lucky-sandia-20unid.jpg",
+  "imagenes/cigarro-lucky-naranja-10unid.jpg",
+  "imagenes/cigarro-lucky-naranja-20unid.jpg",
+  "imagenes/cigarro-lucky-eclipse-20unid.jpg",
+  "imagenes/cigarro-lucky-strike-azul.jpg",
+  "imagenes/cigarro-lucky-strike-mentol.jpg",
+  "imagenes/cigarro-esse-20unid.jpg",
+  "imagenes/cigarro-pine-20unid.jpg",
+  "imagenes/cigarro-golden-verde-20unid.jpg",
+  "imagenes/cigarro-golden-dorado-20unid.jpg",
+  "imagenes/cigarro-golden-rojo-20unid.jpg"
+];
+
+imagenesCigarros.forEach(src => { const img = new Image(); img.src = src; });
+
+const productos=[{"id":1,"nombre":"Ballantine's Finest 700 ml","precio":53,"cat":"Whisky","desc":"700 ml","img":"imagenes/ballantines-finest-700ml.jpg","icono":"🥃"},{"id":2,"nombre":"Johnnie Walker Red 750 ml","precio":55,"cat":"Whisky","desc":"750 ml","img":"imagenes/johnnie-walker-red-750ml.jpg","icono":"🥃"},{"id":3,"nombre":"Johnnie Walker Black 750 ml","precio":0,"cat":"Whisky","desc":"750 ml","img":"imagenes/johnnie-walker-black-750ml.jpg","icono":"🥃"},{"id":4,"nombre":"Whisky Something Special 750 ml","precio":62,"cat":"Whisky","desc":"750 ml","img":"imagenes/whisky-something-special-750ml.jpg","icono":"🥃"},{"id":5,"nombre":"Ron Cartavio Black 1 L","precio":32,"cat":"Ron","desc":"1 L","img":"imagenes/ron-cartavio-black-1l.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":6,"nombre":"Ron Cartavio 1.75 L","precio":0,"cat":"Ron","desc":"1.75 L","img":"imagenes/ron-cartavio-1750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":7,"nombre":"Ron Cartavio Black 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-cartavio-black-750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":8,"nombre":"Ron Cartavio Blanco 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-cartavio-blanco-750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":9,"nombre":"Ron Cartavio Rubio 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-cartavio-rubio-750ml.jpg","icono":"🍹","grupo":"Ron Cartavio"},{"id":10,"nombre":"Ron Flor de Caña 4 años 750 ml","precio":48,"cat":"Ron","desc":"750 ml","img":"imagenes/ron-flor-de-cana-4-anos-750ml.jpg","icono":"🍹"},{"id":11,"nombre":"Ron Havana Club 700 ml","precio":39,"cat":"Ron","desc":"700 ml","img":"imagenes/ron-havana-club-700ml.jpg","icono":"🍹"},{"id":12,"nombre":"Old Times 1 L","precio":0,"cat":"Ron","desc":"1 L","img":"imagenes/old-times-1lt.jpg","icono":"🍹","grupo":"Old Times"},{"id":13,"nombre":"Old Times 750 ml","precio":0,"cat":"Ron","desc":"750 ml","img":"imagenes/old-times-750ml.jpg","icono":"🍹","grupo":"Old Times"},{"id":14,"nombre":"Vodka Russkaya Azul 750 ml","precio":26,"cat":"Vodka","desc":"750 ml","img":"imagenes/vodka-russkaya-azul-750ml.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":15,"nombre":"Vodka Russkaya Azul 1 L","precio":0,"cat":"Vodka","desc":"1 L","img":"imagenes/vodka-russkaya-azul-1lt.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":16,"nombre":"Vodka Russkaya Verde 750 ml","precio":0,"cat":"Vodka","desc":"750 ml","img":"imagenes/vodka-russkaya-green-750ml.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":17,"nombre":"Vodka Russkaya Pink 750 ml","precio":0,"cat":"Vodka","desc":"750 ml","img":"imagenes/vodka-russkaya-pink-750ml.jpg","icono":"🍸","grupo":"Vodka Russkaya"},{"id":18,"nombre":"Smirnoff Botella Original 350 ml","precio":0,"cat":"Vodka","desc":"Botella · 350 ml","img":"imagenes/smirnoff-botella-original-350ml.jpg","icono":"🍸","grupo":"Smirnoff"},{"id":19,"nombre":"Smirnoff Botella Apple 355 ml","precio":0,"cat":"Vodka","desc":"Botella · 355 ml","img":"imagenes/smirnoff-botella-apple-355ml.jpg","icono":"🍸","grupo":"Smirnoff"},{"id":20,"nombre":"Smirnoff Lata Original 350 ml","precio":0,"cat":"Vodka","desc":"Lata · 350 ml","img":"imagenes/smirnoff-lata-original-350ml.jpg","icono":"🍸","grupo":"Smirnoff"},{"id":21,"nombre":"Smirnoff Lata Apple 350 ml","precio":0,"cat":"Vodka","desc":"Lata · 350 ml","img":"imagenes/smirnoff-lata-apple-350ml.jpg","icono":"🍸","grupo":"Smirnoff"},{"id":22,"nombre":"Tequila 1800 Reposado 750 ml","precio":120,"cat":"Tequila","desc":"750 ml","img":"imagenes/tequila-1800-reposado-750ml.jpg","icono":"🥃","grupo":"Tequila 1800"},{"id":23,"nombre":"Tequila José Cuervo Blanco 750 ml","precio":0,"cat":"Tequila","desc":"750 ml","img":"imagenes/tequila-jose-cuervo-blanco-750ml.jpg","icono":"🥃","grupo":"José Cuervo"},{"id":24,"nombre":"Tequila José Cuervo Rubio 750 ml","precio":0,"cat":"Tequila","desc":"750 ml","img":"imagenes/tequila-jose-cuervo-rubio-750ml.jpg","icono":"🥃","grupo":"José Cuervo"},{"id":25,"nombre":"Pisco Santiago Queirolo Quebranta 700 ml","precio":32,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-santiago-queirolo-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Santiago Queirolo"},{"id":26,"nombre":"Pisco Santiago Queirolo Acholado 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-santiago-queirolo-acholado-700ml.jpg","icono":"🍇","grupo":"Pisco Santiago Queirolo"},{"id":27,"nombre":"Pisco Tabernero Quebranta 700 ml","precio":35,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-tabernero-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Tabernero"},{"id":28,"nombre":"Pisco Tabernero Acholado 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-tabernero-acholado-700ml.jpg","icono":"🍇","grupo":"Pisco Tabernero"},{"id":29,"nombre":"Pisco Tabernero Italia 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-tabernero-italia-700ml.jpg","icono":"🍇","grupo":"Pisco Tabernero"},{"id":30,"nombre":"Pisco Cuatro Gallos Quebranta 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-cuatro-gallos-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Cuatro Gallos"},{"id":31,"nombre":"Pisco Cuatro Gallos Acholado 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-cuatro-gallos-acholado-700ml.jpg","icono":"🍇","grupo":"Pisco Cuatro Gallos"},{"id":32,"nombre":"Pisco Caravedo Quebranta 700 ml","precio":0,"cat":"Pisco","desc":"700 ml","img":"imagenes/pisco-caravedo-quebranta-700ml.jpg","icono":"🍇","grupo":"Pisco Caravedo"},{"id":33,"nombre":"Crema de Pisco Nieto Algarrobina 500 ml","precio":25,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-algarrobina-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":34,"nombre":"Crema de Pisco Nieto Café 500 ml","precio":0,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-cafe-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":35,"nombre":"Crema de Pisco Nieto Coco 500 ml","precio":25,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-coco-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":36,"nombre":"Crema de Pisco Nieto Lucma 500 ml","precio":0,"cat":"Licores","desc":"500 ml","img":"imagenes/crema-pisco-nieto-lucma-500ml.jpg","icono":"🍶","grupo":"Crema de Pisco Nieto"},{"id":37,"nombre":"Licor Menta 750 ml","precio":20,"cat":"Licores","desc":"750 ml","img":"imagenes/licor-menta-750ml.jpg","icono":"🍸","grupo":"Licor Menta"},{"id":38,"nombre":"Jägermeister 500 ml","precio":0,"cat":"Licores","desc":"500 ml","img":"imagenes/jagermeister-500ml.jpg","icono":"🍾","grupo":"Jägermeister"},{"id":39,"nombre":"Licor Curaçao Blue 700 ml","precio":0,"cat":"Licores","desc":"700 ml","img":"imagenes/licor-curacao-blue-700ml.jpg","icono":"🍹","grupo":"Curaçao Blue"},{"id":40,"nombre":"Vino Santiago Queirolo Rosé 750 ml","precio":18,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-santiago-queirolo-rose-750ml.jpg","icono":"🍷","grupo":"Vino Santiago Queirolo"},{"id":41,"nombre":"Vino Santiago Queirolo Borgoña 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-santiago-queirolo-borgona-750ml.jpg","icono":"🍷","grupo":"Vino Santiago Queirolo"},{"id":42,"nombre":"Pack Regalo Queirolo","precio":38,"cat":"Vinos","desc":"2 vinos + 2 copas · ideal para regalo","img":"imagenes/pack-regalo-vino-queirolo.jpg","icono":"🎁"},{"id":43,"nombre":"Vino Tabernero Blanco 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-tabernero-blanco-750ml.jpg","icono":"🍷","grupo":"Vino Tabernero"},{"id":44,"nombre":"Vino Tabernero Borgoña 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-tabernero-borgona-750ml.jpg","icono":"🍷","grupo":"Vino Tabernero"},{"id":45,"nombre":"Vino Tabernero Rosé 750 ml","precio":0,"cat":"Vinos","desc":"750 ml","img":"imagenes/vino-tabernero-rose-750ml.jpg","icono":"🍷","grupo":"Vino Tabernero"},{"id":46,"nombre":"Vino Tacama Tinto","precio":0,"cat":"Vinos","desc":"Presentación según stock","img":"imagenes/vino-tacama-tinto.jpg","icono":"🍷","grupo":"Vino Tacama"},{"id":47,"nombre":"Vino Tacama Blanco","precio":0,"cat":"Vinos","desc":"Presentación según stock","img":"imagenes/vino-tacama-blanco.jpg","icono":"🍷","grupo":"Vino Tacama"},{"id":48,"nombre":"Espumante Especial 750 ml","precio":17,"cat":"Espumante","desc":"750 ml","icono":"🍾","grupo":"Espumante Especial"},{"id":49,"nombre":"Mike's 355 ml","precio":6.5,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":50,"nombre":"Mike's Fresa 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-fresa-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":51,"nombre":"Mike's Limón 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-limon-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":52,"nombre":"Mike's Mango 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-mango-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":53,"nombre":"Mike's Manzana 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-manzana-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":54,"nombre":"Mike's Maracuyá 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/mikes-maracuya-355ml.jpg","icono":"🍹","grupo":"Mike's"},{"id":55,"nombre":"Four Loko Maracuyá 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-maracuya-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":56,"nombre":"Four Loko Sandía 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-sandia-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":57,"nombre":"Four Loko Morado 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-morado-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":58,"nombre":"Four Loko Rojo 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-rojo-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":59,"nombre":"Four Loko Verde 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/four-loko-verde-473ml.jpg","icono":"🍹","grupo":"Four Loko"},{"id":60,"nombre":"Cartavio Hit Cuba Libre 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/Hit-cuba%20libre-355ml.jpg","icono":"🍹","grupo":"Cartavio Hit"},{"id":61,"nombre":"Cartavio Hit Piña Colada 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/hit-pina-colada-355ml.jpg","icono":"🍹","grupo":"Cartavio Hit"},{"id":136,"nombre":"Cartavio Hit Mojito 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/hit-mojito-355ml.jpg","icono":"🍹","grupo":"Cartavio Hit"},{"id":62,"nombre":"Russkaya Wild Passion Fruit 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-passion-fruit-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":63,"nombre":"Russkaya Wild Tropical Orange 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-tropical-orange-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":64,"nombre":"Russkaya Wild Fresh 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-fresh-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":65,"nombre":"Russkaya Wild Sex on the Beach 355 ml","precio":0,"cat":"Listos para tomar","desc":"355 ml","img":"imagenes/wild-sex-on-the-beach-355ml.jpg","icono":"🍹","grupo":"Russkaya Wild"},{"id":66,"nombre":"Atomic Mora 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/atomic-mora-473ml.jpg","icono":"🍹","grupo":"Atomic"},{"id":67,"nombre":"Atomic Manzana 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/atomic-manzana-473ml.jpg","icono":"🍹","grupo":"Atomic"},{"id":68,"nombre":"Atomic Blueberry 473 ml","precio":0,"cat":"Listos para tomar","desc":"473 ml","img":"imagenes/atomic-blueberry-473ml.jpg","icono":"🍹","grupo":"Atomic"},{"id":69,"nombre":"Tabernero Sour Maracuyá 700 ml","precio":0,"cat":"Listos para tomar","desc":"700 ml","img":"imagenes/tabernero-sour-maracuya-700ml.jpg","icono":"🍹","grupo":"Tabernero Sour"},{"id":70,"nombre":"Piscano Sour Maracupisco 700 ml","precio":0,"cat":"Listos para tomar","desc":"700 ml","img":"imagenes/piscano-sour-maracupisco-700ml.jpg","icono":"🍹","grupo":"Piscano Sour"},{"id":71,"nombre":"Cerveza Pilsen Lata 355 ml","precio":4.5,"cat":"Cervezas","desc":"Lata 355 ml","img":"imagenes/pilsen-six-lata-355ml.jpg","icono":"🍺","grupo":"Pilsen"},{"id":72,"nombre":"Cerveza Pilsen Six Botella 305 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/pilsen-six-botella-305ml.jpg","icono":"🍺","grupo":"Pilsen"},{"id":73,"nombre":"Cerveza Pilsen Six Lata 355 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/pilsen-six-lata-355ml.jpg","icono":"🍺","grupo":"Pilsen"},{"id":74,"nombre":"Cerveza Pilsen Six Lata 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/pilsen-six-laton-473ml.jpg","icono":"🍺","grupo":"Pilsen"},{"id":75,"nombre":"Heineken Botella 330 ml","precio":0,"cat":"Cervezas","desc":"330 ml","img":"imagenes/heineken-botella-330ml.jpg","icono":"🍺","grupo":"Heineken"},{"id":76,"nombre":"Heineken Lata 250 ml","precio":0,"cat":"Cervezas","desc":"250 ml","img":"imagenes/heineken-lata-250ml.jpg","icono":"🍺","grupo":"Heineken"},{"id":77,"nombre":"Budweiser Lata 355 ml","precio":0,"cat":"Cervezas","desc":"355 ml","img":"imagenes/budweiser-lata-355ml.jpg","icono":"🍺","grupo":"Budweiser"},{"id":78,"nombre":"Corona Six Pack 330 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cerveza-corona-sixpack-330ml.jpg","icono":"🍺","grupo":"Corona"},{"id":79,"nombre":"Corona Cero 355 ml","precio":0,"cat":"Cervezas","desc":"355 ml","img":"imagenes/corona-cero-355ml.jpg","icono":"🍺","grupo":"Corona"},{"id":80,"nombre":"Coronita Six Pack 210 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/coronita-sixpack-210ml.jpg","icono":"🍺","grupo":"Corona"},{"id":81,"nombre":"Cusqueña Dorada 473 ml","precio":0,"cat":"Cervezas","desc":"473 ml","img":"imagenes/cusquena-dorada-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":82,"nombre":"Cusqueña Golden Lata 473 ml","precio":0,"cat":"Cervezas","desc":"473 ml","img":"imagenes/cusquena-golden-lata-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":83,"nombre":"Cusqueña Negra Caja 620 ml","precio":0,"cat":"Cervezas","desc":"Caja 620 ml","img":"imagenes/cusquena-negra-caja-620ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":84,"nombre":"Cusqueña Negra Six Botella 310 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-negra-six-botella-310ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":85,"nombre":"Cusqueña Negra Six Lata 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-negra-six-laton-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":86,"nombre":"Cusqueña Quinua 473 ml","precio":0,"cat":"Cervezas","desc":"473 ml","img":"imagenes/cusquena-quinua-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":87,"nombre":"Cusqueña Roja Six 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-roja-six-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":88,"nombre":"Cusqueña Trigo Botella 620 ml","precio":0,"cat":"Cervezas","desc":"620 ml","img":"imagenes/cusquena-trigo-botella-620ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":89,"nombre":"Cusqueña Trigo Six Botella 310 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-trigo-six-botella-310ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":90,"nombre":"Cusqueña Trigo Six Lata 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/cusquena-trigo-six-laton-473ml.jpg","icono":"🍺","grupo":"Cusqueña"},{"id":91,"nombre":"Tres Cruces Six 355 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/tres-cruces-six-355ml.jpg","icono":"🍺","grupo":"Tres Cruces"},{"id":92,"nombre":"Tres Cruces Six 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/tres-cruces-six-473ml.jpg","icono":"🍺","grupo":"Tres Cruces"},{"id":93,"nombre":"Tres Cruces Light Six 473 ml","precio":0,"cat":"Cervezas","desc":"Six pack","img":"imagenes/tres-cruces%20ligth-six-473ml.jpg","icono":"🍺","grupo":"Tres Cruces"},{"id":94,"nombre":"Coca-Cola 1.5 L descartable","precio":0,"cat":"Bebidas","desc":"1.5 L","img":"imagenes/coca-cola-1.5lt-descartable.jpg","icono":"🥤","grupo":"Coca-Cola"},{"id":95,"nombre":"Coca-Cola 600 ml","precio":0,"cat":"Bebidas","desc":"600 ml","img":"imagenes/coca-cola-600ml.jpg","icono":"🥤","grupo":"Coca-Cola"},{"id":96,"nombre":"Coca-Cola 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/coca-cola-3lt.jpg","icono":"🥤","grupo":"Coca-Cola"},{"id":97,"nombre":"Inca Kola 600 ml","precio":0,"cat":"Bebidas","desc":"600 ml","img":"imagenes/inca-kola-600ml.jpg","icono":"🥤","grupo":"Inca Kola"},{"id":98,"nombre":"Inca Kola 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/inca-kola-3lt.jpg","icono":"🥤","grupo":"Inca Kola"},{"id":99,"nombre":"Fanta Naranja 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/fanta-naranja-3lt.jpg","icono":"🥤","grupo":"Fanta"},{"id":100,"nombre":"Fanta Roja 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/fanta-roja-3lt.jpg","icono":"🥤","grupo":"Fanta"},{"id":101,"nombre":"Frugos del Valle Durazno 970 ml","precio":0,"cat":"Bebidas","desc":"970 ml","img":"imagenes/frugos-del-valle-durazno-970%20ml.jpg","icono":"🥤","grupo":"Frugos del Valle"},{"id":102,"nombre":"Frugos del Valle Naranja 970 ml","precio":0,"cat":"Bebidas","desc":"970 ml","img":"imagenes/frugos-del-valle-naranja-970%20ml.jpg","icono":"🥤","grupo":"Frugos del Valle"},{"id":103,"nombre":"Sprite 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/sprite-3lt.jpg","icono":"🥤","grupo":"Sprite"},{"id":104,"nombre":"Pepsi 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/pepsi-3lt.jpg","icono":"🥤","grupo":"Pepsi"},{"id":105,"nombre":"Ginger Schweppes 1.5 L","precio":0,"cat":"Bebidas","desc":"1.5 L","img":"imagenes/ginger-schweppes-1.5lt.jpg","icono":"🥤","grupo":"Ginger Schweppes"},{"id":106,"nombre":"Tampico 3 L","precio":0,"cat":"Bebidas","desc":"3 L","img":"imagenes/Bebida-tampico-3lt.jpg","icono":"🥤","grupo":"Tampico"},{"id":107,"nombre":"Red Bull 250 ml","precio":0,"cat":"Bebidas","desc":"250 ml","img":"imagenes/red-bull-250ml.jpg","icono":"🥤","grupo":"Red Bull"},{"id":108,"nombre":"Lucky Mora 10 unidades","precio":0,"cat":"Cigarros","desc":"10 unidades","img":"imagenes/cigarro-lucky-mora-10unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":109,"nombre":"Lucky Mora 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-mora-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":110,"nombre":"Lucky Sandía 10 unidades","precio":0,"cat":"Cigarros","desc":"10 unidades","img":"imagenes/cigarro-lucky-sandia-10unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":111,"nombre":"Lucky Sandía 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-sandia-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":112,"nombre":"Lucky Naranja 10 unidades","precio":0,"cat":"Cigarros","desc":"10 unidades","img":"imagenes/cigarro-lucky-naranja-10unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":113,"nombre":"Lucky Naranja 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-naranja-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":114,"nombre":"Lucky Eclipse 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-lucky-eclipse-20unid.jpg","icono":"🚬","grupo":"Lucky"},{"id":115,"nombre":"Lucky Strike Azul","precio":0,"cat":"Cigarros","desc":"Presentación disponible","img":"imagenes/cigarro-lucky-strike-azul.jpg","icono":"🚬","grupo":"Lucky Strike"},{"id":116,"nombre":"Lucky Strike Mentol","precio":0,"cat":"Cigarros","desc":"Presentación disponible","img":"imagenes/cigarro-lucky-strike-mentol.jpg","icono":"🚬","grupo":"Lucky Strike"},{"id":117,"nombre":"Golden Verde 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-golden-verde-20unid.jpg","icono":"🚬","grupo":"Golden"},{"id":118,"nombre":"Golden Dorado 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-golden-dorado-20unid.jpg","icono":"🚬","grupo":"Golden"},{"id":119,"nombre":"Golden Rojo 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-golden-rojo-20unid.jpg","icono":"🚬","grupo":"Golden"},{"id":120,"nombre":"Esse 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-esse-20unid.jpg","icono":"🚬","grupo":"Esse"},{"id":121,"nombre":"Pine 20 unidades","precio":0,"cat":"Cigarros","desc":"20 unidades","img":"imagenes/cigarro-pine-20unid.jpg","icono":"🚬","grupo":"Pine"},{"id":122,"nombre":"Trident Fresa","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-fresa.jpg","icono":"🍬","grupo":"Trident"},{"id":123,"nombre":"Trident Menta","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-menta.jpg","icono":"🍬","grupo":"Trident"},{"id":124,"nombre":"Trident Mora","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-mora.jpg","icono":"🍬","grupo":"Trident"},{"id":125,"nombre":"Trident Sandía","precio":0,"cat":"Chicles","desc":"Unidad","img":"imagenes/chicle-trident-sandia.jpg","icono":"🍬","grupo":"Trident"},{"id":126,"nombre":"Halls en barra Rojo","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-rojo.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":127,"nombre":"Halls en barra Negro","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-negro.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":128,"nombre":"Halls en barra Mora","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-mora.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":129,"nombre":"Halls en barra Azul","precio":0,"cat":"Chicles","desc":"Barra","img":"imagenes/halls-barra-azul.jpg","icono":"🍬","grupo":"Halls en barra"},{"id":130,"nombre":"Piqueos Original 190 g","precio":0,"cat":"Piqueos","desc":"190 g · Piqueos para compartir","img":"imagenes/piqueos-original-190g.jpg","icono":"🥨"},{"id":131,"nombre":"Papas Inka Chips Jalapeño 135 g","precio":0,"cat":"Piqueos","desc":"135 g","img":"imagenes/papas-inka-chips-jalapeno-135g.jpg","icono":"🥔","grupo":"Inka Chips"},{"id":132,"nombre":"Papas Inka Chips Sal de Mar 135 g","precio":0,"cat":"Piqueos","desc":"135 g","img":"imagenes/papas-inka-chips-sal-de-mar-135g.jpg","icono":"🥔","grupo":"Inka Chips"},{"id":133,"nombre":"Chocolate Sublime","precio":0,"cat":"Piqueos","desc":"Chocolate","img":"imagenes/chocolate-sublime.jpg","icono":"🍫"},{"id":134,"nombre":"Hielo 1.5 kg","precio":0,"cat":"Hielo","desc":"1.5 kg","img":"imagenes/hielo-1.5kg.jpg","icono":"🧊","grupo":"Hielo"},{"id":135,"nombre":"Hielo 3 kg","precio":0,"cat":"Hielo","desc":"3 kg","img":"imagenes/hielo-3kg.jpg","icono":"🧊","grupo":"Hielo"}];
 
 let carrito=[];
 let categoriaActual="Todos";
 
+function normalizarTexto(v){
+  return String(v||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+}
+function escapeHtml(v){
+  return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+function escapeAttr(v){return escapeHtml(v).replace(/`/g,"&#096;");}
+
+function precioTexto(p){
+  return p.precio>0 ? "S/ "+p.precio.toFixed(2) : "Consultar precio";
+}
+function opcionEtiqueta(p){
+  const n=p.nombre;
+  const g=p.grupo||"";
+  if(g==="Ron Cartavio") return n.replace(/^Ron Cartavio\s*/,"");
+  if(g==="José Cuervo") return n.replace(/^Tequila José Cuervo\s*/,"");
+  if(g==="Tequila 1800") return "Reposado";
+  if(g.startsWith("Pisco ")) return n.replace(/^Pisco\s+/,"").replace(/\s+700 ml$/,"");
+  if(g.startsWith("Vino ")) return n.replace(/^Vino\s+/,"").replace(/\s+750 ml$/,"");
+  if(g==="Crema de Pisco Nieto") return n.replace(/^Crema de Pisco Nieto\s*/,"").replace(/\s+500 ml$/,"");
+  if(g==="Mike's") return n.replace(/^Mike's\s*/,"");
+  if(g==="Four Loko") return n.replace(/^Four Loko\s*/,"");
+  if(g==="Cartavio Hit") return n.replace(/^Cartavio Hit\s*/,"");
+  if(g==="Russkaya Wild") return n.replace(/^Russkaya Wild\s*/,"");
+  if(g==="Atomic") return n.replace(/^Atomic\s*/,"");
+  if(g==="Pilsen") return n.replace(/^Cerveza Pilsen\s*/,"");
+  if(g==="Heineken") return n.replace(/^Heineken\s*/,"");
+  if(g==="Corona") return n.replace(/^Corona\s*/,"");
+  if(g==="Cusqueña") return n.replace(/^Cusqueña\s*/,"");
+  if(g==="Tres Cruces") return n.replace(/^Tres Cruces\s*/,"");
+  if(g==="Coca-Cola") return n.replace(/^Coca-Cola\s*/,"");
+  if(g==="Inca Kola") return n.replace(/^Inca Kola\s*/,"");
+  if(g==="Fanta") return n.replace(/^Fanta\s*/,"");
+  if(g==="Frugos del Valle") return n.replace(/^Frugos del Valle\s*/,"");
+  if(g==="Lucky") return n.replace(/^Lucky\s*/,"");
+  if(g==="Lucky Strike") return n.replace(/^Lucky Strike\s*/,"");
+  if(g==="Golden") return n.replace(/^Golden\s*/,"");
+  if(g==="Trident") return n.replace(/^Trident\s*/,"");
+  if(g==="Halls en barra") return n.replace(/^Halls en barra\s*/,"");
+  if(g==="Inka Chips") return n.replace(/^Papas Inka Chips\s*/,"");
+  if(g==="Hielo") return n.replace(/^Hielo\s*/,"");
+  return n;
+}
+
+function imagenHtml(p, cls=""){
+  if(p.img) return `<img class="${cls}" src="${p.img}" alt="${escapeAttr(p.nombre)}" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.parentElement.querySelector('.option-fallback')?.classList.remove('hidden')">`;
+  return "";
+}
+
+function renderProductoIndividual(p){
+  return `
+  <div class="product-card">
+    <div class="product-image">
+      ${p.img?`<img src="${p.img}" alt="${escapeAttr(p.nombre)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}
+      <div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>
+    </div>
+    <div class="product-info">
+      <div class="product-category">${escapeHtml(p.cat)}</div>
+      <div class="product-name">${escapeHtml(p.nombre)}</div>
+      <div class="product-description">${escapeHtml(p.desc)}</div>
+      <div class="product-price">${precioTexto(p)}</div>
+      <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
+    </div>
+  </div>`;
+}
+
+function renderFamilia(key,items,index){
+  const cover=items[0];
+  const cardId="familia-"+index;
+  const options=items.map((p,i)=>`
+    <button type="button" class="family-option ${i===0?'active':''}" onclick="seleccionarVariante('${escapeAttr(cardId)}',${p.id},${i})">
+      ${p.img?`<img src="${p.img}" alt="${escapeAttr(opcionEtiqueta(p))}" loading="lazy">`:`<div class="option-emoji">${p.icono}</div>`}
+      <span>${escapeHtml(opcionEtiqueta(p))}</span>
+      <small>${escapeHtml(p.desc)}</small>
+    </button>`).join("");
+  return `
+  <div class="product-card family-card" id="${cardId}" data-group="${escapeAttr(key)}">
+    <div class="family-card-image">
+      <div class="family-cover" id="${cardId}-cover">
+        ${cover.img?`<img src="${cover.img}" alt="${escapeAttr(cover.nombre)}" loading="lazy" class="family-main-img">`:`<div class="product-emoji">${cover.icono}</div>`}
+      </div>
+      <div class="family-cover-label">Elige tu opción</div>
+    </div>
+    <div class="family-info">
+      <div class="product-category">${escapeHtml(cover.cat)}</div>
+      <div class="product-name" id="${cardId}-name">${escapeHtml(key)}</div>
+      <div class="product-description" id="${cardId}-desc">${escapeHtml(cover.desc)}</div>
+      <div class="product-price" id="${cardId}-price">${precioTexto(cover)}</div>
+      <div class="family-option-title">Selecciona presentación, sabor o variedad</div>
+      <div class="family-options">${options}</div>
+      <div class="family-selected" id="${cardId}-selected"><strong>Seleccionado:</strong> ${escapeHtml(cover.nombre)}</div>
+      <button class="product-button" id="${cardId}-button" onclick="agregarProducto(${cover.id})">${cover.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
+    </div>
+  </div>`;
+}
+
+function seleccionarVariante(cardId,id,index){
+  const p=productos.find(x=>x.id===id); if(!p)return;
+  const card=document.getElementById(cardId); if(!card)return;
+  const imgBox=card.querySelector(".family-cover");
+  imgBox.innerHTML=p.img
+    ? `<img src="${p.img}" alt="${escapeAttr(p.nombre)}" loading="lazy" class="family-main-img" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div class=&quot;product-emoji&quot;>${p.icono}</div>')">`
+    : `<div class="product-emoji">${p.icono}</div>`;
+  card.querySelector("#"+cardId+"-name").textContent=card.dataset.group;
+  card.querySelector("#"+cardId+"-desc").textContent=p.desc;
+  card.querySelector("#"+cardId+"-price").textContent=precioTexto(p);
+  card.querySelector("#"+cardId+"-selected").innerHTML="<strong>Seleccionado:</strong> "+escapeHtml(p.nombre);
+  card.querySelector("#"+cardId+"-button").setAttribute("onclick","agregarProducto("+p.id+")");
+  card.querySelector("#"+cardId+"-button").textContent=p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio";
+  card.querySelectorAll(".family-option").forEach((el,i)=>el.classList.toggle("active",i===index));
+}
+
 function renderProductos(){
   const grid=document.getElementById("product-grid");
-  const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();
+  const termino=normalizarTexto(document.getElementById("product-search")?.value||"");
+  const complemento=["Bebidas","Cigarros","Chicles","Piqueos","Hielo"];
   const visibles=productos.filter(p=>{
-    const catOk=categoriaActual==="Todos" ||
-      p.cat===categoriaActual ||
-      (categoriaActual==="Complementos" && ["Bebidas","Cigarros","Chicles","Piqueos","Hielo"].includes(p.cat));
-    const texto=(p.nombre+" "+p.cat+" "+p.desc+" "+(p.grupo||"")).toLowerCase();
+    const catOk=categoriaActual==="Todos" || p.cat===categoriaActual ||
+      (categoriaActual==="Complementos" && complemento.includes(p.cat));
+    const texto=normalizarTexto(p.nombre+" "+p.cat+" "+p.desc+" "+(p.grupo||""));
     return catOk && texto.includes(termino);
   });
 
@@ -178,81 +368,22 @@ function renderProductos(){
     grupos.get(key).push(p);
   });
 
-  grid.innerHTML=[...grupos.entries()].map(([key,items])=>{
-    const esFamilia=items.length>1;
-    if(!esFamilia){
-      const p=items[0];
-      return `
-      <div class="product-card">
-        <div class="product-image">
-          ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
-          <div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>
-        </div>
-        <div class="product-info">
-          <div class="product-category">${p.cat}</div>
-          <div class="product-name">${p.nombre}</div>
-          <div class="product-description">${p.desc}</div>
-          <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
-          <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
-        </div>
-      </div>`;
-    }
-
-    // IMPORTANTE: una sola imagen de portada. Las demás quedan como opciones.
-    const cover=items[0];
-    const precios=items.filter(p=>p.precio>0).map(p=>p.precio);
-    const min=precios.length?Math.min(...precios):0;
-    const precioTexto=min?`Desde S/ ${min.toFixed(2)}`:"Consultar precios";
-
-    return `
-    <div class="product-card family-card" onclick="abrirVariantes('${escapeAttr(key)}')">
-      <div class="family-card-image">
-        <div class="family-cover">
-          ${cover.img?`<img src="${cover.img}" alt="${cover.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
-          <div class="product-emoji" ${cover.img?'style="display:none"':''}>${cover.icono}</div>
-        </div>
-        <div class="family-cover-label">Ver opciones</div>
-      </div>
-      <div class="family-info">
-        <div class="product-category">${items[0].cat}</div>
-        <div class="product-name">${key}</div>
-        <div class="product-description">${items.length} opciones · Elige presentación, sabor o variedad</div>
-        <div class="product-price">${precioTexto}</div>
-        <div class="family-variants">
-          ${items.slice(0,6).map(p=>`<span class="family-variant-pill">${p.desc}</span>`).join("")}
-        </div>
-      </div>
-    </div>`;
-  }).join("") || '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No encontramos productos en esta categoría.</div>';
+  let html="";
+  let index=0;
+  for(const [key,items] of grupos.entries()){
+    if(items.length===1) html+=renderProductoIndividual(items[0]);
+    else html+=renderFamilia(key,items,index++);
+  }
+  grid.innerHTML=html || '<div style="grid-column:1/-1;text-align:center;padding:50px;color:#777">No encontramos productos en esta categoría.</div>';
 }
 
-function escapeAttr(value){return String(value).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
-
-function abrirVariantes(grupo){
-  const items=productos.filter(p=>p.grupo===grupo);
-  if(!items.length)return;
-  document.getElementById("variant-title").textContent=grupo;
-  document.getElementById("variant-subtitle").textContent="Elige la presentación, sabor o variedad que deseas.";
-  document.getElementById("variant-grid").innerHTML=items.map(p=>`
-   <div class="variant-item">
-    ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none'">`:`<div style="height:220px;display:flex;align-items:center;justify-content:center;font-size:80px">${p.icono}</div>`}
-    <h4>${p.nombre}</h4>
-    <div class="product-description">${p.desc}</div>
-    <div class="variant-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
-    <button onclick="event.stopPropagation(); agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar":"💬 Consultar"}</button>
-   </div>`).join("");
-  document.getElementById("variant-overlay").classList.add("active");
-}
-function cerrarVariantes(e){
-  if(e&&e.target!==document.getElementById("variant-overlay"))return;
-  document.getElementById("variant-overlay").classList.remove("active");
-}
 function irCategoria(cat){
- categoriaActual=cat;
- document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
- renderProductos();
- document.getElementById("productos").scrollIntoView({behavior:"smooth",block:"start"});
+  categoriaActual=cat;
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+  renderProductos();
+  document.getElementById("productos").scrollIntoView({behavior:"smooth",block:"start"});
 }
+
 function agregarProducto(id){
  const p=productos.find(x=>x.id===id);
  if(!p||p.precio<=0){alert("Este producto tiene precio pendiente de actualizar.");return;}
