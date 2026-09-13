@@ -879,7 +879,8 @@ function validarPreciosCarrito(){
 
 function enviarPedidoWhatsApp(e){
   e.preventDefault();
-  if(!carrito.length){alert("Tu carrito está vacío.");cerrarCheckout();return;}\n  if(!validarPreciosCarrito())return;
+  if(!carrito.length){alert("Tu carrito está vacío.");cerrarCheckout();return;}
+  if(!validarPreciosCarrito())return;
 
   const nombre=document.getElementById("cliente-nombre").value.trim();
   const telefono=document.getElementById("cliente-telefono").value.trim();
