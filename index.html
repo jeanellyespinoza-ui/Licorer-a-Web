@@ -595,7 +595,7 @@ function cargarImagenesCategorias(){
     if(!foto)return;
     if(producto && producto.img){
       const img=document.createElement("img");
-      img.src=producto.img;
+      img.src=producto.img.startsWith("./")?producto.img:"./"+producto.img;
       img.alt=cat;
       img.loading="lazy";
       img.onerror=()=>{
@@ -845,7 +845,7 @@ function actualizarResumenCheckout(){
 function abrirCheckout(){
   if(!carrito.length){alert("Tu carrito está vacío. Agrega algún producto primero.");return;}
   cerrarCarrito();
-  document.getElementById("checkout-summary").innerHTML="<strong>Resumen del pedido</strong><div style="margin-top:8px">"+carrito.map(i=>`<div class="summary-item"><span>${escapeHtml(i.nombre)} × ${i.cantidad}</span><span>S/ ${(i.precio*i.cantidad).toFixed(2)}</span></div>`).join("")+"</div>";
+  document.getElementById("checkout-summary").innerHTML='<strong>Resumen del pedido</strong><div style="margin-top:8px">'+carrito.map(i=>`<div class="summary-item"><span>${escapeHtml(i.nombre)} × ${i.cantidad}</span><span>S/ ${(i.precio*i.cantidad).toFixed(2)}</span></div>`).join("")+"</div>";
   document.getElementById("checkout-overlay").classList.add("active");
   actualizarModoEntrega();
 }
