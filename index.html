@@ -304,10 +304,31 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 .checkout-total{display:flex;justify-content:space-between;border-top:1px solid #ddd;margin-top:5px;padding-top:16px;font-size:20px;font-weight:700}.checkout-total strong{font-weight:800}.checkout-submit{width:100%;padding:15px;border:0;border-radius:30px;background:#25D366;color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:8px}.checkout-note{font-size:11px;color:#777;line-height:1.5;text-align:center}
 @media(max-width:520px){.checkout-modal{padding:20px}.checkout-row,.delivery-options{grid-template-columns:1fr}.checkout-head h2{font-size:23px}}
 
+
+/* ===== V8 · FLUJO DE COMPRA MOBILE + WHATSAPP ===== */
+.cart-item-icon img{width:55px;height:55px;object-fit:contain;border-radius:10px;display:block}
+.checkout-summary{line-height:1.55}
+.checkout-summary .summary-item{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.checkout-summary .summary-item:last-child{border-bottom:0}
+.checkout-summary .summary-item span:last-child{font-weight:700;white-space:nowrap}
+.delivery-help{font-size:11px;color:#777;line-height:1.45;margin-top:-4px}
+.checkout-submit{position:sticky;bottom:0;z-index:2;box-shadow:0 -5px 15px rgba(255,255,255,.9)}
+@media(max-width:520px){
+  .cart-overlay,.checkout-overlay{padding:10px}
+  .cart-modal,.checkout-modal{max-height:94vh;border-radius:18px;padding:18px}
+  .cart-header h2{font-size:24px}
+  .cart-item{grid-template-columns:50px 1fr auto;gap:9px}
+  .cart-item-icon{width:50px;height:50px}
+  .cart-item-icon img{width:50px;height:50px}
+  .cart-item-name{font-size:13px;line-height:1.25}
+  .checkout-summary{font-size:12px}
+  .delivery-option{padding:13px 11px;font-size:13px}
+  .checkout-field input,.checkout-field textarea{font-size:16px}
+}
 </style>
 </head>
 <body>
-<!-- V5: Golden cerveza separado de Cusqueña; precios confirmados actualizados. -->
+<!-- V8: flujo móvil revisado + delivery por confirmar + WhatsApp mejorado. -->
 
 <header><div class="header-container">
 <a href="#inicio" class="logo"><img src="imagenes/logo-destapala.jpg" alt="DESTÁPALA Licorería"></a>
@@ -503,7 +524,8 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
           <label class="delivery-option"><input type="radio" name="modo-entrega" value="Recojo en tienda" onchange="actualizarModoEntrega()"> Recojo en tienda</label>
         </div>
       </div>
-      <div class="delivery-fee-box"><span id="delivery-fee-label">Costo de delivery</span><strong id="delivery-fee">S/ 0.00</strong></div>
+      <div class="delivery-fee-box"><span id="delivery-fee-label">Costo de delivery</span><strong id="delivery-fee">Por confirmar</strong></div>
+      <div class="delivery-help">El costo se confirma por WhatsApp de acuerdo con la zona de entrega.</div>
       <div id="datos-delivery">
         <div class="checkout-row">
           <div class="checkout-field"><label for="cliente-distrito">Distrito *</label><input id="cliente-distrito" placeholder="Distrito"></div>
@@ -517,16 +539,16 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
         <div><span id="checkout-delivery-label">Delivery</span><strong id="checkout-delivery">S/ 0.00</strong></div>
         <div class="grand-total"><span>Total del pedido</span><strong id="checkout-total">S/ 0.00</strong></div>
       </div>
-      <button class="checkout-submit" type="submit">💬 ENVIAR PEDIDO POR WHATSAPP</button>
-      <div class="checkout-note">El delivery se suma automáticamente al total. Recojo en tienda no tiene costo de entrega.</div>
+      <button id="checkout-submit" class="checkout-submit" type="submit">💬 ENVIAR PEDIDO Y CONSULTAR DELIVERY</button>
+      <div class="checkout-note">El costo de delivery se confirma según la zona. En recojo en tienda no hay costo de entrega.</div>
     </form>
   </div>
 </div>
 
 <script>
-// ===== TARIFA DE DELIVERY =====
-// Reemplaza 0.00 por tu tarifa real de delivery cuando la definas.
-const TARIFA_DELIVERY = 0.00;
+// ===== DELIVERY =====
+// No se calcula una tarifa fija: el costo se confirma según la zona por WhatsApp.
+const TARIFA_DELIVERY = 0;
 
 const imagenesCigarros = [
   "imagenes/cigarro-lucky-mora-10unid.jpg",
@@ -757,8 +779,8 @@ function actualizarCarrito(){
  if(!carrito.length){c.innerHTML='<div class="empty-cart">🛒<br><br>Tu carrito está vacío.<br>Agrega tus productos favoritos.</div>';return}
  c.innerHTML=carrito.map(i=>`
  <div class="cart-item">
-  <div class="cart-item-icon">${i.icono}</div>
-  <div><div class="cart-item-name">${i.nombre}</div><div class="cart-item-price">S/ ${i.precio.toFixed(2)}</div>
+  <div class="cart-item-icon">${i.img ? `<img src="${i.img}" alt="${escapeHtml(i.nombre)}" onerror="this.style.display='none';this.parentElement.textContent='${i.icono||'🍾'}'">` : (i.icono||'🍾')}</div>
+  <div><div class="cart-item-name">${escapeHtml(i.nombre)}</div><div class="cart-item-price">S/ ${i.precio.toFixed(2)}</div>
   <div class="quantity"><button onclick="cambiarCantidad(${i.id},-1)">−</button><span>${i.cantidad}</span><button onclick="cambiarCantidad(${i.id},1)">+</button></div></div>
   <button class="remove-item" onclick="eliminarProducto(${i.id})">🗑️</button>
  </div>`).join("");
@@ -810,7 +832,7 @@ function actualizarResumenCheckout(){
 function abrirCheckout(){
   if(!carrito.length){alert("Tu carrito está vacío. Agrega algún producto primero.");return;}
   cerrarCarrito();
-  document.getElementById("checkout-summary").innerHTML="<strong>Resumen del pedido</strong><br><br>"+carrito.map(i=>"• "+escapeHtml(i.nombre)+" × "+i.cantidad+" — S/ "+(i.precio*i.cantidad).toFixed(2)).join("<br>");
+  document.getElementById("checkout-summary").innerHTML="<strong>Resumen del pedido</strong><div style="margin-top:8px">"+carrito.map(i=>`<div class="summary-item"><span>${escapeHtml(i.nombre)} × ${i.cantidad}</span><span>S/ ${(i.precio*i.cantidad).toFixed(2)}</span></div>`).join("")+"</div>";
   document.getElementById("checkout-overlay").classList.add("active");
   actualizarModoEntrega();
 }
@@ -828,12 +850,15 @@ function actualizarModoEntrega(){
   if(modo!=="Delivery" && direccion)direccion.value="";
   if(modo!=="Delivery" && referencia)referencia.value="";
   document.querySelectorAll(".delivery-option").forEach(label=>label.classList.toggle("active",label.querySelector("input").checked));
+  const submit=document.getElementById("checkout-submit");
+  if(submit) submit.textContent=modo==="Delivery"?"💬 ENVIAR PEDIDO Y CONSULTAR DELIVERY":"💬 ENVIAR PEDIDO POR WHATSAPP";
   actualizarResumenCheckout();
 }
 
 function enviarPedidoWhatsApp(e){
   e.preventDefault();
   if(!carrito.length){alert("Tu carrito está vacío.");cerrarCheckout();return;}
+
   const nombre=document.getElementById("cliente-nombre").value.trim();
   const telefono=document.getElementById("cliente-telefono").value.trim();
   const modo=document.querySelector('input[name="modo-entrega"]:checked')?.value||"Delivery";
@@ -841,32 +866,62 @@ function enviarPedidoWhatsApp(e){
   const direccion=document.getElementById("cliente-direccion").value.trim();
   const referencia=document.getElementById("cliente-referencia").value.trim();
   const comentario=document.getElementById("cliente-comentario").value.trim();
+
   if(!nombre||!telefono){alert("Completa tu nombre y celular.");return;}
-  if(modo==="Delivery" && (!distrito||!direccion)){alert("Completa distrito y dirección para delivery.");return;}
+  if(!/^9\d{8}$/.test(telefono.replace(/\s+/g,""))){alert("Ingresa un celular peruano válido de 9 dígitos.");return;}
+  if(modo==="Delivery" && (!distrito||!direccion)){
+    alert("Completa distrito y dirección para solicitar el delivery.");return;
+  }
+
   let subtotal=0;
-  let mensaje="Hola DESTÁPALA 👋%0A%0AQuiero realizar este pedido:%0A%0A";
-  carrito.forEach(i=>{const sub=i.precio*i.cantidad;subtotal+=sub;mensaje+="• "+encodeURIComponent(i.nombre)+" × "+i.cantidad+" — S/ "+sub.toFixed(2)+"%0A";});
-  const delivery=obtenerCostoEntrega();
-  const total=subtotal+delivery;
-  mensaje+="%0A*Subtotal productos: S/ "+subtotal.toFixed(2)+"*%0A";
+  const lineas=carrito.map(i=>{
+    const sub=i.precio*i.cantidad;
+    subtotal+=sub;
+    return `• ${i.nombre} × ${i.cantidad} — S/ ${sub.toFixed(2)}`;
+  });
+
+  let mensaje=[
+    "Hola DESTÁPALA 👋",
+    "",
+    "Quiero realizar este pedido:",
+    "",
+    ...lineas,
+    "",
+    `*Subtotal productos: S/ ${subtotal.toFixed(2)}*`
+  ];
+
   if(modo==="Delivery"){
-    mensaje+="*Delivery: POR CONFIRMAR SEGÚN ZONA*%0A";
-    mensaje+="*TOTAL DEL PEDIDO: POR CONFIRMAR*%0A%0A";
+    mensaje.push(
+      "*Delivery: POR CONFIRMAR SEGÚN ZONA*",
+      "*TOTAL: POR CONFIRMAR*",
+      "",
+      "*Datos de entrega*",
+      `Nombre: ${nombre}`,
+      `Celular: ${telefono}`,
+      `Distrito: ${distrito}`,
+      `Dirección: ${direccion}`
+    );
+    if(referencia)mensaje.push(`Referencia: ${referencia}`);
   }else{
-    mensaje+="*Recojo en tienda: S/ 0.00*%0A";
-    mensaje+="*TOTAL DEL PEDIDO: S/ "+subtotal.toFixed(2)+"*%0A%0A";
+    mensaje.push(
+      "*Recojo en tienda: S/ 0.00*",
+      `*TOTAL: S/ ${subtotal.toFixed(2)}*`,
+      "",
+      "*Datos del cliente*",
+      `Nombre: ${nombre}`,
+      `Celular: ${telefono}`
+    );
   }
-  mensaje+="*Datos del cliente*%0ANombre: "+encodeURIComponent(nombre)+"%0ACelular: "+encodeURIComponent(telefono)+"%0AEntrega: "+encodeURIComponent(modo)+"%0A";
-  if(modo==="Delivery"){
-    mensaje+="Distrito: "+encodeURIComponent(distrito)+"%0ADirección: "+encodeURIComponent(direccion)+"%0A";
-    if(referencia)mensaje+="Referencia: "+encodeURIComponent(referencia)+"%0A";
-  }
-  if(comentario)mensaje+="Comentario: "+encodeURIComponent(comentario)+"%0A";
-  mensaje+="%0AGracias. 🥂";
-  window.open("https://wa.me/51992797697?text="+mensaje,"_blank");
+
+  if(comentario)mensaje.push(`Comentario: ${comentario}`);
+  mensaje.push("", modo==="Delivery"
+    ? "Por favor confirmar costo de delivery, disponibilidad y total final. Gracias. 🥂"
+    : "Por favor confirmar disponibilidad del pedido. Gracias. 🥂");
+
+  const texto=encodeURIComponent(mensaje.join("\n"));
+  window.open("https://wa.me/51992797697?text="+texto,"_blank");
   cerrarCheckout();
 }
-
 function pedirWhatsApp(){ abrirCheckout(); }
 document.querySelectorAll(".filter-btn").forEach(btn=>{
  btn.addEventListener("click",()=>{
