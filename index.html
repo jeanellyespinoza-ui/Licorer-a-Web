@@ -326,6 +326,19 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
   .checkout-field input,.checkout-field textarea{font-size:16px}
 }
 </style>
+
+<style id="destapala-v9-mobile">
+@media (max-width:600px){
+  #cart-overlay .modal, #checkout-overlay .modal{width:calc(100% - 20px);max-height:92vh;border-radius:18px;overflow-y:auto}
+  .cart-item{gap:8px;padding:10px 0}
+  .cart-item img{width:54px;height:54px;object-fit:contain;border-radius:10px}
+  .quantity button{width:32px;height:32px}
+  .checkout-actions,.cart-actions{position:sticky;bottom:0;background:#fff;padding:10px 0 4px;z-index:3}
+  .checkout-actions button,.cart-actions button{width:100%;min-height:48px}
+  #checkout-summary{font-size:14px;line-height:1.5}
+}
+</style>
+
 </head>
 <body>
 <!-- V8: flujo móvil revisado + delivery por confirmar + WhatsApp mejorado. -->
@@ -855,9 +868,18 @@ function actualizarModoEntrega(){
   actualizarResumenCheckout();
 }
 
+function validarPreciosCarrito(){
+  const sinPrecio=carrito.filter(i=>typeof i.precio!=="number" || !isFinite(i.precio) || i.precio<=0);
+  if(sinPrecio.length){
+    alert("Hay productos sin precio actualizado: "+sinPrecio.map(i=>i.nombre).join(", ")+". Actualiza sus precios antes de enviar el pedido.");
+    return false;
+  }
+  return true;
+}
+
 function enviarPedidoWhatsApp(e){
   e.preventDefault();
-  if(!carrito.length){alert("Tu carrito está vacío.");cerrarCheckout();return;}
+  if(!carrito.length){alert("Tu carrito está vacío.");cerrarCheckout();return;}\n  if(!validarPreciosCarrito())return;
 
   const nombre=document.getElementById("cliente-nombre").value.trim();
   const telefono=document.getElementById("cliente-telefono").value.trim();
