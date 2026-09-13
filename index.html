@@ -301,7 +301,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 .checkout-form{display:grid;gap:13px}.checkout-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checkout-field{display:flex;flex-direction:column;gap:6px}.checkout-field label{font-size:12px;font-weight:700;color:#333}.checkout-field input,.checkout-field select,.checkout-field textarea{width:100%;border:1px solid #D8D1C2;border-radius:10px;padding:12px;font:inherit;font-size:13px;outline:none;background:#fff}.checkout-field input:focus,.checkout-field select:focus,.checkout-field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.12)}.checkout-field textarea{min-height:75px;resize:vertical}
 .delivery-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.delivery-option{border:1px solid #D8D1C2;border-radius:12px;padding:12px;cursor:pointer}.delivery-option input{margin-right:7px}.delivery-option.active{border-color:var(--gold);background:#FAF8F2}
 .delivery-fee-box{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:2px;padding:12px 14px;background:#FAF8F2;border-radius:10px;font-size:13px}.delivery-fee-box strong{font-size:15px}.checkout-breakdown{display:grid;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid #eee;font-size:13px}.checkout-breakdown div{display:flex;justify-content:space-between}.checkout-breakdown .grand-total{font-size:20px;font-weight:700;padding-top:10px;border-top:1px solid #ddd;margin-top:4px}
-.checkout-total{display:flex;justify-content:space-between;border-top:1px solid #ddd;margin-top:5px;padding-top:16px;font-size:20px;font-weight:700}.checkout-submit{width:100%;padding:15px;border:0;border-radius:30px;background:#25D366;color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:8px}.checkout-note{font-size:11px;color:#777;line-height:1.5;text-align:center}
+.checkout-total{display:flex;justify-content:space-between;border-top:1px solid #ddd;margin-top:5px;padding-top:16px;font-size:20px;font-weight:700}.checkout-total strong{font-weight:800}.checkout-submit{width:100%;padding:15px;border:0;border-radius:30px;background:#25D366;color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:8px}.checkout-note{font-size:11px;color:#777;line-height:1.5;text-align:center}
 @media(max-width:520px){.checkout-modal{padding:20px}.checkout-row,.delivery-options{grid-template-columns:1fr}.checkout-head h2{font-size:23px}}
 
 </style>
@@ -787,14 +787,24 @@ function obtenerCostoEntrega(){
 function actualizarResumenCheckout(){
   const subtotal=calcularSubtotal();
   const delivery=obtenerCostoEntrega();
-  const total=subtotal+delivery;
   const modo=document.querySelector('input[name="modo-entrega"]:checked')?.value||"Delivery";
+
   document.getElementById("checkout-subtotal").textContent="S/ "+subtotal.toFixed(2);
-  document.getElementById("checkout-delivery").textContent="S/ "+delivery.toFixed(2);
-  document.getElementById("checkout-delivery-label").textContent=modo==="Delivery"?"Delivery":"Recojo en tienda";
-  document.getElementById("checkout-total").textContent="S/ "+total.toFixed(2);
-  document.getElementById("delivery-fee-label").textContent=modo==="Delivery"?"Costo de delivery":"Costo de entrega";
-  document.getElementById("delivery-fee").textContent="S/ "+delivery.toFixed(2);
+
+  if(modo==="Delivery"){
+    // El costo se confirma por WhatsApp según la zona de entrega.
+    document.getElementById("checkout-delivery").textContent="Por confirmar";
+    document.getElementById("checkout-delivery-label").textContent="Delivery";
+    document.getElementById("checkout-total").textContent="Por confirmar";
+    document.getElementById("delivery-fee-label").textContent="Costo de delivery";
+    document.getElementById("delivery-fee").textContent="Por confirmar";
+  }else{
+    document.getElementById("checkout-delivery").textContent="S/ 0.00";
+    document.getElementById("checkout-delivery-label").textContent="Recojo en tienda";
+    document.getElementById("checkout-total").textContent="S/ "+subtotal.toFixed(2);
+    document.getElementById("delivery-fee-label").textContent="Costo de entrega";
+    document.getElementById("delivery-fee").textContent="S/ 0.00";
+  }
 }
 
 function abrirCheckout(){
@@ -839,8 +849,13 @@ function enviarPedidoWhatsApp(e){
   const delivery=obtenerCostoEntrega();
   const total=subtotal+delivery;
   mensaje+="%0A*Subtotal productos: S/ "+subtotal.toFixed(2)+"*%0A";
-  mensaje+=(modo==="Delivery"?"*Delivery: S/ "+delivery.toFixed(2)+"*%0A":"*Recojo en tienda: S/ 0.00*%0A");
-  mensaje+="*TOTAL DEL PEDIDO: S/ "+total.toFixed(2)+"*%0A%0A";
+  if(modo==="Delivery"){
+    mensaje+="*Delivery: POR CONFIRMAR SEGÚN ZONA*%0A";
+    mensaje+="*TOTAL DEL PEDIDO: POR CONFIRMAR*%0A%0A";
+  }else{
+    mensaje+="*Recojo en tienda: S/ 0.00*%0A";
+    mensaje+="*TOTAL DEL PEDIDO: S/ "+subtotal.toFixed(2)+"*%0A%0A";
+  }
   mensaje+="*Datos del cliente*%0ANombre: "+encodeURIComponent(nombre)+"%0ACelular: "+encodeURIComponent(telefono)+"%0AEntrega: "+encodeURIComponent(modo)+"%0A";
   if(modo==="Delivery"){
     mensaje+="Distrito: "+encodeURIComponent(distrito)+"%0ADirección: "+encodeURIComponent(direccion)+"%0A";
