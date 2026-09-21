@@ -111,6 +111,25 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 .variant-overlay{display:none!important}
 
+/* ===== DESTÁPALA · CATEGORÍAS CON PRODUCTOS REALES ===== */
+.quick-category-grid .category-card{padding:0 0 20px;justify-content:flex-start;overflow:hidden}
+.quick-category-grid .category-photo{width:100%;height:190px;background:#FAF8F2;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:8px;border-bottom:1px solid #E7E2D5;overflow:hidden}
+.quick-category-grid .category-photo .category-photo-item{background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;min-width:0}
+.quick-category-grid .category-photo .category-photo-item img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+.quick-category-grid .category-photo .category-photo-fallback{font-size:42px}
+.quick-category-grid .category-fallback{font-size:42px;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.quick-category-grid .category-name{font-size:17px;margin-top:16px}
+.quick-category-grid .category-sub{font-size:12px;margin:6px 12px 0}
+.quick-category-grid .category-cta{position:static;margin-top:13px;border:1px solid #D4AF37;border-radius:22px;padding:8px 16px;color:#8D6E1F;background:#fff;font-size:10px;font-weight:800;letter-spacing:.7px}
+.quick-category-grid .category-card:hover .category-cta{background:#D4AF37;color:#111}
+@media(max-width:600px){
+ .quick-category-grid .category-photo{height:145px;gap:3px;padding:5px}
+ .quick-category-grid .category-photo .category-photo-item img{padding:4px}
+ .quick-category-grid .category-name{font-size:15px;margin-top:11px}
+ .quick-category-grid .category-sub{font-size:10px;min-height:25px}
+ .quick-category-grid .category-cta{font-size:9px;margin-top:9px;padding:7px 11px}
+}
+
 /* ===== DESTÁPALA · CATEGORÍAS PRIMERO / MOBILE UX ===== */
 .quick-category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .quick-category-grid .category-card{min-height:165px;padding:18px 12px 22px}
@@ -341,7 +360,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 </head>
 <body>
-<!-- V10.1: precios completos, presentaciones actualizadas y cantidades en carrito. -->
+<!-- V11: categorías con fotografías reales tomadas del catálogo de productos. -->
 
 <header><div class="header-container">
 <a href="#inicio" class="logo"><img src="imagenes/logo-destapala.jpg" alt="DESTÁPALA Licorería"></a>
@@ -352,7 +371,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 
 <section class="hero" id="inicio"><div class="hero-content">
 <div class="hero-small">LICORERÍA · DELIVERY · EXPERIENCIAS</div>
-<h1>SALUD POR TI,<br>POR MÍ Y... <span>¡DESTÁPALA!</span></h1>
+<h1>DESTAPAMOS<br><span>LOS BUENOS MOMENTOS</span></h1>
 <p>Descubre licores, bebidas y complementos seleccionados para cada momento.</p>
 <div class="hero-buttons"><a href="#categorias" class="btn btn-gold">VER CATEGORÍAS</a><a href="#promociones" class="btn btn-outline">VER PROMOCIONES</a></div>
 </div></section>
@@ -363,91 +382,91 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 <p class="category-menu-note">Una navegación pensada para comprar rápido desde tu celular.</p></div>
 
 <div class="quick-category-grid">
-<div class="category-card" data-category="Whisky" onclick="irCategoria('Whisky')">
+<div class="category-card" data-category="Whisky" data-fallback="🥃" onclick="irCategoria('Whisky')">
   <div class="category-photo"><div class="category-fallback">🥃</div></div>
   <div class="category-name">Whisky</div>
   <div class="category-sub">Clásicos y premium</div>
   <div class="category-cta">VER WHISKY →</div>
 </div>
-<div class="category-card" data-category="Ron" onclick="irCategoria('Ron')">
+<div class="category-card" data-category="Ron" data-fallback="🍹" onclick="irCategoria('Ron')">
   <div class="category-photo"><div class="category-fallback">🍹</div></div>
   <div class="category-name">Ron</div>
   <div class="category-sub">Cartavio y otras marcas</div>
   <div class="category-cta">VER RON →</div>
 </div>
-<div class="category-card" data-category="Vodka" onclick="irCategoria('Vodka')">
+<div class="category-card" data-category="Vodka" data-fallback="🍸" onclick="irCategoria('Vodka')">
   <div class="category-photo"><div class="category-fallback">🍸</div></div>
   <div class="category-name">Vodka</div>
   <div class="category-sub">Russkaya · Smirnoff y más</div>
   <div class="category-cta">VER VODKA →</div>
 </div>
-<div class="category-card" data-category="Vinos" onclick="irCategoria('Vinos')">
+<div class="category-card" data-category="Vinos" data-fallback="🍷" onclick="irCategoria('Vinos')">
   <div class="category-photo"><div class="category-fallback">🍷</div></div>
   <div class="category-name">Vinos</div>
   <div class="category-sub">Tintos, blancos y rosé</div>
   <div class="category-cta">VER VINOS →</div>
 </div>
-<div class="category-card" data-category="Pisco" onclick="irCategoria('Pisco')">
+<div class="category-card" data-category="Pisco" data-fallback="🍇" onclick="irCategoria('Pisco')">
   <div class="category-photo"><div class="category-fallback">🍇</div></div>
   <div class="category-name">Pisco</div>
   <div class="category-sub">Por marca y variedad</div>
   <div class="category-cta">VER PISCO →</div>
 </div>
-<div class="category-card" data-category="Cervezas" onclick="irCategoria('Cervezas')">
+<div class="category-card" data-category="Cervezas" data-fallback="🍺" onclick="irCategoria('Cervezas')">
   <div class="category-photo"><div class="category-fallback">🍺</div></div>
   <div class="category-name">Cervezas</div>
   <div class="category-sub">Botellas, latas y packs</div>
   <div class="category-cta">VER CERVEZAS →</div>
 </div>
-<div class="category-card" data-category="Listos para tomar" onclick="irCategoria('Listos para tomar')">
+<div class="category-card" data-category="Listos para tomar" data-fallback="🍹" onclick="irCategoria('Listos para tomar')">
   <div class="category-photo"><div class="category-fallback">🍹</div></div>
   <div class="category-name">Listos para tomar</div>
   <div class="category-sub">HIT · WILD · Mike's y más</div>
   <div class="category-cta">VER LISTOS PARA TOMAR →</div>
 </div>
-<div class="category-card" data-category="Licores" onclick="irCategoria('Licores')">
+<div class="category-card" data-category="Licores" data-fallback="🍾" onclick="irCategoria('Licores')">
   <div class="category-photo"><div class="category-fallback">🍾</div></div>
   <div class="category-name">Licores</div>
   <div class="category-sub">Cremas y sabores</div>
   <div class="category-cta">VER LICORES →</div>
 </div>
-<div class="category-card" data-category="Espumante" onclick="irCategoria('Espumante')">
+<div class="category-card" data-category="Espumante" data-fallback="🥂" onclick="irCategoria('Espumante')">
   <div class="category-photo"><div class="category-fallback">🥂</div></div>
   <div class="category-name">Espumantes</div>
   <div class="category-sub">Para brindar</div>
   <div class="category-cta">VER ESPUMANTES →</div>
 </div>
-<div class="category-card" data-category="Tequila" onclick="irCategoria('Tequila')">
+<div class="category-card" data-category="Tequila" data-fallback="🥃" onclick="irCategoria('Tequila')">
   <div class="category-photo"><div class="category-fallback">🥃</div></div>
   <div class="category-name">Tequila</div>
   <div class="category-sub">Para celebrar</div>
   <div class="category-cta">VER TEQUILA →</div>
 </div>
-<div class="category-card" data-category="Bebidas" onclick="irCategoria('Bebidas')">
+<div class="category-card" data-category="Bebidas" data-fallback="🥤" onclick="irCategoria('Bebidas')">
   <div class="category-photo"><div class="category-fallback">🥤</div></div>
   <div class="category-name">Bebidas</div>
   <div class="category-sub">Gaseosas y energizantes</div>
   <div class="category-cta">VER BEBIDAS →</div>
 </div>
-<div class="category-card" data-category="Cigarros" onclick="irCategoria('Cigarros')">
+<div class="category-card" data-category="Cigarros" data-fallback="🚬" onclick="irCategoria('Cigarros')">
   <div class="category-photo"><div class="category-fallback">🚬</div></div>
   <div class="category-name">Cigarros</div>
   <div class="category-sub">Presentaciones disponibles</div>
   <div class="category-cta">VER CIGARROS →</div>
 </div>
-<div class="category-card" data-category="Chicles" onclick="irCategoria('Chicles')">
+<div class="category-card" data-category="Chicles" data-fallback="🍬" onclick="irCategoria('Chicles')">
   <div class="category-photo"><div class="category-fallback">🍬</div></div>
   <div class="category-name">Chicles</div>
   <div class="category-sub">Trident y Halls</div>
   <div class="category-cta">VER CHICLES →</div>
 </div>
-<div class="category-card" data-category="Piqueos" onclick="irCategoria('Piqueos')">
+<div class="category-card" data-category="Piqueos" data-fallback="🥨" onclick="irCategoria('Piqueos')">
   <div class="category-photo"><div class="category-fallback">🥨</div></div>
   <div class="category-name">Piqueos</div>
   <div class="category-sub">Snacks para compartir</div>
   <div class="category-cta">VER PIQUEOS →</div>
 </div>
-<div class="category-card" data-category="Hielo" onclick="irCategoria('Hielo')">
+<div class="category-card" data-category="Hielo" data-fallback="🧊" onclick="irCategoria('Hielo')">
   <div class="category-photo"><div class="category-fallback">🧊</div></div>
   <div class="category-name">Hielo</div>
   <div class="category-sub">1.5 kg y 3 kg</div>
@@ -588,31 +607,38 @@ let carrito=JSON.parse(localStorage.getItem("destapala_carrito")||"[]");
 let categoriaActual=null;
 
 function cargarImagenesCategorias(){
-  document.querySelectorAll(".quick-category-grid .category-card[data-category]").forEach(card=>{
+  const cards=document.querySelectorAll(".quick-category-grid .category-card[data-category]");
+  cards.forEach(card=>{
     const cat=card.dataset.category;
     const foto=card.querySelector(".category-photo");
-    const producto=productos.find(p=>p.cat===cat && p.img);
     if(!foto)return;
-    if(producto && producto.img){
+
+    const candidatos=productos.filter(p=>p.cat===cat && p.img).slice(0,3);
+    foto.innerHTML="";
+
+    if(!candidatos.length){
+      const f=document.createElement("div");
+      f.className="category-fallback";
+      f.textContent=card.dataset.fallback || "🥃";
+      foto.appendChild(f);
+      return;
+    }
+
+    candidatos.forEach((producto)=>{
+      const box=document.createElement("div");
+      box.className="category-photo-item";
       const img=document.createElement("img");
       img.src=producto.img.startsWith("./")?producto.img:"./"+producto.img;
-      img.alt=cat;
+      img.alt=producto.nombre;
       img.loading="lazy";
       img.onerror=()=>{
-        img.remove();
-        if(!foto.querySelector(".category-fallback")){
-          const f=document.createElement("div");
-          f.className="category-fallback";
-          f.textContent=producto.icono || "🥃";
-          foto.appendChild(f);
-        }
+        box.innerHTML=`<div class="category-photo-fallback">${producto.icono||"🥃"}</div>`;
       };
-      foto.innerHTML="";
-      foto.appendChild(img);
-    }
+      box.appendChild(img);
+      foto.appendChild(box);
+    });
   });
 }
-
 function normalizarTexto(v){
   return String(v||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 }
