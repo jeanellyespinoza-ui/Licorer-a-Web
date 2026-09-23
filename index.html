@@ -56,7 +56,7 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 @media(max-width:700px){.variant-grid{grid-template-columns:1fr 1fr}.family-cover{height:250px}}
 @media(max-width:480px){.variant-grid{grid-template-columns:1fr}.variant-modal{padding:20px}.variant-modal-head h3{font-size:24px}}
 </style>
-</head>
+<style id="advanced-filters">.catalog-search-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}.search-wrap{position:relative;flex:1}.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#b58a3a;font-size:22px}.catalog-search-row .product-search{width:100%;box-sizing:border-box;padding:13px 14px 13px 40px;border:1px solid #ddd4c4;border-radius:13px;background:#fff;font-size:15px}.clear-filters{padding:12px 16px;border:1px solid #b58a3a;border-radius:12px;background:#fff;color:#7b5b25;font-weight:700;cursor:pointer}.catalog-filters{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}.catalog-filters label{font-size:12px;font-weight:700;color:#555;display:flex;flex-direction:column;gap:5px}.catalog-filters select{padding:11px;border:1px solid #ddd4c4;border-radius:11px;background:#fff}.filter-result-count{font-size:12px;color:#777;margin:8px 0 14px}@media(max-width:600px){.catalog-search-row{display:grid;grid-template-columns:1fr}.clear-filters{width:100%;min-height:44px}.catalog-filters{grid-template-columns:1fr 1fr 1fr;gap:6px}.catalog-filters select{padding:9px 5px;font-size:12px}.catalog-filters label{font-size:10px}}</style></head>
 <body>
 
 <header><div class="header-container">
@@ -106,6 +106,8 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 <div class="section-header"><div class="section-label">CATÁLOGO DESTÁPALA</div><h2 class="section-title">Nuestros productos</h2><p class="section-description">Productos seleccionados para comenzar tu experiencia DESTÁPALA.</p></div>
 
 <div class="catalog-tools">
+<div class="catalog-search-row"><div class="search-wrap"><span class="search-icon">⌕</span><input id="product-search" class="product-search" type="search" placeholder="Buscar producto, marca o variedad..." autocomplete="off"></div><button type="button" class="clear-filters" id="clear-filters">Limpiar filtros</button></div>
+<div class="catalog-filters"><label>Marca<select id="brand-filter"><option value="Todos">Todas las marcas</option></select></label><label>Presentación<select id="presentation-filter"><option value="Todos">Todas</option></select></label><label>Precio<select id="price-filter"><option value="Todos">Todos</option><option value="0-10">Hasta S/ 10</option><option value="10-25">S/ 10 – S/ 25</option><option value="25-50">S/ 25 – S/ 50</option><option value="50-100">S/ 50 – S/ 100</option><option value="100+">Más de S/ 100</option></select></label></div>
 <div class="filter-buttons" id="filter-buttons">
 <button class="filter-btn active" data-cat="Todos">Todos</button>
 <button class="filter-btn" data-cat="Whisky">Whisky</button>
@@ -120,9 +122,8 @@ footer{background:#fff;color:var(--black);border-top:1px solid var(--line);paddi
 <button class="filter-btn" data-cat="Listos para tomar">Listos para tomar</button>
 <button class="filter-btn" data-cat="Complementos">Complementos</button><button class="filter-btn" data-cat="Bebidas">Bebidas</button><button class="filter-btn" data-cat="Cigarros">Cigarros</button><button class="filter-btn" data-cat="Chicles">Chicles</button><button class="filter-btn" data-cat="Piqueos">Piqueos</button><button class="filter-btn" data-cat="Hielo">Hielo</button>
 </div>
-<input id="product-search" class="product-search" type="search" placeholder="Buscar producto...">
 </div>
-<div class="product-grid" id="product-grid"></div>
+<div class="filter-result-count" id="filter-result-count"></div><div class="product-grid" id="product-grid"></div>
 </div></section>
 
 <section class="section" id="promociones"><div class="promo"><div>
@@ -182,71 +183,11 @@ const productos=[{"id":1,"nombre":"Ballantine's Finest 700 ml","precio":53,"cat"
 let carrito=[];
 let categoriaActual="Todos";
 
-function renderProductos(){
-  const grid=document.getElementById("product-grid");
-  const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();
-  const visibles=productos.filter(p=>{
-    const catOk=categoriaActual==="Todos" ||
-      p.cat===categoriaActual ||
-      (categoriaActual==="Complementos" && ["Bebidas","Cigarros","Chicles","Piqueos","Hielo"].includes(p.cat));
-    const texto=(p.nombre+" "+p.cat+" "+p.desc+" "+(p.grupo||"")).toLowerCase();
-    return catOk && texto.includes(termino);
-  });
-
-  const grupos=new Map();
-  visibles.forEach(p=>{
-    const key=p.grupo || "producto-"+p.id;
-    if(!grupos.has(key)) grupos.set(key,[]);
-    grupos.get(key).push(p);
-  });
-
-  grid.innerHTML=[...grupos.entries()].map(([key,items])=>{
-    const esFamilia=items.length>1;
-    if(!esFamilia){
-      const p=items[0];
-      return `
-      <div class="product-card">
-        <div class="product-image">
-          ${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
-          <div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div>
-        </div>
-        <div class="product-info">
-          <div class="product-category">${p.cat}</div>
-          <div class="product-name">${p.nombre}</div>
-          <div class="product-description">${p.desc}</div>
-          <div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div>
-          <button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button>
-        </div>
-      </div>`;
-    }
-
-    // IMPORTANTE: una sola imagen de portada. Las demás quedan como opciones.
-    const cover=items[0];
-    const precios=items.filter(p=>p.precio>0).map(p=>p.precio);
-    const min=precios.length?Math.min(...precios):0;
-    const precioTexto=min?`Desde S/ ${min.toFixed(2)}`:"Consultar precios";
-
-    return `
-    <div class="product-card family-card" onclick="abrirVariantes('${escapeAttr(key)}')">
-      <div class="family-card-image">
-        <div class="family-cover">
-          ${cover.img?`<img src="${cover.img}" alt="${cover.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
-          <div class="product-emoji" ${cover.img?'style="display:none"':''}>${cover.icono}</div>
-        </div>
-        <div class="family-cover-label">Ver opciones</div>
-      </div>
-      <div class="family-info">
-        <div class="product-category">${items[0].cat}</div>
-        <div class="product-name">${key}</div>
-        <div class="product-description">${items.length} opciones · Elige presentación, sabor o variedad</div>
-        <div class="product-price">${precioTexto}</div>
-        <div class="family-variants">
-          ${items.slice(0,6).map(p=>`<span class="family-variant-pill">${p.desc}</span>`).join("")}
-        </div>
-      </div>
-    </div>`;
-  }).join("") || '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No encontramos productos en esta categoría.</div>';
-}
+function marcaDeProducto(p){const n=(p.nombre||"").toLowerCase();const marcas=["johnnie walker","something special","ballantine's","cartavio","old times","flor de caña","havana club","russkaya","smirnoff","jose cuervo","josé cuervo","santiago queirolo","tabernero","cuatro gallos","caravedo","nieto","jägermeister","jagermeister","curaçao","curacao","tacama","mike's","mikes","four loko","atomic","pilsen","heineken","budweiser","corona","coronita","cusqueña","cusquena","tres cruces","coca-cola","coca cola","inca kola","fanta","sprite","pepsi","schweppes","frugos","tampico","red bull","lucky strike","lucky","golden","esse","pine","trident","halls","piqueos","inka chips","sublime","hielo","piscano"];const found=marcas.find(m=>n.includes(m));return found?found.replace(/\b\w/g,c=>c.toUpperCase()):((p.grupo||"").trim()||"Otras");}
+function presentacionDeProducto(p){return (p.desc||"").trim()||"Única";}
+function precioEnRango(v,r){if(r==="Todos")return true;if(v<=0)return false;if(r==="0-10")return v<=10;if(r==="10-25")return v>10&&v<=25;if(r==="25-50")return v>25&&v<=50;if(r==="50-100")return v>50&&v<=100;return v>100;}
+function prepararFiltros(){const marcas=[...new Set(productos.map(marcaDeProducto))].sort((a,b)=>a.localeCompare(b));const pres=[...new Set(productos.map(presentacionDeProducto))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));document.getElementById("brand-filter").innerHTML='<option value="Todos">Todas las marcas</option>'+marcas.map(x=>`<option value="${escapeAttr(x)}">${x}</option>`).join("");document.getElementById("presentation-filter").innerHTML='<option value="Todos">Todas</option>'+pres.map(x=>`<option value="${escapeAttr(x)}">${x}</option>`).join("");}
+function renderProductos(){const grid=document.getElementById("product-grid");const termino=(document.getElementById("product-search")?.value||"").toLowerCase().trim();const marca=document.getElementById("brand-filter")?.value||"Todos";const pres=document.getElementById("presentation-filter")?.value||"Todos";const rango=document.getElementById("price-filter")?.value||"Todos";const visibles=productos.filter(p=>{const catOk=categoriaActual==="Todos"||p.cat===categoriaActual||(categoriaActual==="Complementos"&&["Bebidas","Cigarros","Chicles","Piqueos","Hielo"].includes(p.cat));const texto=(p.nombre+" "+p.cat+" "+p.desc+" "+(p.grupo||"")+" "+marcaDeProducto(p)).toLowerCase();return catOk&&texto.includes(termino)&&(marca==="Todos"||marcaDeProducto(p)===marca)&&(pres==="Todos"||presentacionDeProducto(p)===pres)&&precioEnRango(p.precio,rango);});const count=document.getElementById("filter-result-count");if(count)count.textContent=`${visibles.length} producto${visibles.length===1?"":"s"} encontrado${visibles.length===1?"":"s"}`;const grupos=new Map();visibles.forEach(p=>{const key=p.grupo||"producto-"+p.id;if(!grupos.has(key))grupos.set(key,[]);grupos.get(key).push(p);});grid.innerHTML=[...grupos.entries()].map(([key,items])=>{const esFamilia=items.length>1;if(!esFamilia){const p=items[0];return `<div class="product-card"><div class="product-image">${p.img?`<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}<div class="product-emoji" ${p.img?'style="display:none"':''}>${p.icono}</div></div><div class="product-info"><div class="product-category">${p.cat}</div><div class="product-name">${p.nombre}</div><div class="product-description">${p.desc}</div><div class="product-price">${p.precio>0?"S/ "+p.precio.toFixed(2):"Consultar precio"}</div><button class="product-button" onclick="agregarProducto(${p.id})">${p.precio>0?"🛒 Agregar al carrito":"💬 Consultar precio"}</button></div></div>`;}const cover=items[0];const precios=items.filter(p=>p.precio>0).map(p=>p.precio);const min=precios.length?Math.min(...precios):0;return `<div class="product-card family-card" onclick="abrirVariantes('${escapeAttr(key)}')"><div class="family-card-image"><div class="family-cover">${cover.img?`<img src="${cover.img}" alt="${cover.nombre}">`:''}<div class="product-emoji" ${cover.img?'style="display:none"':''}>${cover.icono}</div></div><div class="family-cover-label">Ver opciones</div></div><div class="family-info"><div class="product-category">${items[0].cat}</div><div class="product-name">${key}</div><div class="product-description">${items.length} opciones · Elige presentación, sabor o variedad</div><div class="product-price">${min?`Desde S/ ${min.toFixed(2)}`:"Consultar precios"}</div><div class="family-variants">${items.slice(0,6).map(p=>`<span class="family-variant-pill">${p.desc}</span>`).join("")}</div></div></div>`;}).join("")||'<div style="grid-column:1/-1;text-align:center;padding:40px;color:#777">No encontramos productos con estos filtros.</div>'; }
 
 function escapeAttr(value){return String(value).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
 
@@ -316,15 +257,7 @@ function pedirWhatsApp(){
  window.open("https://wa.me/51992797697?text="+mensaje,"_blank");
 }
 
-document.querySelectorAll(".filter-btn").forEach(btn=>{
- btn.addEventListener("click",()=>{
-   categoriaActual=btn.dataset.cat;
-   document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b===btn));
-   renderProductos();
- });
-});
-document.getElementById("product-search")?.addEventListener("input",renderProductos);
-renderProductos();actualizarCarrito();
+prepararFiltros();document.querySelectorAll(".filter-btn").forEach(btn=>{btn.addEventListener("click",()=>{categoriaActual=btn.dataset.cat;document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b===btn));renderProductos();});});document.getElementById("product-search")?.addEventListener("input",renderProductos);["brand-filter","presentation-filter","price-filter"].forEach(id=>document.getElementById(id)?.addEventListener("change",renderProductos));document.getElementById("clear-filters")?.addEventListener("click",()=>{document.getElementById("product-search").value="";document.getElementById("brand-filter").value="Todos";document.getElementById("presentation-filter").value="Todos";document.getElementById("price-filter").value="Todos";categoriaActual="Todos";document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.cat==="Todos"));renderProductos();});renderProductos();actualizarCarrito();
 </script>
 </body>
 </html>
